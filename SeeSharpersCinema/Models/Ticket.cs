@@ -1,4 +1,7 @@
-﻿namespace SeeSharpersCinema.Models
+﻿using SeeSharpersCinema.Models.Price;
+using System.Text;
+
+namespace SeeSharpersCinema.Models
 {
     public class Ticket
     {

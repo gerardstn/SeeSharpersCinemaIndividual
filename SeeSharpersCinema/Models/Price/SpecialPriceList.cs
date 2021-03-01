@@ -1,4 +1,7 @@
-﻿namespace SeeSharpersCinema.Models.Price
+﻿using System.Collections.Generic;
+using System.Text;
+
+namespace SeeSharpersCinema.Models.Price
 {
     public class SpecialPriceList
     {
@@ -30,7 +33,7 @@
 
             foreach (ASpecialPrice item in List)
             {
-                total += item.DiscountOrAddition();
+                total += item.PriceDifference();
             }
             return total;
         }

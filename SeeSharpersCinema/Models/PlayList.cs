@@ -1,4 +1,7 @@
-﻿namespace SeeSharpersCinema.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace SeeSharpersCinema.Models
 {
     public class PlayList
     {

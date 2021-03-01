@@ -1,4 +1,6 @@
-﻿namespace SeeSharpersCinema.Models
+﻿using System;
+
+namespace SeeSharpersCinema.Models
 {
     public static class Util
     {
