@@ -5,14 +5,33 @@ namespace SeeSharpersCinema.Models
 {
     public class PlayList
     {
-        public int Id { get; set; }
-        public string Room { get; set; }
-        public string Date { get; set; }
-        public Dictionary<Movie, DateTime> MovieList { get; } = new Dictionary<Movie, DateTime>();
+        public int Week { get; }
+        public Dictionary<TimeSlot, Movie> Program { get; }
 
-        public void AddMovie(Movie movie, DateTime datetime)
+        public PlayList(int week)
         {
-            MovieList.Add(movie, datetime);
+            Week = week;
+            Program = new Dictionary<TimeSlot, Movie>();
+        }
+
+        public void AddToPlayList(TimeSlot timeSlot, Movie movie)
+        {
+            Program.Add(timeSlot, movie);
+        }
+
+        public int CountPlayList()
+        {
+            return Program.Count;
+        }
+
+        public void DeleteFromPlayList(TimeSlot timeSlot)
+        {
+            Program.Remove(timeSlot);
+        }
+
+        public Dictionary<TimeSlot, Movie> GetPlayList()
+        {
+            return Program;
         }
     }
 }

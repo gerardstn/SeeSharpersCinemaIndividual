@@ -1,4 +1,4 @@
-﻿namespace SeeSharpersCinema.Models.Cinema
+﻿namespace SeeSharpersCinema.Models.Theater
 {
     public class Room
     {

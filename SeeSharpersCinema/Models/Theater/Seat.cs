@@ -1,4 +1,4 @@
-﻿using SeeSharpersCinema.Models.Cinema;
+﻿using SeeSharpersCinema.Models.Theater;
 
 namespace SeeSharpersCinema.Models
 {
