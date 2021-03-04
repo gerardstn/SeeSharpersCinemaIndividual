@@ -1,4 +1,6 @@
-﻿namespace SeeSharpersCinema.Models.Price
+﻿using SeeSharpersCinema.Infrastructure;
+
+namespace SeeSharpersCinema.Models.Price
 {
     public class Student : ASpecialPrice
     {
@@ -14,9 +16,9 @@
         {
             bool result = false;
 
-            if (StudentCard == true && (Util.GetDay() == "Monday"
-                || Util.GetDay() == "Tuesday" || Util.GetDay() == "Wednesday"
-                || Util.GetDay() == "Thursday"))
+            if (StudentCard == true && (DateHelper.GetDay() == "Monday"
+                || DateHelper.GetDay() == "Tuesday" || DateHelper.GetDay() == "Wednesday"
+                || DateHelper.GetDay() == "Thursday"))
             {
                 result = true;
             }

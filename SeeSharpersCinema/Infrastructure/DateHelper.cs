@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Infrastructure
 {
-    public static class Util
+    public static class DateHelper
     {
         public static string GetDay()
         {
