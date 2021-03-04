@@ -20,7 +20,7 @@ namespace SeeSharpersCinema.Migrations
 
             modelBuilder.Entity("SeeSharpersCinema.Models.Movie", b =>
                 {
-                    b.Property<long>("MovieId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -52,7 +52,7 @@ namespace SeeSharpersCinema.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
-                    b.HasKey("MovieId");
+                    b.HasKey("Id");
 
                     b.ToTable("Movies");
                 });

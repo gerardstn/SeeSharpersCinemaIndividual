@@ -21,7 +21,6 @@ namespace SeeSharpersCinema.Models
                 context.Movies.AddRange(
                     new Movie
                     {
-                        MovieId = 1,
                         Title ="Movie1",
                         Duration = 90,
                         Language = "English",
@@ -35,7 +34,6 @@ namespace SeeSharpersCinema.Models
 
                     new Movie
                     {
-                        MovieId = 2,
                         Title = "Movie2",
                         Duration = 120,
                         Language = "English",
@@ -49,7 +47,6 @@ namespace SeeSharpersCinema.Models
 
                     new Movie
                     {
-                        MovieId = 3,
                         Title = "Movie3",
                         Duration = 130,
                         Language = "English",

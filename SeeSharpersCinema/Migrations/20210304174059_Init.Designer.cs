@@ -9,8 +9,8 @@ using SeeSharpersCinema.Models;
 namespace SeeSharpersCinema.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210304143648_DatabaseIssue")]
-    partial class DatabaseIssue
+    [Migration("20210304174059_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
