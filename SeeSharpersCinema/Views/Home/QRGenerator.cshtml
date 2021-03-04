@@ -1,0 +1,4 @@
+﻿@model Byte[]
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+    <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))" alt="Alternate Text" />
