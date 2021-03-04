@@ -1,4 +1,4 @@
-﻿using SeeSharpersCinema.Models.Cinema;
+﻿using SeeSharpersCinema.Models.Theater;
 using System;
 
 namespace SeeSharpersCinema.Models
@@ -7,13 +7,13 @@ namespace SeeSharpersCinema.Models
     {
         public DateTime SlotStart { get; }
         public DateTime SlotEnd { get; }
-        public Room Room { get; }
+        public Room RoomId { get; }
 
-        public TimeSlot(DateTime slotStart, DateTime slotEnd, Room room)
+        public TimeSlot(DateTime slotStart, DateTime slotEnd, Room roomId)
         {
             SlotStart = slotStart;
             SlotEnd = slotEnd;
-            Room = room;
+            RoomId = roomId;
         }
 
     }

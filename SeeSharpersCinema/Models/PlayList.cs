@@ -14,6 +14,11 @@ namespace SeeSharpersCinema.Models
             Program = new Dictionary<TimeSlot, Movie>();
         }
 
+        public Dictionary<TimeSlot, Movie> GetPlayList()
+        {
+            return Program;
+        }
+
         public void AddToPlayList(TimeSlot timeSlot, Movie movie)
         {
             Program.Add(timeSlot, movie);
@@ -27,11 +32,6 @@ namespace SeeSharpersCinema.Models
         public void DeleteFromPlayList(TimeSlot timeSlot)
         {
             Program.Remove(timeSlot);
-        }
-
-        public Dictionary<TimeSlot, Movie> GetPlayList()
-        {
-            return Program;
         }
     }
 }
