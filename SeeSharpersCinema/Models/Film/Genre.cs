@@ -1,4 +1,4 @@
-﻿namespace SeeSharpersCinema.Models
+﻿namespace SeeSharpersCinema.Models.Film
 {
     public enum Genre
     {
@@ -17,6 +17,7 @@
         Fantasy,
         RomCom,
         ActionComedy,
-        Superhero
+        Superhero,
+        Documentary
     }
 }

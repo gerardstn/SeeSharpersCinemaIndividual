@@ -1,4 +1,5 @@
-﻿using SeeSharpersCinema.Models.Price;
+﻿using SeeSharpersCinema.Models.Film;
+using SeeSharpersCinema.Models.Price;
 using System.Text;
 
 namespace SeeSharpersCinema.Models

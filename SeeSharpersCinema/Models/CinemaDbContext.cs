@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SeeSharpersCinema.Models.Film;
 
 namespace SeeSharpersCinema.Models
 {
@@ -8,6 +9,5 @@ namespace SeeSharpersCinema.Models
             : base(options) { }
 
         public DbSet<Movie> Movies { get; set; }
-        public object Products { get; internal set; }
     }
 }

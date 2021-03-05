@@ -2,7 +2,7 @@
 
 namespace SeeSharpersCinema.Migrations
 {
-    public partial class Init : Migration
+    public partial class DBName : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

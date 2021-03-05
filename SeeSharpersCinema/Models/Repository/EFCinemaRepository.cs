@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using SeeSharpersCinema.Models.Film;
+using System.Linq;
 
 namespace SeeSharpersCinema.Models
 {

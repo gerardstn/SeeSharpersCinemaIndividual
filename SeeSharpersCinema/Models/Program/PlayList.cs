@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeeSharpersCinema.Models.Film;
+using System;
 using System.Collections.Generic;
 
 namespace SeeSharpersCinema.Models
