@@ -25,6 +25,8 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult Privacy()
         {
+            SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
+            emailService.email_send();
             return View();
         }
 
