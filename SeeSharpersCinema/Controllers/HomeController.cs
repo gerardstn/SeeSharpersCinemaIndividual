@@ -28,6 +28,11 @@ namespace SeeSharpersCinema.Controllers
             return View();
         }
 
+        public ViewResult Price()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
