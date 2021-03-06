@@ -1,7 +1,7 @@
 ﻿using SeeSharpersCinema.Models.Film;
 using System.Linq;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Models.Repository
 {
     public interface ICinemaRepository
     {

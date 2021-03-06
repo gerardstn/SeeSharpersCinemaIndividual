@@ -1,7 +1,8 @@
-﻿using SeeSharpersCinema.Models.Film;
+﻿using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Film;
 using System.Linq;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Models.Repository
 {
     public class EFCinemaRepository : ICinemaRepository
     {

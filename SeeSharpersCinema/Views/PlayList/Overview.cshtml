@@ -1,0 +1,8 @@
+﻿@model PlayListViewModel
+
+<div class="row">
+    @foreach (var p in Model.PlayLists)
+    {
+        <partial name="PlayListSummary" model="p" />
+    }
+</div>

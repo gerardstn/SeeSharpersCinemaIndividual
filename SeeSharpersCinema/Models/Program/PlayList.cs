@@ -2,37 +2,35 @@
 using System;
 using System.Collections.Generic;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Models.Program
 {
     public class PlayList
     {
-        public int Week { get; }
-        public Dictionary<TimeSlot, Movie> Program { get; }
+        public long Id { get; set; }
+        public int Week { get; set;  }
+        public TimeSlot TimeSlot { get; set; }
+        public Movie Movie { get; set; }
+        
+        //public Dictionary<TimeSlot, Movie> Program { get; set; }
 
-        public PlayList(int week)
-        {
-            Week = week;
-            Program = new Dictionary<TimeSlot, Movie>();
-        }
+        //public Dictionary<TimeSlot, Movie> GetPlayList()
+        //{
+        //    return Program;
+        //}
 
-        public Dictionary<TimeSlot, Movie> GetPlayList()
-        {
-            return Program;
-        }
+        //public void AddToPlayList(TimeSlot timeSlot, Movie movie)
+        //{
+        //    Program.Add(timeSlot, movie);
+        //}
 
-        public void AddToPlayList(TimeSlot timeSlot, Movie movie)
-        {
-            Program.Add(timeSlot, movie);
-        }
+        //public int CountPlayList()
+        //{
+        //    return Program.Count;
+        //}
 
-        public int CountPlayList()
-        {
-            return Program.Count;
-        }
-
-        public void DeleteFromPlayList(TimeSlot timeSlot)
-        {
-            Program.Remove(timeSlot);
-        }
+        //public void DeleteFromPlayList(TimeSlot timeSlot)
+        //{
+        //    Program.Remove(timeSlot);
+        //}
     }
 }

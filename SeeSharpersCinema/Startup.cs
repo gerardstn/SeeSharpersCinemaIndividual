@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Repository;
 
 namespace SeeSharpersCinema
 {
@@ -32,6 +34,7 @@ namespace SeeSharpersCinema
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
             services.AddScoped<ICinemaRepository, EFCinemaRepository>();
+            services.AddScoped<IPlayListRepository, EFPlayListRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,9 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SeeSharpersCinema.Models.Film;
+using SeeSharpersCinema.Models.Program;
+using SeeSharpersCinema.Models.Theater;
+using System;
 using System.Linq;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Models.Database
 {
     public static class SeedData
     {
@@ -15,6 +18,41 @@ namespace SeeSharpersCinema.Models
             if (context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
+            }
+
+
+            Cinema cinema1 = new Cinema
+                { Name = "Pathé", Address = "Gedempte Zuiderdiep 78", City = "Groningen", Phone = "0885152050", TotalRooms = 10, TotalCapacity = 3000 };
+            Room room1 = new Room 
+                { Capacity = 300, Cinema = cinema1 };
+            TimeSlot timeSlot1 = new TimeSlot
+                { SlotStart = new DateTime(2021, 3, 5, 19, 00, 00), SlotEnd = new DateTime(2021, 3, 5, 21, 00, 00) };
+            Movie movie1 = new Movie
+            {
+                Title = "Blackbird",
+                PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/32660_128633_ps_sd-high.jpg",
+                Duration = 98,
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
+                Language = "Original",
+                Technique = "2D",
+                Genre = Genre.Drama,
+                ViewIndication = ViewIndication.Sixteen,
+                Year = 2021,
+                Director = "Roger Michell",
+                Country = "USA"
+            };
+
+            if (!context.PlayLists.Any())
+            {
+                context.PlayLists.AddRange(
+                    new PlayList
+                    {
+                        Week = 9,
+                        TimeSlot = timeSlot1,
+                        Movie = movie1
+                    }
+                );
+                context.SaveChanges();
             }
 
             if (!context.Movies.Any())

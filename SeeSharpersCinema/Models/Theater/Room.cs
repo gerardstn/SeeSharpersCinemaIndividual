@@ -2,18 +2,11 @@
 {
     public class Room
     {
-        // TODO Method SeatsLeft capacity--
-
-        public int Id { get; }
-        public int Capacity { get; }
-        public Cinema Cinema { get; }
+        public long Id { get; set; }
+        public int Capacity { get; set; }
+        public Cinema Cinema { get; set; }
         // public List<Seat> SeatList { get; set; }
 
-        public Room(int id, int capacity, Cinema cinema)
-        {
-            Id = id;
-            Capacity = capacity;
-            Cinema = cinema;
-        }
+        // public void CountDownCapacity(int seats) => Capacity -= seats;
     }
 }

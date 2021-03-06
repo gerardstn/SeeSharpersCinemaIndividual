@@ -2,7 +2,7 @@
 using SeeSharpersCinema.Models.Price;
 using System.Text;
 
-namespace SeeSharpersCinema.Models
+namespace SeeSharpersCinema.Models.Order
 {
     public class Ticket
     {

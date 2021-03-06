@@ -1,25 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Models;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
 using System.Linq;
 
 namespace SeeSharpersCinema.Controllers
 {
-    public class MoviesController : Controller
+    public class PlayListController : Controller
     {
-        private ICinemaRepository repository;
+        private IPlayListRepository repository;
 
-        public MoviesController(ICinemaRepository repo)
+        public PlayListController(IPlayListRepository repo)
         {
             repository = repo;
         }
 
         public ViewResult Overview()
-            => View(new MovieListViewModel
+            => View(new PlayListViewModel
             {
-                Movies = repository.Movies
-                .OrderBy(p => p.Title)
+                PlayLists = repository.PlayLists
+                .OrderBy(p => p.Week)
             });
     }
 }

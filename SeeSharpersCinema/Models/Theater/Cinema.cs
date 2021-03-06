@@ -2,22 +2,13 @@
 {
     public class Cinema
     {
-        public string Name { get; }
-        public string Address { get; }
-        public string City { get; }
-        public string Phone { get; }
-        public int TotalRooms { get; }
-        public int TotalCapacity { get; }
-
-        public Cinema(string name, string address, string city, string phone, int totalRooms, int totalCapacity)
-        {
-            Name = name;
-            Address = address;
-            City = city;
-            Phone = phone;
-            TotalRooms = totalRooms;
-            TotalCapacity = totalCapacity;
-        }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Phone { get; set; }
+        public int TotalRooms { get; set; }
+        public int TotalCapacity { get; set; }
 
     }
 }
