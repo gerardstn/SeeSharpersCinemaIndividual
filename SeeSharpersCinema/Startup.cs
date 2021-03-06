@@ -33,8 +33,9 @@ namespace SeeSharpersCinema
                 opts.UseSqlServer(
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
-            services.AddScoped<ICinemaRepository, EFCinemaRepository>();
-            services.AddScoped<IPlayListRepository, EFPlayListRepository>();
+            // TODO remove AddScoped
+            // services.AddScoped<IMovieRepository, EFMovieRepository>();
+            services.AddTransient<IPlayListRepository, EFPlayListRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +62,7 @@ namespace SeeSharpersCinema
             {
                 endpoints.MapDefaultControllerRoute();
             });
-            SeedData.EnsurePopulated(app);
+
         }
     }
 }

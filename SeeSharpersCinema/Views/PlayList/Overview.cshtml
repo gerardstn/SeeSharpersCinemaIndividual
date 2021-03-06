@@ -1,8 +1,21 @@
-﻿@model PlayListViewModel
+﻿@model IEnumerable<PlayList>
 
+@{ ViewData["Title"] = "Overview"; }
+
+<div>
+
+</div>
 <div class="row">
-    @foreach (var p in Model.PlayLists)
+    @foreach (var item in Model)
     {
-        <partial name="PlayListSummary" model="p" />
+        <div class="col-2">
+            <div class="card card-outline-primary m-1 p-1">
+                <div class="card-text p-1">
+                    <img src="@item.Movie.PosterUrl" class="img-fluid" />
+                    <p>@item.TimeSlot.SlotStart</p>
+                    <p>Zaal @item.TimeSlot.RoomId</p>
+                </div>
+            </div>
+        </div>
     }
 </div>

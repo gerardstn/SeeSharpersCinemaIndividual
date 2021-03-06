@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SeeSharpersCinema.Models.Repository
 {
-    public interface ICinemaRepository
+    public interface IMovieRepository
     {
         IQueryable<Movie> Movies { get; }
     }

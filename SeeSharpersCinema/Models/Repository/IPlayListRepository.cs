@@ -3,8 +3,8 @@ using System.Linq;
 
 namespace SeeSharpersCinema.Models.Repository
 {
-    public interface IPlayListRepository
+    public interface IPlayListRepository : IRepository<PlayList>
     {
-        IQueryable<PlayList> PlayLists { get; }
+        // IQueryable<PlayList> PlayLists { get; }
     }
 }

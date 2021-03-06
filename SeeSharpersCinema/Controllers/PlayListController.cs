@@ -2,6 +2,7 @@
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Controllers
 {
@@ -14,11 +15,16 @@ namespace SeeSharpersCinema.Controllers
             repository = repo;
         }
 
-        public ViewResult Overview()
-            => View(new PlayListViewModel
-            {
-                PlayLists = repository.PlayLists
-                .OrderBy(p => p.Week)
-            });
+        //public ViewResult Overview()
+        //    => View(new PlayListViewModel
+        //    {
+        //        PlayLists = repository.PlayLists
+        //        .OrderBy(p => p.TimeSlotId)
+        //    });
+
+        public async Task<IActionResult> Overview()
+        {
+            return View(await repository.FindAllAsync());
+        }
     }
 }
