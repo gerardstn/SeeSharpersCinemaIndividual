@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using QRCoder;
 using SeeSharpersCinema.Models;
 using System;
 using System.Collections.Generic;
@@ -39,21 +38,10 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult QRGenerator()
         {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("The text which should be encoded.", QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-            return View(BitmapToBytesCode(qrCodeImage));
+            Ticket t1 = new Ticket { TicketID = 1234, RoomID = 1, Discounted = false, SeatNum = 3, Title = "Een leuke film", TimeSlot = DateTime.Now};
+            return View(t1);
         }
 
-        private static Byte[] BitmapToBytesCode(Bitmap image)
-        {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-                return stream.ToArray();
-            }
-        }
+
     }
 }

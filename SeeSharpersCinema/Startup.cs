@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SeeSharpersCinema.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +15,23 @@ namespace SeeSharpersCinema
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            Configuration = config;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<SeeSharpersDbContext>(opts =>
+            {
+                opts.UseSqlServer(
+                    Configuration["ConnectionStrings:SeeSharpersCinemaConnection"]);
+            });
+            services.AddScoped<ISeeSharpersCinemaRepository, EFSeeSharpersCinemaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +60,7 @@ namespace SeeSharpersCinema
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }

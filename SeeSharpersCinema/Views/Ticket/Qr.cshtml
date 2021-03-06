@@ -1,0 +1,5 @@
+﻿@model Ticket
+
+<img src="@Model.GetQr()" width="300" height="300" alt="QR code for @Model.Title" />
+<h1>@Model.Title</h1>
+<h3>@Model.RoomID - @Model.SeatNum</h3>
