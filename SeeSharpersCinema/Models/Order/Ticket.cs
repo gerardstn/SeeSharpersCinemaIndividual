@@ -1,4 +1,5 @@
-﻿using SeeSharpersCinema.Models.Film;
+﻿using Microsoft.AspNetCore.Mvc;
+using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Price;
 using System.Text;
 
@@ -17,5 +18,10 @@ namespace SeeSharpersCinema.Models.Order
             }
             return priceOnDuration;
         }
+/*        public bool childrenMovieCheck()
+        {
+            return Genre == Genre.Children;
+        }*/
+
     }
 }

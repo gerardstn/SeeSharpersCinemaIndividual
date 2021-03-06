@@ -1,8 +1,12 @@
-﻿namespace SeeSharpersCinema.Models.Price
+﻿using SeeSharpersCinema.Models.Film;
+
+namespace SeeSharpersCinema.Models.Price
 {
-    public abstract class PriceSubtractions
+    public class PriceSubtractions
     {
-        public abstract string Name { get; }
-        public abstract double PriceDifference();
+        public string Name { get; }
+
+        
     }
 }
+
