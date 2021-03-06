@@ -2,8 +2,8 @@
 {
     public enum Genre
     {
-        Comedy,
-        SciFi,
+        Comedy = 1,
+        SciFi = 2,
         Horror,
         Romance,
         Action,
@@ -12,7 +12,7 @@
         Mystery,
         Crime,
         Animation,
-        Children,
+        Children = 11,
         Adventure,
         Fantasy,
         RomCom,
