@@ -11,9 +11,11 @@
         <div class="col-2">
             <div class="card card-outline-primary m-1 p-1">
                 <div class="card-text p-1">
-                    <img src="@item.Movie.PosterUrl" class="img-fluid" />
-                    <p>@item.TimeSlot.SlotStart</p>
-                    <p>Zaal @item.TimeSlot.RoomId</p>
+                    <a asp-action="TestSelectionPage" asp-route-id="@item.MovieId">
+                        <img src="@item.Movie.PosterUrl" class="img-fluid" />
+                        <p>@item.TimeSlot.SlotStart</p>
+                        <p>Zaal @item.TimeSlot.RoomId</p>
+                    </a>
                 </div>
             </div>
         </div>
