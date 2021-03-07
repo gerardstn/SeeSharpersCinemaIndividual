@@ -23,6 +23,6 @@ namespace SeeSharpersCinema.Models.Order
         {
             return Movie.Genre == Genre.Children;
         }
-
+        public bool isThreeD() => Movie.Technique == "3D";
     }
 }
