@@ -36,13 +36,5 @@ namespace SeeSharpersCinema.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        public IActionResult QRGenerator()
-        {
-            Ticket t1 = new Ticket { TicketID = 1234, RoomID = 1, Discounted = false, SeatNum = 3, Title = "Een leuke film", TimeSlot = DateTime.Now};
-            return View(t1);
-        }
-
-
     }
 }
