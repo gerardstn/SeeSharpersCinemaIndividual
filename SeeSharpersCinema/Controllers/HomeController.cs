@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QRCoder;
 using SeeSharpersCinema.Models;
 using System;
 using System.Collections.Generic;
@@ -22,13 +23,13 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Overview", "Playlist");
         }
 
-        public IActionResult Privacy()
+/*        public IActionResult Privacy()
         {
             return View();
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

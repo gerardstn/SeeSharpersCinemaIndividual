@@ -9,22 +9,22 @@ using SeeSharpersCinema.Models.Repository;
 
 namespace SeeSharpersCinema.Controllers
 {
-    public class TicketController : Controller
+    public class SeatController : Controller
     {
         private IMovieRepository repository;
-        public TicketController(IMovieRepository repository) 
+        public SeatController(IMovieRepository repository)
         {
             this.repository = repository;
         }
 
-        [Route("Ticket/Selector/{movieId}")]
-        public IActionResult Options([FromRoute] long movieId)
+        [Route("Seat/Selector/{movieId}")]
+        public IActionResult Selector([FromRoute] long movieId)
         {
             var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
             if (selectedMovie == null)
             {
-             return NotFound();
-            } 
+                return NotFound();
+            }
 
             Ticket ticket = new Ticket()
             {
@@ -33,5 +33,4 @@ namespace SeeSharpersCinema.Controllers
             return View(ticket);
         }
     }
-}
 }
