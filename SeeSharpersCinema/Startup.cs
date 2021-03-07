@@ -33,7 +33,6 @@ namespace SeeSharpersCinema
                 opts.UseSqlServer(
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
-            // TODO remove AddScoped
             services.AddScoped<IMovieRepository, EFMovieRepository>();
             services.AddTransient<IPlayListRepository, EFPlayListRepository>();
         }
