@@ -1,0 +1,47 @@
+﻿@using SeeSharpersCinema.Models.Order;
+@model Ticket
+
+    <a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
+<h1>Betaal overzicht</h1>
+<h2>@Model.Movie.Title</h2>
+<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+<ul>
+    <li>@Model.Movie.Technique</li>
+    <li>@Model.Movie.Duration Min</li>
+    <li>Genre: @Model.Movie.Genre</li>
+    <li>Taal: @Model.Movie.Language</li>
+    <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
+</ul>
+<h2>Filmprijs: € @Model.BasePrice()</h2>
+<h3>Toeslag 3D: € @Model.isThreeD()</h3>
+<h3>Kortingen:</h3>
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+        Geen korting
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+        Kinderkorting (-€1.50) - Geldig voor leeftijd tot 11 jaar op kinderfilms
+    </label>
+    <p>Kinderfilm korting? @Model.childrenMovieCheck()</p>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+    <label class="form-check-label" for="exampleRadios3">
+        Studentenkorting (-€1.50) - Bij vertonen studentenkaart geldig op Maandag t/m Donderdag.
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4" disabled>
+    <label class="form-check-label" for="exampleRadios4">
+        Seniorkorting (-€1.50) - Vanaf 65+ geldig op Maandag t/m Donderdag behalve bij vakantie.
+    </label>
+</div>
+
+<h2>Totaalprijs: € </h2>
+
+<a href="#"><button type="button" class="btn btn-primary btn-lg">Pay with pin</button></a>

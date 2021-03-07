@@ -20,15 +20,15 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Overview", "Playlist");
         }
 
-        public IActionResult Privacy()
+/*        public IActionResult Privacy()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
             emailService.email_send();
             return View();
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
