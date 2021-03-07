@@ -5,25 +5,30 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeeSharpersCinema.Models;
 
 namespace SeeSharpersCinema.Controllers
 {
     public class TicketController : Controller
     {
-        [Route("Ticket/Selector/{movieId}")]
-        public IActionResult Selector([FromRoute] int movieId)
+        private ICinemaRepository repository;
+        public TicketController(ICinemaRepository repository) 
         {
-            Movie movie = new Movie()
+            this.repository = repository;
+        }
+
+        [Route("Ticket/Selector/{movieId}")]
+        public IActionResult Selector([FromRoute] long movieId)
+        {
+            var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
+            if (selectedMovie == null)
             {
-                Id = movieId,
-                Title = "testmovie",
-                Duration = 125,
-                Genre = Genre.Children,
-                Technique = "3D"
-            };
+             return NotFound();
+            } 
+
             Ticket ticket = new Ticket()
             {
-                Movie = movie
+                Movie = selectedMovie
             };
             return View(ticket);
         }

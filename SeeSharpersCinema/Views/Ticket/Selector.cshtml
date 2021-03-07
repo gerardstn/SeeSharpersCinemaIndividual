@@ -1,7 +1,8 @@
 ﻿@using SeeSharpersCinema.Models.Order;
 @model Ticket
 
-    <h1>@Model.Movie.Title</h1>
-    <h2>@Model.Movie.Technique</h2>
-    <p>@Model.BasePrice()</p>
-    <p>@Model.Movie.Id</p>
+
+<h1>@Model.Movie.Title</h1>
+<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+<h2>@Model.Movie.Technique , @Model.Movie.Duration , @Model.Movie.Director, @Model.Movie.Country, @Model.Movie.Genre, @Model.Movie.Language, @Model.Movie.Year, @Model.Movie.ViewIndication </h2>
+<p>Prijs: € @Model.BasePrice()</p>
