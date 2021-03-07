@@ -3,7 +3,9 @@
 <div class="col-3">
     <div class="card card-outline-primary m-1 p-1">
         <div class="card-text p-1">
-            <img class="img-fluid" src="@Model.PosterUrl" />
+            <a asp-controller="Ticket" asp-action="Selector" asp-route-movieId="@Model.Id">
+                <img class="img-fluid" src="@Model.PosterUrl" />
+            </a>
         </div>
     </div>
 </div>
