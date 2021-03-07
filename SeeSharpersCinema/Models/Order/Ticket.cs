@@ -18,10 +18,11 @@ namespace SeeSharpersCinema.Models.Order
             }
             return priceOnDuration;
         }
-/*        public bool childrenMovieCheck()
+
+        public bool childrenMovieCheck()
         {
-            return Genre == Genre.Children;
-        }*/
+            return Movie.Genre == Genre.Children;
+        }
 
     }
 }
