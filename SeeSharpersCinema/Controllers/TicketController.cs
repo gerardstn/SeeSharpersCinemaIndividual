@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SeeSharpersCinema.Models;
+using SeeSharpersCinema.Models.Repository;
 
 namespace SeeSharpersCinema.Controllers
 {
     public class TicketController : Controller
     {
-        private ICinemaRepository repository;
-        public TicketController(ICinemaRepository repository) 
+        private IMovieRepository repository;
+        public TicketController(IMovieRepository repository) 
         {
             this.repository = repository;
         }
