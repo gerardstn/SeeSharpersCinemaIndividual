@@ -8,6 +8,8 @@ using System.Net.Mime;
 using System.Threading;
 using System.ComponentModel;
 using System.Drawing;
+using QRCoder;
+using System.IO;
 
 namespace SeeSharpersCinema.Models
 {
@@ -18,7 +20,20 @@ namespace SeeSharpersCinema.Models
         public void email_send()
         {
             SeeSharpersCinema.Models.Order.Ticket ticket = new SeeSharpersCinema.Models.Order.Ticket();
-            String qrCode = ticket.GetQr();
+            Guid guid = Guid.NewGuid();
+            String qrCodew = ticket.GetQr();
+
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://www.google.com", QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            Byte[] bytee;
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                qrCodeImage.Save("D:\\Avans\\Temp\\QRCode" + guid + ".png");
+                bytee = stream.ToArray();
+            }
 
             using (MailMessage mail = new MailMessage())
             {
@@ -28,12 +43,12 @@ namespace SeeSharpersCinema.Models
                 //Add name and moviename from purchase information
                 mail.Subject = "Thank you " + "(name)" + " for ordering a ticket for movie " + "(moviename)";
 
-               // mail.Body = "<h1>Hello</h1>";
-                mail.Body = "<img src=qrCode width=300 height=300 alt=QR code for no - name />";
+                mail.Body = "<H1>Dear,</H1>";
+                //mail.Body = "<img src=\"qrCode\" width=300 height=300 alt=QR code for no - name />";
                  
                 mail.IsBodyHtml = true;
                 //Attach Generated PNG from QR code.
-                mail.Attachments.Add(new Attachment("C:/Users/WesleyB/Downloads/MB-300_Braindumps_Collection.docx"));
+                mail.Attachments.Add(new Attachment("D:/Avans/Temp/QRCode" + guid + ".png"));
 
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
