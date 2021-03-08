@@ -16,7 +16,7 @@
         public string Country { get; set; }
         public bool IsLongMovie => Duration >= 120;
         public bool IsGenreChild => Genre == Genre.Children;
-        public bool IsThreeD => Technique == "3D";
+        public bool IsThreeDimensional => Technique == "3D";
 
     }
 }

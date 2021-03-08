@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Price;
 using System.Text;
 
 namespace SeeSharpersCinema.Models.Order
@@ -25,41 +24,45 @@ namespace SeeSharpersCinema.Models.Order
         public double StudentDiscount = -1.5;
         public double SeniorDiscount = -1.5;
 
-        public double TotalPrice(double price = BasePrice);
-        if (Movie.IsLongMovie)
-        {
-            price += LongMovieAddition;
-        }
-        
-        if (Movie.IsThreeDimensional)
-        {
-            price += ThreeDimensionalAddition;
-        }
-        if (Movie.//htmlpost input form TicketType.Child && IsChildMovie)
-        {
-            price += ChildDiscount;
-        }
-        if (Movie.//htmlpost input form TicketType.Student)
-        {
-            price += StudentDiscount;
-        }
-        if (Movie.//htmlpost input form type TicketType.Senior)
-        {
-            price += SeniorDiscount;
-        }
-        return price;
+        public bool IsNotHoliday = true; //TODO: het ding hier achter
+        public bool IsMonToThursday = true; //TODO: het ding hier achter
+        public bool IsBeforeSix = true; //TODO: het ding hier achter
+
+        public bool IsChildDiscountValid => IsBeforeSix == Movie.IsGenreChild;
+        public bool IsSeniorDiscountValid => IsMonToThursday == IsNotHoliday;
+        public bool IsStudentDiscountValid => IsMonToThursday;
 
 
-/*public double BasePrice()
-{
-    double priceOnDuration = 8.5;
-    if (Movie.Duration > 120)
-    {
-        priceOnDuration = 9;
-    }
-    return priceOnDuration;
-}*/
 
 
+
+        public double TotalPrice()
+        {
+            double price = BasePrice;
+            if (Movie.IsLongMovie)
+            {
+                price += LongMovieAddition;
+
+            }
+
+            if (Movie.IsThreeDimensional)
+            {
+                price += ThreeDimensionalAddition;
+            }
+
+            //if (Movie.htmlpost input form TicketType.Child && IsChildrenDiscountValid)
+            //{
+            //    price += ChildDiscount;
+            //}
+            //if (Movie.//htmlpost input form TicketType.Student && IsStudentDiscountValid)
+            //{
+            //    price += StudentDiscount;
+            //}
+            //if (Movie.//htmlpost input form type TicketType.Senior && IsSeniorDiscountValid)
+            //{
+            //    price += SeniorDiscount;
+            //}
+            return price;
+        }
     }
 }
