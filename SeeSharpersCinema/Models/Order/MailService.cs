@@ -15,7 +15,9 @@ namespace SeeSharpersCinema.Models
 {
     public class EmailService
     {
-        private const String cinemaEmail = "SeeSharpersCinema@gmail.com";
+        private const String cinemaEmail    = "SeeSharpersCinema@gmail.com";
+        private const String cinemaEmailPw  = "SeeSharpersCinema1!";
+        private const String emailClient    = "smtp.gmail.com";
 
         public void email_send()
         {
@@ -24,35 +26,48 @@ namespace SeeSharpersCinema.Models
             String qrCodew = ticket.GetQr();
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://www.google.com", QRCodeGenerator.ECCLevel.Q);
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://www.google.com", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(guid.ToString(), QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
             Byte[] bytee;
 
             using (MemoryStream stream = new MemoryStream())
             {
-                qrCodeImage.Save("D:\\Avans\\Temp\\QRCode" + guid + ".png");
+                qrCodeImage.Save("D:\\Avans\\Temp\\QRCode_" + guid + ".png");
                 bytee = stream.ToArray();
             }
+
+            string emailBody = @"<html>
+                      <body>
+                      <p>Beste (Customer),</p>
+                      <p>Thank you for your letter of yesterday inviting me to come for an interview on Friday afternoon, 5th July, at 2:30.
+                              I shall be happy to be there as requested and will bring my diploma and other papers with me.</p>
+                      <p>Met vriendelijke groet,<br>-SeeSharpersCinema</br></p>
+                      </body>
+                      </html>
+                     ";
 
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(cinemaEmail);
+
                 //Mail TO customer email
                 mail.To.Add("w.vanburik@student.avans.nl");
+
                 //Add name and moviename from purchase information
                 mail.Subject = "Thank you " + "(name)" + " for ordering a ticket for movie " + "(moviename)";
 
-                mail.Body = "<H1>Dear,</H1>";
-                //mail.Body = "<img src=\"qrCode\" width=300 height=300 alt=QR code for no - name />";
-                 
+                mail.Body = emailBody;
                 mail.IsBodyHtml = true;
-                //Attach Generated PNG from QR code.
-                mail.Attachments.Add(new Attachment("D:/Avans/Temp/QRCode" + guid + ".png"));
 
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                //Attach Generated PNG from QR code.
+                mail.Attachments.Add(new Attachment("D:/Avans/Temp/QRCode_" + guid + ".png"));
+
+                //Set mail client
+                using (SmtpClient smtp = new SmtpClient(emailClient, 587))
                 {
-                    smtp.Credentials = new NetworkCredential("SeeSharpersCinema@gmail.com", "SeeSharpersCinema1!");
+                    smtp.Credentials = new NetworkCredential(cinemaEmail, cinemaEmailPw);
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
                 }
