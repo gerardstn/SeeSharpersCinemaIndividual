@@ -42,7 +42,6 @@ namespace SeeSharpersCinema.Models.Order
             if (Movie.IsLongMovie)
             {
                 price += LongMovieAddition;
-
             }
 
             if (Movie.IsThreeDimensional)
