@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
+using SeeSharpersCinema.Models.Order;
 
 namespace SeeSharpersCinema.Models.Database
 {
@@ -281,5 +282,10 @@ namespace SeeSharpersCinema.Models.Database
                 new PlayList { Id = 13, MovieId = 13, TimeSlotId = 13 },
                 new PlayList { Id = 14, MovieId = 14, TimeSlotId = 14 },
             };
+
+        /*public static List<Ticket> FakeTickets => new List<Ticket>
+        {
+            new Ticket { TicketID = 1, Movie = , TimeSlot = 1, }
+        }*/
     }
 }
