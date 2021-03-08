@@ -32,5 +32,11 @@ namespace SeeSharpersCinema.Controllers
             };
             return View(ticket);
         }
+
+        [Route("Ticket/QR/{TicketId}")]
+        public IActionResult QR(Ticket ticket)
+        {
+            return View(ticket);
+        }
     }
 }
