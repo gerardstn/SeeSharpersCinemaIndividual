@@ -23,6 +23,8 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult Index()
         {
+            SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
+            emailService.email_send();
             return RedirectToAction("Overview", "Playlist");
         }
 

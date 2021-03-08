@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading;
 using System.ComponentModel;
+using System.Drawing;
 
 namespace SeeSharpersCinema.Models
 {
@@ -16,6 +17,9 @@ namespace SeeSharpersCinema.Models
 
         public void email_send()
         {
+            SeeSharpersCinema.Models.Order.Ticket ticket = new SeeSharpersCinema.Models.Order.Ticket();
+            String qrCode = ticket.GetQr();
+
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(cinemaEmail);
@@ -23,7 +27,10 @@ namespace SeeSharpersCinema.Models
                 mail.To.Add("w.vanburik@student.avans.nl");
                 //Add name and moviename from purchase information
                 mail.Subject = "Thank you " + "(name)" + " for ordering a ticket for movie " + "(moviename)";
-                mail.Body = "<h1>Hello</h1>";
+
+               // mail.Body = "<h1>Hello</h1>";
+                mail.Body = "<img src=qrCode width=300 height=300 alt=QR code for no - name />";
+                 
                 mail.IsBodyHtml = true;
                 //Attach Generated PNG from QR code.
                 mail.Attachments.Add(new Attachment("C:/Users/WesleyB/Downloads/MB-300_Braindumps_Collection.docx"));
