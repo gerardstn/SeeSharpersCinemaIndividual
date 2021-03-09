@@ -1,7 +1,7 @@
 ﻿@using SeeSharpersCinema.Models.Order;
 @model Ticket
 
-<a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">Back</a>
+<a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
 <h1>Betaal overzicht</h1>
 <h2>@Model.Movie.Title</h2>
 <img class="img-fluid" src="@Model.Movie.PosterUrl" />
@@ -62,7 +62,5 @@
         </label>
     </div>*@
 
-<h2>Totaalprijs: € @Model.TotalPrice()</h2>
-<a asp-controller="Ticket" asp-action="Pin" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">Payment</a>
 <!--<a href="#"><button type="button" class="btn btn-primary btn-lg">Pay with pin</button></a>-->
 <a asp-controller="Payment" asp-action="Index" asp-route-movieId="@Model.Movie.Id"><button type="button" class="btn btn-primary btn-lg">To payment overview</button></a>

@@ -38,20 +38,5 @@ namespace SeeSharpersCinema.Controllers
         {
             return View(ticket);
         }
-        [Route("Ticket/Pin/{movieId}")]
-        public IActionResult Pin([FromRoute] long movieId)
-        {
-            var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
-            if (selectedMovie == null)
-            {
-                return NotFound();
-            }
-
-            TicketResponse ticketResponse = new TicketResponse()
-            {
-                Movie = selectedMovie
-            };
-            return View(ticketResponse);
-        }
     }
 }

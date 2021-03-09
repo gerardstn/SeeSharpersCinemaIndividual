@@ -1,26 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using QRCoder;
+﻿using QRCoder;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Theater;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Text;
 
 namespace SeeSharpersCinema.Models.Order
 {
     public class Ticket
     {
-        public enum TicketType
-        {
-            Normal = 0,
-            Child = 1,
-            Student = 2,
-            Senior = 3
-        }
-
-
-
+        public long TicketID { get; set; }
         public Movie Movie { get; set; }
         public Room Room { get; set; }
         public Seat Seat { get; set; }
