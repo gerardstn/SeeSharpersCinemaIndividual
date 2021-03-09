@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Repository;
-using SeeSharpersCinema.Controllers;
+using SeeSharpersCinema.TouchScreen.Controllers;
 using Xunit;
 using SeeSharpersCinema.Models.ViewModel;
 

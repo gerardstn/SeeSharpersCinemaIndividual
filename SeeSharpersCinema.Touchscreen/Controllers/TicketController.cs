@@ -7,12 +7,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class TicketController : Controller
     {
         private IMovieRepository repository;
-        public TicketController(IMovieRepository repository) 
+        public TicketController(IMovieRepository repository)
         {
             this.repository = repository;
         }
@@ -23,8 +23,8 @@ namespace SeeSharpersCinema.Controllers
             var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
             if (selectedMovie == null)
             {
-             return NotFound();
-            } 
+                return NotFound();
+            }
 
             Ticket ticket = new Ticket()
             {

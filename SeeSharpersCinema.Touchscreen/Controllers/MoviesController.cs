@@ -5,7 +5,7 @@ using SeeSharpersCinema.Models.ViewModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class MoviesController : Controller
     {

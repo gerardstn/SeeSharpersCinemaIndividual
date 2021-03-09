@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.Payment;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class PaymentController : Controller
     {
