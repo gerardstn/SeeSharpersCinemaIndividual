@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp5.0</TargetFramework>
@@ -23,7 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SeeSharpersCinema\SeeSharpersCinema.csproj" />
+    <ProjectReference Include="..\SeeSharpersCinema.Data\SeeSharpersCinema.Data.csproj" />
+    <ProjectReference Include="..\SeeSharpersCinema.TouchScreen\SeeSharpersCinema.TouchScreen.csproj" />
   </ItemGroup>
 
 </Project>

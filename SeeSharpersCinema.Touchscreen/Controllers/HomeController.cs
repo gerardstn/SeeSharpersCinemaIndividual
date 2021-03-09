@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class HomeController : Controller
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class SeatController : Controller
     {
