@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using QRCoder;
+﻿using QRCoder;
 using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Price;
 using SeeSharpersCinema.Models.Theater;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Text;
 
 namespace SeeSharpersCinema.Models.Order
 {
