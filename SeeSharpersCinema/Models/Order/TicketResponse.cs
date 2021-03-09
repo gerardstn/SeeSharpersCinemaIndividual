@@ -21,3 +21,4 @@ namespace SeeSharpersCinema.Models.Order
         public bool IsSeniorDiscount { get; set; }
     }
 }
+ 

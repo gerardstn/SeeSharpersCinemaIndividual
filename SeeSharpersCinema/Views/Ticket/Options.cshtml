@@ -1,7 +1,7 @@
 ﻿@using SeeSharpersCinema.Models.Order;
-@model TicketResponse
+@model Ticket
 
-<a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
+<a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">Back</a>
 <h1>Betaal overzicht</h1>
 <h2>@Model.Movie.Title</h2>
 <img class="img-fluid" src="@Model.Movie.PosterUrl" />
@@ -12,30 +12,30 @@
     <li>Taal: @Model.Movie.Language</li>
     <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
 </ul>
-<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.Ticket.LongMovieAddition + Model.Ticket.BasePrice : Model.Ticket.BasePrice )</h2>
+<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.LongMovieAddition + Model.BasePrice : Model.BasePrice )</h2>
 @if (Model.Movie.IsThreeDimensional)
 {
-    <h3>Toeslag 3D: € @Model.Ticket.ThreeDimensionalAddition</h3>
+    <h3>Toeslag 3D: € @Model.ThreeDimensionalAddition</h3>
 }
 
 <h3>Kortingen:</h3>
-<form asp-action="Options" method="post">
+@*<form asp-action="Options" method="post">
 
-    <select asp-for="@Model.IsChildDiscount" class="form-control">
-        <option value="false">Nodiscount</option>
-        <option value="True">Childdiscount</option>
-        <option value="false">No, I can't come</option>
-    </select>
-
-
-    <input type="radio" value="@Model.IsNoDiscount" />NoDiscount<br />
-    <input type="radio" value="@Model.IsChildDiscount" />Child<br />
-    <input type="radio" value="IsStudentDiscountSelected" />Student<br />
-    <input type="radio" value="IsSeniorDiscountSelected" />Senior<br />
+        <select asp-for="@Model.TicketResponse.IsChildDiscount" class="form-control">
+            <option value="false">Nodiscount</option>
+            <option value="True">Childdiscount</option>
+            <option value="false">No, I can't come</option>
+        </select>
 
 
-    <input type="submit" asp-route-movieId="@Model.Movie.Id" />Pay with pin<br />
-</form>
+        <input type="radio" value="@Model.TicketResponse.IsNoDiscount" />NoDiscount<br />
+        <input type="radio" value="@Model.TicketResponse.IsChildDiscount" />Child<br />
+        <input type="radio" value="IsStudentDiscountSelected" />Student<br />
+        <input type="radio" value="IsSeniorDiscountSelected" />Senior<br />
+
+
+        <input type="submit" asp-route-movieId="@Model.Movie.Id" />Pay with pin<br />
+    </form>*@
 
 @*    <div class="form-check">
         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
@@ -62,7 +62,5 @@
         </label>
     </div>*@
 
-<h2>Totaalprijs: € @Model.Ticket.TotalPrice()</h2>
-
-@*    <button type="button" class="btn btn-primary btn-lg"></button>
-*@
+<h2>Totaalprijs: € @Model.TotalPrice()</h2>
+<a asp-controller="Ticket" asp-action="Pin" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">Payment</a>
