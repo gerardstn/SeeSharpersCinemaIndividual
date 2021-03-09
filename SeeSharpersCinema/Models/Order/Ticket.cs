@@ -18,9 +18,7 @@ namespace SeeSharpersCinema.Models.Order
 
         public Movie Movie { get; set; }
         public bool IsNoDiscount { get; set; }
-        public bool IsChildDiscount { get; set; }
-        public bool IsStudentDiscount { get; set; }
-        public bool IsSeniorDiscount { get; set; }
+
 
         public double BasePrice = 8.5;
 

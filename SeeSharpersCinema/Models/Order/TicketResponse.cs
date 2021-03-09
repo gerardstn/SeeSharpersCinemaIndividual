@@ -15,6 +15,9 @@ namespace SeeSharpersCinema.Models.Order
         public Room Room { get; set; }
         public int SeatID { get; set; }
         public TimeSlot TimeSlot { get; set; }
-
+        public bool IsNoDiscount { get; set; }
+        public bool IsChildDiscount { get; set; }
+        public bool IsStudentDiscount { get; set; }
+        public bool IsSeniorDiscount { get; set; }
     }
 }

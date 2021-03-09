@@ -1,5 +1,5 @@
 ﻿@using SeeSharpersCinema.Models.Order;
-@model Ticket
+@model TicketResponse
 
 <a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@Model.Movie.Id"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
 <h1>Betaal overzicht</h1>
@@ -12,10 +12,10 @@
     <li>Taal: @Model.Movie.Language</li>
     <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
 </ul>
-<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.LongMovieAddition + Model.BasePrice : Model.BasePrice )</h2>
+<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.Ticket.LongMovieAddition + Model.Ticket.BasePrice : Model.Ticket.BasePrice )</h2>
 @if (Model.Movie.IsThreeDimensional)
 {
-    <h3>Toeslag 3D: € @Model.ThreeDimensionalAddition</h3>
+    <h3>Toeslag 3D: € @Model.Ticket.ThreeDimensionalAddition</h3>
 }
 
 <h3>Kortingen:</h3>
@@ -62,7 +62,7 @@
         </label>
     </div>*@
 
-<h2>Totaalprijs: € @Model.TotalPrice()</h2>
+<h2>Totaalprijs: € @Model.Ticket.TotalPrice()</h2>
 
 @*    <button type="button" class="btn btn-primary btn-lg"></button>
 *@

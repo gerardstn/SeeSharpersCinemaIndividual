@@ -32,15 +32,26 @@ namespace SeeSharpersCinema.Controllers
             };
             return View(ticket);
         }
-        [HttpPost]
-        public ViewResult Options([FromRoute] long movieId, TicketResponse ticketResponse)
+
+        [HttpPost, Route("Ticket/Options/{movieId}")]
+        public IActionResult Options(TicketResponse ticketResponse , [FromRoute] long movieId)
         {
             var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
             if (selectedMovie == null)
+            {
+                return NotFound();
+            }
+            OrderRepository.AddResponse(ticketResponse);
 
-
-                OrderRepository.AddResponse(ticketResponse);
+            Ticket ticket = new Ticket()
+            {
+                Movie = selectedMovie
+            };
             return View("Pin", ticketResponse);
+        }
+        public ViewResult ListResponses()
+        {
+            return View(OrderRepository.Responses.Where(r => r.IsChildDiscount == true));
         }
     }
 }
