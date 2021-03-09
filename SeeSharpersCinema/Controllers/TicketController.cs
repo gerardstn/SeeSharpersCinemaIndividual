@@ -17,7 +17,7 @@ namespace SeeSharpersCinema.Controllers
             this.repository = repository;
         }
 
-        [Route("Ticket/Selector/{movieId}")]
+        [Route("Ticket/Options/{movieId}")]
         public IActionResult Options([FromRoute] long movieId)
         {
             var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
