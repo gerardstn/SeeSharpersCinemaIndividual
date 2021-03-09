@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SeeSharpersCinema.Data\SeeSharpersCinema.Data.csproj" />
     <ProjectReference Include="..\SeeSharpersCinema.TouchScreen\SeeSharpersCinema.TouchScreen.csproj" />
+    <ProjectReference Include="..\SeeSharpersCinema.Website\SeeSharpersCinema.Website.csproj" />
   </ItemGroup>
 
 </Project>
