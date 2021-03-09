@@ -13,7 +13,14 @@ namespace SeeSharpersCinema.Models.Order
             Student = 2,
             Senior = 3
         }
+
+
+
         public Movie Movie { get; set; }
+        public bool IsNoDiscount { get; set; }
+        public bool IsChildDiscount { get; set; }
+        public bool IsStudentDiscount { get; set; }
+        public bool IsSeniorDiscount { get; set; }
 
         public double BasePrice = 8.5;
 
@@ -36,6 +43,8 @@ namespace SeeSharpersCinema.Models.Order
 
 
 
+
+
         public double TotalPrice()
         {
             double price = BasePrice;
@@ -49,10 +58,10 @@ namespace SeeSharpersCinema.Models.Order
                 price += ThreeDimensionalAddition;
             }
 
-            //if (Movie.htmlpost input form TicketType.Child && IsChildrenDiscountValid)
-            //{
-            //    price += ChildDiscount;
-            //}
+/*            if (Discount == "Child" & IsChildDiscountValid)
+            {
+                price += ChildDiscount;
+            }*/
             //if (Movie.//htmlpost input form TicketType.Student && IsStudentDiscountValid)
             //{
             //    price += StudentDiscount;

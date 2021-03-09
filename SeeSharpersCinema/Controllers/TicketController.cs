@@ -17,7 +17,7 @@ namespace SeeSharpersCinema.Controllers
             this.repository = repository;
         }
 
-        [Route("Ticket/Selector/{movieId}")]
+        [HttpGet, Route("Ticket/Options/{movieId}")]
         public IActionResult Options([FromRoute] long movieId)
         {
             var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
@@ -31,6 +31,16 @@ namespace SeeSharpersCinema.Controllers
                 Movie = selectedMovie
             };
             return View(ticket);
+        }
+        [HttpPost]
+        public ViewResult Options([FromRoute] long movieId, TicketResponse ticketResponse)
+        {
+            var selectedMovie = repository.Movies.FirstOrDefault(m => m.Id == movieId);
+            if (selectedMovie == null)
+
+
+                OrderRepository.AddResponse(ticketResponse);
+            return View("Pin", ticketResponse);
         }
     }
 }
