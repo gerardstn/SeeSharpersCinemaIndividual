@@ -53,7 +53,7 @@ namespace SeeSharpersCinema.Models
                 mail.From = new MailAddress(cinemaEmail);
 
                 //Mail TO customer email
-                mail.To.Add("w.vanburik@student.avans.nl");
+                mail.To.Add("SeeSharpersCinema@gmail.com");
 
                 //Add name and moviename from purchase information
                 mail.Subject = "Thank you " + "(name)" + " for ordering a ticket for movie " + "(moviename)";
