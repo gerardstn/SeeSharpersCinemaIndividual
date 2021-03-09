@@ -1,7 +1,7 @@
 ﻿@using SeeSharpersCinema.Models.Order;
 @model Ticket
 
-<a asp-controller="playlist" asp-action="Overview"><button type="button" class="btn btn-primary btn-lg">Back</button></a>
+<a asp-controller="playlist" asp-action="Overview" type="button" class="btn btn-primary btn-lg">Back</a>
 <h1>Stoel selectie</h1>
 <h2>@Model.Movie.Title</h2>
 <img class="img-fluid" src="@Model.Movie.PosterUrl" />
@@ -16,5 +16,5 @@
     <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
     <li>@Model.Movie.Description</li>
 </ul>
-<h3>Filmprijs: € @Model.BasePrice()</h3>
-<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id"><button type="button"  class="btn btn-primary btn-lg">To payment overview</button></a>
+<h3>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.LongMovieAddition + Model.BasePrice : Model.BasePrice )</h3>
+<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>
