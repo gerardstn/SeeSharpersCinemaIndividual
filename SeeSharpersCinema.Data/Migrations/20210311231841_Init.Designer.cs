@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeeSharpersCinema.Models.Database;
 
-namespace SeeSharpersCinema.Migrations
+namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210306135705_Init")]
+    [Migration("20210311231841_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace SeeSharpersCinema.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.3")
+                .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("SeeSharpersCinema.Models.Film.Movie", b =>
@@ -383,6 +383,258 @@ namespace SeeSharpersCinema.Migrations
                             Id = 14L,
                             MovieId = 14L,
                             TimeSlotId = 14L
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            MovieId = 1L,
+                            TimeSlotId = 15L
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            MovieId = 2L,
+                            TimeSlotId = 16L
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            MovieId = 3L,
+                            TimeSlotId = 17L
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            MovieId = 4L,
+                            TimeSlotId = 18L
+                        },
+                        new
+                        {
+                            Id = 19L,
+                            MovieId = 5L,
+                            TimeSlotId = 19L
+                        },
+                        new
+                        {
+                            Id = 20L,
+                            MovieId = 6L,
+                            TimeSlotId = 20L
+                        },
+                        new
+                        {
+                            Id = 21L,
+                            MovieId = 7L,
+                            TimeSlotId = 21L
+                        },
+                        new
+                        {
+                            Id = 22L,
+                            MovieId = 8L,
+                            TimeSlotId = 22L
+                        },
+                        new
+                        {
+                            Id = 23L,
+                            MovieId = 9L,
+                            TimeSlotId = 23L
+                        },
+                        new
+                        {
+                            Id = 24L,
+                            MovieId = 10L,
+                            TimeSlotId = 24L
+                        },
+                        new
+                        {
+                            Id = 25L,
+                            MovieId = 11L,
+                            TimeSlotId = 25L
+                        },
+                        new
+                        {
+                            Id = 26L,
+                            MovieId = 12L,
+                            TimeSlotId = 26L
+                        },
+                        new
+                        {
+                            Id = 27L,
+                            MovieId = 13L,
+                            TimeSlotId = 27L
+                        },
+                        new
+                        {
+                            Id = 28L,
+                            MovieId = 14L,
+                            TimeSlotId = 28L
+                        },
+                        new
+                        {
+                            Id = 29L,
+                            MovieId = 1L,
+                            TimeSlotId = 29L
+                        },
+                        new
+                        {
+                            Id = 30L,
+                            MovieId = 2L,
+                            TimeSlotId = 30L
+                        },
+                        new
+                        {
+                            Id = 31L,
+                            MovieId = 3L,
+                            TimeSlotId = 31L
+                        },
+                        new
+                        {
+                            Id = 32L,
+                            MovieId = 4L,
+                            TimeSlotId = 32L
+                        },
+                        new
+                        {
+                            Id = 33L,
+                            MovieId = 5L,
+                            TimeSlotId = 33L
+                        },
+                        new
+                        {
+                            Id = 34L,
+                            MovieId = 6L,
+                            TimeSlotId = 34L
+                        },
+                        new
+                        {
+                            Id = 35L,
+                            MovieId = 7L,
+                            TimeSlotId = 35L
+                        },
+                        new
+                        {
+                            Id = 36L,
+                            MovieId = 8L,
+                            TimeSlotId = 36L
+                        },
+                        new
+                        {
+                            Id = 37L,
+                            MovieId = 9L,
+                            TimeSlotId = 37L
+                        },
+                        new
+                        {
+                            Id = 38L,
+                            MovieId = 10L,
+                            TimeSlotId = 38L
+                        },
+                        new
+                        {
+                            Id = 39L,
+                            MovieId = 11L,
+                            TimeSlotId = 39L
+                        },
+                        new
+                        {
+                            Id = 40L,
+                            MovieId = 12L,
+                            TimeSlotId = 40L
+                        },
+                        new
+                        {
+                            Id = 41L,
+                            MovieId = 13L,
+                            TimeSlotId = 41L
+                        },
+                        new
+                        {
+                            Id = 42L,
+                            MovieId = 14L,
+                            TimeSlotId = 42L
+                        },
+                        new
+                        {
+                            Id = 43L,
+                            MovieId = 1L,
+                            TimeSlotId = 43L
+                        },
+                        new
+                        {
+                            Id = 44L,
+                            MovieId = 2L,
+                            TimeSlotId = 44L
+                        },
+                        new
+                        {
+                            Id = 45L,
+                            MovieId = 3L,
+                            TimeSlotId = 45L
+                        },
+                        new
+                        {
+                            Id = 46L,
+                            MovieId = 4L,
+                            TimeSlotId = 46L
+                        },
+                        new
+                        {
+                            Id = 47L,
+                            MovieId = 5L,
+                            TimeSlotId = 47L
+                        },
+                        new
+                        {
+                            Id = 48L,
+                            MovieId = 6L,
+                            TimeSlotId = 48L
+                        },
+                        new
+                        {
+                            Id = 49L,
+                            MovieId = 7L,
+                            TimeSlotId = 49L
+                        },
+                        new
+                        {
+                            Id = 50L,
+                            MovieId = 8L,
+                            TimeSlotId = 50L
+                        },
+                        new
+                        {
+                            Id = 51L,
+                            MovieId = 9L,
+                            TimeSlotId = 51L
+                        },
+                        new
+                        {
+                            Id = 52L,
+                            MovieId = 10L,
+                            TimeSlotId = 52L
+                        },
+                        new
+                        {
+                            Id = 53L,
+                            MovieId = 11L,
+                            TimeSlotId = 53L
+                        },
+                        new
+                        {
+                            Id = 54L,
+                            MovieId = 12L,
+                            TimeSlotId = 54L
+                        },
+                        new
+                        {
+                            Id = 55L,
+                            MovieId = 13L,
+                            TimeSlotId = 55L
+                        },
+                        new
+                        {
+                            Id = 56L,
+                            MovieId = 14L,
+                            TimeSlotId = 56L
                         });
                 });
 
@@ -629,6 +881,342 @@ namespace SeeSharpersCinema.Migrations
                             SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 10, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 9
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 10, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 9
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 10, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 9
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 10, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 9
+                        },
+                        new
+                        {
+                            Id = 19L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 11, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 20L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 21L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 11, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 22L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 23L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 24L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 25L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 26L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 27L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 28L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 29L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 13, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 30L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 13, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 31L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 13, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 32L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 33L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 34L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 35L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 15, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 36L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 15, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 37L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 15, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 38L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 39L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 40L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 41L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 17, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 42L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 17, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 43L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 17, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 10
+                        },
+                        new
+                        {
+                            Id = 44L,
+                            RoomId = 1L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 45L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 46L,
+                            RoomId = 2L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 47L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 48L,
+                            RoomId = 3L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 49L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 50L,
+                            RoomId = 4L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 19, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 51L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 52L,
+                            RoomId = 5L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 20, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 53L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 20, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 54L,
+                            RoomId = 6L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 20, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 55L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 21, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
+                        },
+                        new
+                        {
+                            Id = 56L,
+                            RoomId = 7L,
+                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 21, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            Week = 11
                         });
                 });
 

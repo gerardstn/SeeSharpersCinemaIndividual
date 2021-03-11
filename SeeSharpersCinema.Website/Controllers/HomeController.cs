@@ -12,32 +12,29 @@ namespace SeeSharpersCinema.Website.Controllers
 {
     public class HomeController : Controller
     {
-        private IMovieRepository repository;
-        public HomeController(IMovieRepository repo)
+        private IPlayListRepository repository;
+
+        public HomeController(IPlayListRepository repo)
         {
             repository = repo;
         }
 
-        public IActionResult Index() => View(new MovieListViewModel
+        //public ViewResult Overview()
+        //    => View(new PlayListViewModel
+        //    {
+        //        PlayLists = repository.PlayLists
+        //        .OrderBy(p => p.TimeSlotId)
+        //    });
+
+        public async Task<IActionResult> Index()
         {
-            Movies = repository.Movies.OrderBy(p => p.Id)
-        });
+            return View(await repository.FindAllAsync());
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public ViewResult Overview()
-            => View(new MovieListViewModel
-            {
-                Movies = repository.Movies
-                .OrderBy(p => p.Id)
-            });
-
-        //public async Task<IActionResult> Overview()
-        //{
-        //    return View(await repository.FindAllAsync());
-        //}
     }
 }

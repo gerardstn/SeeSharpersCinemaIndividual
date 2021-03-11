@@ -1,14 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<SeeSharpersCinema.Models.Program.PlayList>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+<div class="row"><h1>Filmweek ??</h1></div>
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-2">
+            <div class="card card-outline-primary m-1 p-1">
+                <div class="card-text p-1">
+                    <a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@item.Id">
+                        <img src="@item.Movie.PosterUrl" class="img-fluid" />
+                        <p>@item.TimeSlot.SlotStart.ToString("MM-dd-yyyy HH:mm")</p>
+                        <p>Zaal @item.TimeSlot.RoomId</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
 </div>
-
-@foreach (var p in Model.Movies)
-{
-    @p.Title
-    <br />
-}
