@@ -13,7 +13,7 @@ namespace SeeSharpersCinema.Models.Program
         public TimeSlot TimeSlot { get; set; }
         public Movie Movie { get; set; }
 
-        // public int Week { get; set;  }
+        //public int Week { get; set;  }
 
         //public Dictionary<TimeSlot, Movie> Program { get; set; }
 

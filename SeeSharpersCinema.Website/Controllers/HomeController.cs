@@ -19,16 +19,22 @@ namespace SeeSharpersCinema.Website.Controllers
             repository = repo;
         }
 
-        //public ViewResult Overview()
-        //    => View(new PlayListViewModel
-        //    {
-        //        PlayLists = repository.PlayLists
-        //        .OrderBy(p => p.TimeSlotId)
-        //    });
-
         public async Task<IActionResult> Index()
         {
-            return View(await repository.FindAllAsync());
+            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
+            if (movieWeek == null)
+            {
+                return NotFound();
+            }
+            return View(movieWeek);
+        }
+        public DateTime GetNextThursday()
+        {
+            DateTime today = DateTime.Now.Date;
+            //Voorbeeld voor vrijdag: 4 - 5 + 7 = 6 dagen tot donderdag. mooie uitleg: https://stackoverflow.com/questions/6346119/datetime-get-next-tuesday
+            int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)today.DayOfWeek + 7) % 7;
+            DateTime nextThursday = today.AddDays(daysUntilThursday);
+            return nextThursday;
         }
 
         public IActionResult Privacy()

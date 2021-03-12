@@ -16,7 +16,7 @@
                     <a asp-controller="Seat" asp-action="Selector" asp-route-movieId="@item.Id">
                         <img src="@item.Movie.PosterUrl" class="img-fluid" />
                         <p>@item.TimeSlot.SlotStart.ToString("MM-dd-yyyy HH:mm")</p>
-                        <p>Zaal @item.TimeSlot.RoomId</p>
+                        <p>Zaal @item.TimeSlot.RoomId</p> 
                     </a>
                 </div>
             </div>
