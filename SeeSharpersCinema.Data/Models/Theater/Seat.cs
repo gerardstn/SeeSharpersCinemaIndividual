@@ -4,8 +4,10 @@ namespace SeeSharpersCinema.Models
 {
     public class Seat
     {
-        public int Number { get; }
-        public Room Room { get; }
+        public long id { get; set; }
+        public int Number { get; set; }
+        public int Row { get; set; }
+        public Room Room { get; set; }
 
     }
 }

@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210311231841_Init")]
-    partial class Init
+    [Migration("20210313134900_Seats_add2")]
+    partial class Seats_add2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -638,6 +638,29 @@ namespace SeeSharpersCinema.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SeeSharpersCinema.Models.Seat", b =>
+                {
+                    b.Property<long>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("RoomId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Row")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Seat");
+                });
+
             modelBuilder.Entity("SeeSharpersCinema.Models.Theater.Cinema", b =>
                 {
                     b.Property<long>("Id")
@@ -1239,6 +1262,15 @@ namespace SeeSharpersCinema.Data.Migrations
                     b.Navigation("TimeSlot");
                 });
 
+            modelBuilder.Entity("SeeSharpersCinema.Models.Seat", b =>
+                {
+                    b.HasOne("SeeSharpersCinema.Models.Theater.Room", "Room")
+                        .WithMany("ReservedSeatList")
+                        .HasForeignKey("RoomId");
+
+                    b.Navigation("Room");
+                });
+
             modelBuilder.Entity("SeeSharpersCinema.Models.Theater.Room", b =>
                 {
                     b.HasOne("SeeSharpersCinema.Models.Theater.Cinema", "Cinema")
@@ -1259,6 +1291,11 @@ namespace SeeSharpersCinema.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Theater.Room", b =>
+                {
+                    b.Navigation("ReservedSeatList");
                 });
 #pragma warning restore 612, 618
         }

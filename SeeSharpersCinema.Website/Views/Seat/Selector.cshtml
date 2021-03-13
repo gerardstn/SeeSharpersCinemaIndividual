@@ -1,0 +1,42 @@
+﻿@model SeeSharpersCinema.Models.Program.PlayList
+
+<a asp-controller="playlist" asp-action="Overview" type="button" class="btn btn-primary btn-lg">Back</a>
+<h1>Stoel selectie</h1>
+<h2>@Model.TimeSlot.SlotStart</h2>
+
+
+@*<h2>@Model.TimeSlot.SlotStart</h2>
+    <h2>@Model.TimeSlot.SlotStart</h2>
+    <h2>@Model.TimeSlot.Room.Capacity</h2>*@
+<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+<ul>
+    <li>@Model.Movie.Technique</li>
+    <li>@Model.Movie.Duration Min</li>
+    <li>Director: @Model.Movie.Director</li>
+    <li>Opgenomen: @Model.Movie.Country</li>
+    <li>Genre: @Model.Movie.Genre</li>
+    <li>Taal: @Model.Movie.Language</li>
+    <li>Jaar: @Model.Movie.Year</li>
+    <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
+    <li>@Model.Movie.Description</li>
+</ul>
+
+<div class="row">
+    @for (int i = 1; i <= Model.TimeSlot.Room.Capacity; i++)
+    {
+        if (Model.TimeSlot.Room.ReservedSeatList != null)
+        {
+            if (Model.TimeSlot.Room.ReservedSeatList.Contains(i))
+            {
+                <div class="col, SeatReserved" id="@i">@i</div>
+            }
+        }
+        else
+        {
+            <div class="col, SeatFree" id="@i">@i</div>
+        }
+    }
+</div>
+
+
+<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>
