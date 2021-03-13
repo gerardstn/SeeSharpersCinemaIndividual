@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QRCoder;
 using SeeSharpersCinema.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Controllers
+namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,13 +23,15 @@ namespace SeeSharpersCinema.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Overview", "Playlist");
         }
 
-        public IActionResult Privacy()
+/*        public IActionResult Privacy()
         {
+            SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
+            emailService.email_send();
             return View();
-        }
+        }*/
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
