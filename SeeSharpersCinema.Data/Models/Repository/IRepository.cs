@@ -8,8 +8,11 @@ namespace SeeSharpersCinema.Models.Repository
 {
     public interface IRepository<T> where T : class
     {
-        Task<IEnumerable<T>> FindAllAsync();
+        //Task<IEnumerable<T>> FindAllAsync();
 
-        Task<IEnumerable<PlayList>> FindBySelection(string titleString);
+        //Task<IEnumerable<PlayList>> FindBetweenDatesAsync();
+
+        //Task<IEnumerable<PlayList>> FindBySelection();
+
     }
 }

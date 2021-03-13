@@ -10,12 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-<<<<<<< HEAD:SeeSharpersCinema.Data/Migrations/20210311181622_Init.Designer.cs
-    [Migration("20210311181622_Init")]
-=======
-    [Migration("20210311231841_Init")]
->>>>>>> Development:SeeSharpersCinema.Data/Migrations/20210311231841_Init.Designer.cs
-    partial class Init
+    [Migration("20210313123001_US13")]
+    partial class US13
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

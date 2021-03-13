@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
 using System;
@@ -19,13 +20,32 @@ namespace SeeSharpersCinema.Website.Controllers
             repository = repo;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string uiTitle, string uiDate)
         {
             var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
+
+            if (!String.IsNullOrEmpty(uiTitle))
+            {
+                movieWeek = await repository.FindByTitle(DateTime.Now.Date, GetNextThursday(), uiTitle);
+            }
+
+            if (!String.IsNullOrEmpty(uiDate))
+            {
+
+                string[] parts = uiDate.Split('-');
+                int year = Int32.Parse(parts[0]);
+                int month = Int32.Parse(parts[1]);
+                int day = Int32.Parse(parts[2]);
+
+                DateTime newDate = new DateTime(year, month, day, 00, 00, 00);
+                movieWeek = await repository.FindByDate(newDate);
+            }
+
             if (movieWeek == null)
             {
                 return NotFound();
             }
+
             return View(movieWeek);
         }
         public DateTime GetNextThursday()

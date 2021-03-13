@@ -1,6 +1,14 @@
-﻿@model IEnumerable<SeeSharpersCinema.Models.Program.PlayList>
+﻿@model IEnumerable<PlayList>
 
 <div class="row"><h1>Vandaag tot Donderdag</h1></div>
+<div class="my-4">
+    <form asp-controller="Home" asp-action="Index">
+        <input type="text" name="uiTitle" />
+        <input type="date" name="uiDate"/>
+        <button class="btn btn-outline-primary" type="submit">Filter</button>
+    </form>
+</div>
+
 <div class="row">
 
     @foreach (var item in Model)

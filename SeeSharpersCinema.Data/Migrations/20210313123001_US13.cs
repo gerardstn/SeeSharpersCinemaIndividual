@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class Init : Migration
+    public partial class US13 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -162,19 +162,68 @@ namespace SeeSharpersCinema.Data.Migrations
                 values: new object[,]
                 {
                     { 1L, 1L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 2L, 1L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 3L, 2L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 4L, 2L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 5L, 3L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 6L, 3L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 7L, 4L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 8L, 4L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 49L, 4L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 19, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 50L, 4L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 19, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
                     { 9L, 5L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
                     { 10L, 5L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 23L, 5L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 24L, 5L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 37L, 5L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 15, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 38L, 5L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 16, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 51L, 5L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 19, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 52L, 5L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 20, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
                     { 11L, 6L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 36L, 4L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 15, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
                     { 12L, 6L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 26L, 6L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 39L, 6L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 16, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 40L, 6L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 16, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 53L, 6L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 20, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 54L, 6L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 20, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
                     { 13L, 7L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
-                    { 14L, 7L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 }
+                    { 14L, 7L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 27L, 7L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 28L, 7L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 41L, 7L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 17, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 42L, 7L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 17, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 25L, 6L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 12, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 35L, 4L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 15, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 22L, 4L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 21L, 4L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 2L, 1L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 15L, 1L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 10, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 16L, 1L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 10, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 29L, 1L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 13, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 30L, 1L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 13, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 43L, 1L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 17, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 44L, 1L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 3L, 2L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 4L, 2L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 17L, 2L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 10, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 18L, 2L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 10, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 31L, 2L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 13, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 32L, 2L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 14, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TimeSlot",
+                columns: new[] { "Id", "RoomId", "SlotEnd", "SlotStart", "Week" },
+                values: new object[,]
+                {
+                    { 45L, 2L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 46L, 2L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 5L, 3L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 6L, 3L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 19L, 3L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 20L, 3L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 11, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 33L, 3L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 14, 19, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 34L, 3L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 14, 21, 0, 0, 0, DateTimeKind.Unspecified), 10 },
+                    { 47L, 3L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 48L, 3L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 7L, 4L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 8L, 4L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified), 9 },
+                    { 55L, 7L, new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 21, 19, 0, 0, 0, DateTimeKind.Unspecified), 11 },
+                    { 56L, 7L, new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2021, 3, 21, 21, 0, 0, 0, DateTimeKind.Unspecified), 11 }
                 });
 
             migrationBuilder.InsertData(
@@ -183,19 +232,68 @@ namespace SeeSharpersCinema.Data.Migrations
                 values: new object[,]
                 {
                     { 1L, 1L, 1L },
-                    { 2L, 2L, 2L },
-                    { 3L, 3L, 3L },
-                    { 4L, 4L, 4L },
-                    { 5L, 5L, 5L },
-                    { 6L, 6L, 6L },
-                    { 7L, 7L, 7L },
-                    { 8L, 8L, 8L },
+                    { 49L, 7L, 49L },
+                    { 50L, 8L, 50L },
                     { 9L, 9L, 9L },
                     { 10L, 10L, 10L },
+                    { 23L, 9L, 23L },
+                    { 24L, 10L, 24L },
+                    { 37L, 9L, 37L },
+                    { 38L, 10L, 38L },
+                    { 51L, 9L, 51L },
+                    { 52L, 10L, 52L },
                     { 11L, 11L, 11L },
+                    { 36L, 8L, 36L },
                     { 12L, 12L, 12L },
+                    { 26L, 12L, 26L },
+                    { 39L, 11L, 39L },
+                    { 40L, 12L, 40L },
+                    { 53L, 11L, 53L },
+                    { 54L, 12L, 54L },
                     { 13L, 13L, 13L },
-                    { 14L, 14L, 14L }
+                    { 14L, 14L, 14L },
+                    { 27L, 13L, 27L },
+                    { 28L, 14L, 28L },
+                    { 41L, 13L, 41L },
+                    { 42L, 14L, 42L },
+                    { 25L, 11L, 25L },
+                    { 35L, 7L, 35L },
+                    { 22L, 8L, 22L },
+                    { 21L, 7L, 21L },
+                    { 2L, 2L, 2L },
+                    { 15L, 1L, 15L },
+                    { 16L, 2L, 16L },
+                    { 29L, 1L, 29L },
+                    { 30L, 2L, 30L },
+                    { 43L, 1L, 43L },
+                    { 44L, 2L, 44L },
+                    { 3L, 3L, 3L },
+                    { 4L, 4L, 4L },
+                    { 17L, 3L, 17L },
+                    { 18L, 4L, 18L },
+                    { 31L, 3L, 31L },
+                    { 32L, 4L, 32L }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PlayList",
+                columns: new[] { "Id", "MovieId", "TimeSlotId" },
+                values: new object[,]
+                {
+                    { 45L, 3L, 45L },
+                    { 46L, 4L, 46L },
+                    { 5L, 5L, 5L },
+                    { 6L, 6L, 6L },
+                    { 19L, 5L, 19L },
+                    { 20L, 6L, 20L },
+                    { 33L, 5L, 33L },
+                    { 34L, 6L, 34L },
+                    { 47L, 5L, 47L },
+                    { 48L, 6L, 48L },
+                    { 7L, 7L, 7L },
+                    { 8L, 8L, 8L },
+                    { 55L, 13L, 55L },
+                    { 56L, 14L, 56L }
                 });
 
             migrationBuilder.CreateIndex(

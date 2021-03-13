@@ -17,8 +17,6 @@ namespace SeeSharpersCinema.Models.Repository
             context = ctx;
         }
 
-        //public IQueryable<PlayList> PlayLists => context.PlayLists;
-
         public async Task<IEnumerable<PlayList>> FindAllAsync()
             => await context.PlayLists
             .Include(b => b.Movie)
@@ -36,18 +34,35 @@ namespace SeeSharpersCinema.Models.Repository
             .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate)
             .ToListAsync();
 
-        //public async Task<IEnumerable<PlayList>> FindBySelection(string uiDate, string titleString)
-        //    => await context.PlayLists
-        //    .Include(b => b.Movie)
-        //    .Include(c => c.TimeSlot)
-        //    .Where(s => s.Movie.Title.Contains(titleString) && s.TimeSlot.SlotStart.Date == new DateTime(uiDate[0], uiDate[1], uiDate[2]))
-        //    .ToListAsync();
-
-        public async Task<IEnumerable<PlayList>> FindBySelection(string uiDate)
+        public async Task<IEnumerable<PlayList>> FindByTitle(DateTime startDate, DateTime endDate, string uiTitle)
             => await context.PlayLists
             .Include(b => b.Movie)
             .Include(c => c.TimeSlot)
-            .Where(s => s.TimeSlot.SlotStart.Date == new DateTime(uiDate[0], uiDate[1], uiDate[2]))
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate && z.Movie.Title.Contains(uiTitle))
             .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindByDate(DateTime uiDate)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date == uiDate)
+            .ToListAsync();
+
+
+        // TODO FIND TITLE AND DATE
+        // TODO FIND BY GENRE: HARDCODED DROPDOWN
+        //public async Task<IEnumerable<PlayList>> FindByTitleAndDate(string uiTitle, DateTime uiDate)
+        //    => await context.PlayLists
+        //    .Include(b => b.Movie)
+        //    .Include(c => c.TimeSlot)
+        //    .OrderBy(p => p.TimeSlot.SlotStart)
+        //    .ThenBy(q => q.TimeSlot.RoomId)
+        //    .Where(z => z.TimeSlot.SlotStart.Date == uiDate && z.Movie.Title.Contains(uiTitle))
+        //    .ToListAsync();
+
     }
 }
