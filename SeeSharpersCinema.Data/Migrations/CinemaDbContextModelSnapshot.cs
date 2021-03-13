@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeeSharpersCinema.Models.Database;
 
-namespace SeeSharpersCinema.Migrations
+namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
     partial class CinemaDbContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace SeeSharpersCinema.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.3")
+                .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("SeeSharpersCinema.Models.Film.Movie", b =>
@@ -528,104 +528,104 @@ namespace SeeSharpersCinema.Migrations
                         {
                             Id = 2L,
                             RoomId = 1L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 10, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 10, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 3L,
                             RoomId = 2L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 11, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 11, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 4L,
                             RoomId = 2L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 12, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 12, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 5L,
                             RoomId = 3L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 13, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 13, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 6L,
                             RoomId = 3L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 14, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 7L,
                             RoomId = 4L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 15, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 15, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 8L,
                             RoomId = 4L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 16, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 9L,
                             RoomId = 5L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 17, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 17, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 10L,
                             RoomId = 5L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 18, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 18, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 11L,
                             RoomId = 6L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 19, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 19, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 12L,
                             RoomId = 6L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 20, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 20, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 13L,
                             RoomId = 7L,
-                            SlotEnd = new DateTime(2021, 3, 9, 20, 30, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 21, 20, 30, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 21, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         },
                         new
                         {
                             Id = 14L,
                             RoomId = 7L,
-                            SlotEnd = new DateTime(2021, 3, 9, 23, 0, 0, 0, DateTimeKind.Unspecified),
-                            SlotStart = new DateTime(2021, 3, 9, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotEnd = new DateTime(2021, 3, 22, 23, 0, 0, 0, DateTimeKind.Unspecified),
+                            SlotStart = new DateTime(2021, 3, 22, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 9
                         });
                 });

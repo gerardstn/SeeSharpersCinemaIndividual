@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SeeSharpersCinema.Migrations
+namespace SeeSharpersCinema.Data.Migrations
 {
     public partial class Init : Migration
     {

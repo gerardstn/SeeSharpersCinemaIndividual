@@ -1,5 +1,4 @@
 ﻿using SeeSharpersCinema.Models.Program;
-using System.Linq;
 
 namespace SeeSharpersCinema.Models.Repository
 {
