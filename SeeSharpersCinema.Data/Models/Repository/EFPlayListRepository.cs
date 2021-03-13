@@ -27,6 +27,13 @@ namespace SeeSharpersCinema.Models.Repository
             .ThenBy(q => q.TimeSlot.RoomId)
             .ToListAsync();
 
+
+        /// <summary>
+        /// Queries the database to return movies between specific dates.
+        /// </summary>
+        /// <param name="startDate">From when it should add movies to the list. This is defined by the method in HomeController.</param>
+        /// <param name="endDate">Untill what date it should add movies to the list. This is defined by the method in HomeController.</param>
+        /// <returns>Movies between startDate and endDate</returns>
         public async Task<IEnumerable<PlayList>> FindBetweenDatesAsync(DateTime startDate, DateTime endDate)
             => await context.PlayLists
             .Include(b => b.Movie)
