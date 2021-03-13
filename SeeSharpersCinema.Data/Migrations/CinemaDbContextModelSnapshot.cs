@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeeSharpersCinema.Models.Database;
 
-namespace SeeSharpersCinema.Migrations
+namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
     partial class CinemaDbContextModelSnapshot : ModelSnapshot
