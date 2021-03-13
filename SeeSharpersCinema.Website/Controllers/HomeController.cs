@@ -12,32 +12,35 @@ namespace SeeSharpersCinema.Website.Controllers
 {
     public class HomeController : Controller
     {
-        private IMovieRepository repository;
-        public HomeController(IMovieRepository repo)
+        private IPlayListRepository repository;
+
+        public HomeController(IPlayListRepository repo)
         {
             repository = repo;
         }
 
-        public IActionResult Index() => View(new MovieListViewModel
+        public async Task<IActionResult> Index()
         {
-            Movies = repository.Movies.OrderBy(p => p.Id)
-        });
+            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
+            if (movieWeek == null)
+            {
+                return NotFound();
+            }
+            return View(movieWeek);
+        }
+        public DateTime GetNextThursday()
+        {
+            DateTime today = DateTime.Now.Date;
+            //Voorbeeld voor vrijdag: 4 - 5 + 7 = 6 dagen tot donderdag. mooie uitleg: https://stackoverflow.com/questions/6346119/datetime-get-next-tuesday
+            int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)today.DayOfWeek + 7) % 7;
+            DateTime nextThursday = today.AddDays(daysUntilThursday);
+            return nextThursday;
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public ViewResult Overview()
-            => View(new MovieListViewModel
-            {
-                Movies = repository.Movies
-                .OrderBy(p => p.Id)
-            });
-
-        //public async Task<IActionResult> Overview()
-        //{
-        //    return View(await repository.FindAllAsync());
-        //}
     }
 }

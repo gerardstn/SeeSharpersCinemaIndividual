@@ -17,7 +17,7 @@ namespace SeeSharpersCinema.Models.Repository
             context = ctx;
         }
 
-        // public IQueryable<PlayList> PlayLists => context.PlayLists;
+        //public IQueryable<PlayList> PlayLists => context.PlayLists;
 
         public async Task<IEnumerable<PlayList>> FindAllAsync()
             => await context.PlayLists
@@ -25,6 +25,15 @@ namespace SeeSharpersCinema.Models.Repository
             .Include(c => c.TimeSlot)
             .OrderBy(p => p.TimeSlot.SlotStart)
             .ThenBy(q => q.TimeSlot.RoomId)
+            .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindBetweenDatesAsync(DateTime startDate, DateTime endDate)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate)
             .ToListAsync();
 
         //public async Task<IEnumerable<PlayList>> FindBySelection(string uiDate, string titleString)
