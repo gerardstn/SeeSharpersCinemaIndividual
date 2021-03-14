@@ -13,10 +13,12 @@ namespace SeeSharpersCinema.Website.Controllers
     public class HomeController : Controller
     {
         private IPlayListRepository repository;
+        private IMovieRepository movieRepository;
 
-        public HomeController(IPlayListRepository repo)
+        public HomeController(IPlayListRepository repo, IMovieRepository movieRepo)
         {
             repository = repo;
+            movieRepository = movieRepo;
         }
 
         public async Task<IActionResult> Index()
@@ -28,6 +30,24 @@ namespace SeeSharpersCinema.Website.Controllers
             }
             return View(movieWeek);
         }
+
+        public async Task<IActionResult> Details(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = repository.Movies
+                .FirstOrDefault(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
+        }
+
         public DateTime GetNextThursday()
         {
             DateTime today = DateTime.Now.Date;
