@@ -13,11 +13,19 @@ namespace SeeSharpersCinema.Models.Repository
     {
         private CinemaDbContext context;
 
+        /// <summary>
+        /// Constructor EFPlayListRepository
+        /// </summary>
+        /// <param name="ctx">EFPlayListRepository needs a CinemaDbContext object</param>
         public EFPlayListRepository(CinemaDbContext ctx)
         {
             context = ctx;
         }
 
+        /// <summary>
+        /// Method to find all movies in a task for correct threading
+        /// </summary>
+        /// <returns>IEnumerable list of PlayList objects</returns>
         public async Task<IEnumerable<PlayList>> FindAllAsync()
             => await context.PlayLists
             .Include(b => b.Movie)
