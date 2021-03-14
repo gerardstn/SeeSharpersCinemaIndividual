@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SeeSharpersCinema.Models.Repository;
+using SeeSharpersCinema.Models.ViewModel;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
-
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -15,10 +19,6 @@ namespace SeeSharpersCinema.Website.Controllers
             repository = repo;
         }
 
-        /// <summary>
-        /// Queries the repository for specific movies.
-        /// </summary>
-        /// <returns>Movies between today and the upcomming Thursday.</returns>
         public async Task<IActionResult> Index()
         {
             var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
@@ -28,15 +28,10 @@ namespace SeeSharpersCinema.Website.Controllers
             }
             return View(movieWeek);
         }
-
-        /// <summary>
-        /// Gets the amount of days untill it is Thursday,  and adds this to the current date.
-        /// </summary>
-        /// <returns>The date of the first upcomming Thursday</returns>
-        private DateTime GetNextThursday()
+        public DateTime GetNextThursday()
         {
             DateTime today = DateTime.Now.Date;
-            // The (... + 7) % 7 ensures we end up with a value in the range [0, 6]
+            //Voorbeeld voor vrijdag: 4 - 5 + 7 = 6 dagen tot donderdag. mooie uitleg: https://stackoverflow.com/questions/6346119/datetime-get-next-tuesday
             int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)today.DayOfWeek + 7) % 7;
             DateTime nextThursday = today.AddDays(daysUntilThursday);
             return nextThursday;
