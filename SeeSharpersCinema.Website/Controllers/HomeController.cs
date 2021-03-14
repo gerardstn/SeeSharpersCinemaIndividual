@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
@@ -13,12 +14,10 @@ namespace SeeSharpersCinema.Website.Controllers
     public class HomeController : Controller
     {
         private IPlayListRepository repository;
-        private IMovieRepository movieRepository;
 
-        public HomeController(IPlayListRepository repo, IMovieRepository movieRepo)
+        public HomeController(IPlayListRepository repo)
         {
             repository = repo;
-            movieRepository = movieRepo;
         }
 
         public async Task<IActionResult> Index()
@@ -38,8 +37,8 @@ namespace SeeSharpersCinema.Website.Controllers
                 return NotFound();
             }
 
-            var movie = repository.Movies
-                .FirstOrDefault(m => m.Id == id);
+            var movie = await repository.Movies
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)
             {
                 return NotFound();
