@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<PlayList>
+@using SeeSharpersCinema.Models.Film
 
 <div class="row"><h1>Vandaag tot Donderdag</h1></div>
 <div class="my-4">
@@ -7,39 +8,17 @@
         <input type="date" name="uiDate" />
         <select name="uiGenre">
             <option value="">Genre</option>
-            <option value="Animation">Animation</option>
-            <option value="Action">Action</option>
-            <option value="ActionComedy">ActionComedy</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Children">Children</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Horror">Horror</option>
-            <option value="Mystery">Mystery</option>
-            <option value="RomCom">RomCom</option>
-            <option value="Romance">Romance</option>
-            <option value="SciFi">SciFi</option>
-            <option value="Superhero">Superhero</option>
-            <option value="Thriller">Thriller</option>
+            @foreach (Genre genre in (Genre[])Enum.GetValues(typeof(Genre)))
+            {
+                <option value="@genre">@genre</option>
+            }
         </select>
         <select name="uiViewIndication">
             <option value="">ViewIndication</option>
-            <option value="All">All</option>
-            <option value="Six">Six</option>
-            <option value="Nine">Nine</option>
-            <option value="Twelve">Twelve</option>
-            <option value="Fourteen">Fourteen</option>
-            <option value="Sixteen">Sixteen</option>
-            <option value="Eighteen">Eighteen</option>
-            <option value="Violence">Violence</option>
-            <option value="Fear">Fear</option>
-            <option value="Sex">Sex</option>
-            <option value="StrongLanguage">StrongLanguage</option>
-            <option value="DrugsAlcoholAbuse">DrugsAlcoholAbuse</option>
-            <option value="Discrimination">Discrimination</option>
+            @foreach (ViewIndication viewIndication in (ViewIndication[])Enum.GetValues(typeof(ViewIndication)))
+            {
+                <option value="@viewIndication">@viewIndication</option>
+            }
         </select>
         <button class="btn btn-primary" type="submit">Filter</button>
         <button class="btn btn-danger" type="submit">Reset</button>
