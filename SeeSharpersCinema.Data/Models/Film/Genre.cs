@@ -5,6 +5,7 @@
     /// </summary>
     public enum Genre
     {
+        HackerEDITME,
         Comedy,
         SciFi,
         Horror,
@@ -21,6 +22,6 @@
         RomCom,
         ActionComedy,
         Superhero,
-        Documentary
+        Documentary,
     }
 }
