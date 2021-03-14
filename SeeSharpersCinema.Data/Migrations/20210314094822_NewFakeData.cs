@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class NewFakeData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
