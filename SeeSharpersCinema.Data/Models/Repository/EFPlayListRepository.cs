@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,6 @@ namespace SeeSharpersCinema.Models.Repository
             .OrderBy(p => p.TimeSlot.SlotStart)
             .ThenBy(q => q.TimeSlot.RoomId)
             .ToListAsync();
-
 
         /// <summary>
         /// Queries the database to return movies between specific dates.
@@ -59,17 +59,63 @@ namespace SeeSharpersCinema.Models.Repository
             .Where(z => z.TimeSlot.SlotStart.Date == uiDate)
             .ToListAsync();
 
+        public async Task<IEnumerable<PlayList>> FindByGenre(DateTime startDate, DateTime endDate, string uiGenre)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate && 
+                    z.Movie.Genre.Equals(Enum.Parse(typeof(Genre), uiGenre)))
+            .ToListAsync();
 
-        // TODO FIND TITLE AND DATE
-        // TODO FIND BY GENRE: HARDCODED DROPDOWN
-        //public async Task<IEnumerable<PlayList>> FindByTitleAndDate(string uiTitle, DateTime uiDate)
-        //    => await context.PlayLists
-        //    .Include(b => b.Movie)
-        //    .Include(c => c.TimeSlot)
-        //    .OrderBy(p => p.TimeSlot.SlotStart)
-        //    .ThenBy(q => q.TimeSlot.RoomId)
-        //    .Where(z => z.TimeSlot.SlotStart.Date == uiDate && z.Movie.Title.Contains(uiTitle))
-        //    .ToListAsync();
+        public async Task<IEnumerable<PlayList>> FindByTitleAndDate(string uiTitle, DateTime uiDate)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.Movie.Title.Contains(uiTitle) && z.TimeSlot.SlotStart.Date == uiDate)
+            .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindByDateAndGenre(DateTime uiDate, string uiGenre)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date == uiDate && z.Movie.Genre.Equals(Enum.Parse(typeof(Genre), uiGenre)))
+            .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindByViewIndication(DateTime startDate, DateTime endDate, string uiViewIndication)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate && 
+                    z.Movie.ViewIndication.Equals(Enum.Parse(typeof(ViewIndication), uiViewIndication)))
+            .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindByDateAndViewIndication(DateTime uiDate, string uiViewIndication)
+            => await context.PlayLists
+            .Include(b => b.Movie)
+            .Include(c => c.TimeSlot)
+            .OrderBy(p => p.TimeSlot.SlotStart)
+            .ThenBy(q => q.TimeSlot.RoomId)
+            .Where(z => z.TimeSlot.SlotStart.Date == uiDate && z.Movie.ViewIndication.Equals(Enum.Parse(typeof(ViewIndication), uiViewIndication)))
+            .ToListAsync();
+
+        public async Task<IEnumerable<PlayList>> FindByViewIndicationAndGenre(DateTime startDate, DateTime endDate, string uiViewIndication, string uiGenre)
+           => await context.PlayLists
+           .Include(b => b.Movie)
+           .Include(c => c.TimeSlot)
+           .OrderBy(p => p.TimeSlot.SlotStart)
+           .ThenBy(q => q.TimeSlot.RoomId)
+           .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate &&
+                   z.Movie.ViewIndication.Equals(Enum.Parse(typeof(ViewIndication), uiViewIndication)) &&
+                   z.Movie.Genre.Equals(Enum.Parse(typeof(Genre), uiGenre)))
+           .ToListAsync();
 
     }
 }
