@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210315102946_ReservedSeats2")]
-    partial class ReservedSeats2
+    [Migration("20210315110255_ReservedSeats")]
+    partial class ReservedSeats
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,18 +28,13 @@ namespace SeeSharpersCinema.Data.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("RoomId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("SeatId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("SeatId")
+                        .HasColumnType("int");
 
                     b.Property<long>("TimeSlotId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoomId");
 
                     b.HasIndex("TimeSlotId");
 
@@ -49,198 +44,170 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            RoomId = 1L,
-                            SeatId = 1L,
+                            SeatId = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 2L,
-                            RoomId = 1L,
-                            SeatId = 2L,
+                            SeatId = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 3L,
-                            RoomId = 1L,
-                            SeatId = 4L,
+                            SeatId = 4,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 4L,
-                            RoomId = 1L,
-                            SeatId = 5L,
+                            SeatId = 5,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 5L,
-                            RoomId = 1L,
-                            SeatId = 7L,
+                            SeatId = 7,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 6L,
-                            RoomId = 1L,
-                            SeatId = 8L,
+                            SeatId = 8,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 7L,
-                            RoomId = 1L,
-                            SeatId = 10L,
+                            SeatId = 10,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 8L,
-                            RoomId = 1L,
-                            SeatId = 11L,
+                            SeatId = 11,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 9L,
-                            RoomId = 1L,
-                            SeatId = 13L,
+                            SeatId = 13,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 10L,
-                            RoomId = 1L,
-                            SeatId = 14L,
-                            TimeSlotId = 1L
+                            SeatId = 14,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 11L,
-                            RoomId = 1L,
-                            SeatId = 16L,
-                            TimeSlotId = 1L
+                            SeatId = 16,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 12L,
-                            RoomId = 1L,
-                            SeatId = 17L,
-                            TimeSlotId = 1L
+                            SeatId = 17,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 13L,
-                            RoomId = 1L,
-                            SeatId = 19L,
-                            TimeSlotId = 1L
+                            SeatId = 19,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 14L,
-                            RoomId = 1L,
-                            SeatId = 20L,
-                            TimeSlotId = 1L
+                            SeatId = 20,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 15L,
-                            RoomId = 2L,
-                            SeatId = 1L,
-                            TimeSlotId = 1L
+                            SeatId = 1,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 16L,
-                            RoomId = 2L,
-                            SeatId = 2L,
-                            TimeSlotId = 1L
+                            SeatId = 2,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 17L,
-                            RoomId = 2L,
-                            SeatId = 4L,
-                            TimeSlotId = 1L
+                            SeatId = 4,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 18L,
-                            RoomId = 2L,
-                            SeatId = 5L,
-                            TimeSlotId = 1L
+                            SeatId = 5,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 19L,
-                            RoomId = 2L,
-                            SeatId = 7L,
-                            TimeSlotId = 1L
+                            SeatId = 7,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 20L,
-                            RoomId = 2L,
-                            SeatId = 8L,
-                            TimeSlotId = 1L
+                            SeatId = 8,
+                            TimeSlotId = 3L
                         },
                         new
                         {
                             Id = 21L,
-                            RoomId = 2L,
-                            SeatId = 10L,
-                            TimeSlotId = 1L
+                            SeatId = 10,
+                            TimeSlotId = 4L
                         },
                         new
                         {
                             Id = 22L,
-                            RoomId = 2L,
-                            SeatId = 11L,
-                            TimeSlotId = 1L
+                            SeatId = 11,
+                            TimeSlotId = 4L
                         },
                         new
                         {
                             Id = 23L,
-                            RoomId = 2L,
-                            SeatId = 50L,
-                            TimeSlotId = 1L
+                            SeatId = 50,
+                            TimeSlotId = 4L
                         },
                         new
                         {
                             Id = 24L,
-                            RoomId = 2L,
-                            SeatId = 51L,
-                            TimeSlotId = 1L
+                            SeatId = 51,
+                            TimeSlotId = 4L
                         },
                         new
                         {
                             Id = 25L,
-                            RoomId = 3L,
-                            SeatId = 94L,
-                            TimeSlotId = 1L
+                            SeatId = 94,
+                            TimeSlotId = 5L
                         },
                         new
                         {
                             Id = 26L,
-                            RoomId = 3L,
-                            SeatId = 95L,
-                            TimeSlotId = 1L
+                            SeatId = 95,
+                            TimeSlotId = 5L
                         },
                         new
                         {
                             Id = 27L,
-                            RoomId = 3L,
-                            SeatId = 112L,
-                            TimeSlotId = 1L
+                            SeatId = 112,
+                            TimeSlotId = 5L
                         },
                         new
                         {
                             Id = 28L,
-                            RoomId = 3L,
-                            SeatId = 113L,
-                            TimeSlotId = 1L
+                            SeatId = 113,
+                            TimeSlotId = 5L
                         });
                 });
 
@@ -1445,19 +1412,11 @@ namespace SeeSharpersCinema.Data.Migrations
 
             modelBuilder.Entity("SeeSharpersCinema.Data.Models.Program.ReservedSeat", b =>
                 {
-                    b.HasOne("SeeSharpersCinema.Models.Theater.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SeeSharpersCinema.Models.TimeSlot", "TimeSlot")
                         .WithMany()
                         .HasForeignKey("TimeSlotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Room");
 
                     b.Navigation("TimeSlot");
                 });

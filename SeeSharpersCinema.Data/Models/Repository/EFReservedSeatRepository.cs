@@ -24,8 +24,7 @@ namespace SeeSharpersCinema.Data.Models.Repository
         public async Task<IEnumerable<ReservedSeat>> FindAllAsync()
             => await context.ReservedSeats
             .Include(s => s.SeatId)
-            .Include(c => c.TimeSlotId)
-            .Include(r => r.RoomId)
+            .Include(c => c.TimeSlot)
             .OrderBy(q => q.TimeSlotId)
             .ToListAsync();
 

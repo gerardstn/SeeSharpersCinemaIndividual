@@ -12,10 +12,8 @@ namespace SeeSharpersCinema.Data.Models.Program
     {
         public long Id { get; set; }
         public long TimeSlotId { get; set; }
-        public long RoomId { get; set; }
-        public long SeatId{get; set;}
+        public int SeatId {get; set;}
         public TimeSlot TimeSlot { get; set; }
-        public Room Room { get; set; }
 
     }
 }
