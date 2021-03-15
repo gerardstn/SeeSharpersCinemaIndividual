@@ -31,7 +31,7 @@ namespace SeeSharpersCinema.Website.Controllers
         public async Task<IActionResult> Index(string uiTitle, string uiDate, string uiGenre, string uiViewIndication)
         {
             // Get movies of current filmweek
-            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
+            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, DateHelper.GetNextThursday());
 
             // Get movies of current filmweek with this title
             if (!String.IsNullOrEmpty(uiTitle))
