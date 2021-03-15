@@ -34,7 +34,7 @@ namespace SeeSharpersCinema.Website.Controllers
 
             //ViewData["ReservedSeats"] = Seats;
             ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
-            ViewData["PlatlistId"] = PlayList.Id;
+            ViewData["PlaylistId"] = PlayList.Id;
 
             return View(Seats);
         }
