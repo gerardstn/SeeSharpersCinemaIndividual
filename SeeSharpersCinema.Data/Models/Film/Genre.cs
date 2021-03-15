@@ -1,5 +1,8 @@
 ﻿namespace SeeSharpersCinema.Models.Film
 {
+    /// <summary>
+    /// Enum to store all types of genre
+    /// </summary>
     public enum Genre
     {
         HackerEDITME,
