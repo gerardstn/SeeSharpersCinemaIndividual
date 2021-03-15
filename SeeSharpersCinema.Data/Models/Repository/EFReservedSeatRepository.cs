@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Data.Models.Repository
 {
-    class EFReservedSeatRepository
+    class EFReservedSeatRepository: IReservedSeatRepository
     {
 
         private CinemaDbContext context;

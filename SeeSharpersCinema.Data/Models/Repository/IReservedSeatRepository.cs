@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Models.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Data.Models.Repository
 {
-    class IReservedSeatRepository
+    public interface IReservedSeatRepository: IRepository<ReservedSeat>
     {
         //IQueryable<ReservedSeat> ReservedSeat { get; }
         

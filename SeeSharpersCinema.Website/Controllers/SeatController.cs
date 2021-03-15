@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ namespace SeeSharpersCinema.Website.Controllers
     public class SeatController : Controller
     {
 
-        private IPlayListRepository repository;
+        private IPlayListRepository playListRepository;
+        private IReservedSeatRepository seatRepository;
 
-        public SeatController(IPlayListRepository repository)
+        public SeatController(IPlayListRepository playListRepository, IReservedSeatRepository seatRepository)
         {
-            this.repository = repository;
+            this.playListRepository = playListRepository;
+            this.seatRepository = seatRepository;
         }
 
         [Route("Seat/Selector/{playListId}")]
@@ -33,7 +36,7 @@ namespace SeeSharpersCinema.Website.Controllers
                         };
                         return View(ticket);*/
 
-            var PlayListList = await repository.FindAllAsync();
+            var PlayListList = await playListRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
 
             return View(PlayList);
