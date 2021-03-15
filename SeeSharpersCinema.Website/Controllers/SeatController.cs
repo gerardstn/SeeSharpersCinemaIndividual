@@ -24,23 +24,11 @@ namespace SeeSharpersCinema.Website.Controllers
         public async Task<IActionResult> Selector([FromRoute] long playListId)
         {
 
-            /*var selectedPlayList = repository.PlayList.FirstOrDefault(m => m.Id == movieId);
-                        if (selectedMovie == null)
-                        {
-                            return NotFound();
-                        }
-
-                        Ticket ticket = new Ticket()
-                        {
-                            Movie = selectedMovie
-                        };
-                        return View(ticket);*/
-
             var PlayListList = await playListRepository.FindAllAsync();
             var ReservedSeatList = await seatRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
             var ReservedSeats = ReservedSeatList.All(p => p.TimeSlotId == PlayList.TimeSlotId);
-            
+
             return View(ReservedSeats);
         }
 

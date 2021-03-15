@@ -11,7 +11,6 @@ namespace SeeSharpersCinema.Data.Models.Repository
 {
     class EFReservedSeatRepository: IReservedSeatRepository
     {
-
         private CinemaDbContext context;
 
         public EFReservedSeatRepository(CinemaDbContext ctx)
