@@ -1,14 +1,14 @@
-﻿@model SeeSharpersCinema.Models.Program.PlayList
+﻿@model SeeSharpersCinema.Data.Models.Program.ReservedSeat
 
 <a asp-controller="playlist" asp-action="Overview" type="button" class="btn btn-primary btn-lg">Back</a>
 <h1>Stoel selectie</h1>
 <h2>@Model.TimeSlot.SlotStart</h2>
-
+<h2>@Model.T</h2>
 
 @*<h2>@Model.TimeSlot.SlotStart</h2>
     <h2>@Model.TimeSlot.SlotStart</h2>
     <h2>@Model.TimeSlot.Room.Capacity</h2>*@
-<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+@*<img class="img-fluid" src="@Model.Movie.PosterUrl" />
 <ul>
     <li>@Model.Movie.Technique</li>
     <li>@Model.Movie.Duration Min</li>
@@ -39,4 +39,4 @@
 </div>
 
 
-<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>
+<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>*@

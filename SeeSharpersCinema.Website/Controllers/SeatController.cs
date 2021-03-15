@@ -37,9 +37,11 @@ namespace SeeSharpersCinema.Website.Controllers
                         return View(ticket);*/
 
             var PlayListList = await playListRepository.FindAllAsync();
+            var ReservedSeatList = await seatRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
-
-            return View(PlayList);
+            var ReservedSeats = ReservedSeatList.All(p => p.TimeSlotId == PlayList.TimeSlotId);
+            
+            return View(ReservedSeats);
         }
 
     }
