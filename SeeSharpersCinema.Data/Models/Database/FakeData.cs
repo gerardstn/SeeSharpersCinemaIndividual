@@ -398,7 +398,7 @@ namespace SeeSharpersCinema.Models.Database
                 new ReservedSeat { Id = 25, RoomId=3, TimeSlotId =1, SeatId =94 },
                 new ReservedSeat { Id = 26, RoomId=3, TimeSlotId =1, SeatId =95 },
                 new ReservedSeat { Id = 27, RoomId=3, TimeSlotId =1, SeatId =112 },
-                new ReservedSeat { Id = 27, RoomId=3, TimeSlotId =1, SeatId =113 }
+                new ReservedSeat { Id = 28, RoomId=3, TimeSlotId =1, SeatId =113 }
         };
     }
 }
