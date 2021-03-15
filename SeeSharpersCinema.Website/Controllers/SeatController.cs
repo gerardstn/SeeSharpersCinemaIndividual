@@ -25,11 +25,18 @@ namespace SeeSharpersCinema.Website.Controllers
         {
 
             var PlayListList = await playListRepository.FindAllAsync();
-            var ReservedSeatList = await seatRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
-            var ReservedSeats = ReservedSeatList.All(p => p.TimeSlotId == PlayList.TimeSlotId);
 
-            return View(ReservedSeats);
+            //test all reserved seats
+            var ReservedSeats = await seatRepository.FindAllByTimeSlotIdAsync(PlayList.TimeSlotId);
+
+            var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
+
+            //ViewData["ReservedSeats"] = Seats;
+            ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
+            ViewData["PlatlistId"] = PlayList.Id;
+
+            return View(Seats);
         }
 
     }

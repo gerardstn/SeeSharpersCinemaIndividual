@@ -2,7 +2,7 @@
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class reservedSeats4 : Migration
+    public partial class Reserved_Seats2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

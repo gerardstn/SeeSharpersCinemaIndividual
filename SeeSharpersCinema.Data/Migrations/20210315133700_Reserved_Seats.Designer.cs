@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210315112452_reservedSeats4")]
-    partial class reservedSeats4
+    [Migration("20210315133700_Reserved_Seats")]
+    partial class Reserved_Seats
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -263,7 +263,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Roger Michell",
                             Duration = 98,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/32660_128633_ps_sd-high.jpg",
                             Technique = "2D",
@@ -278,7 +278,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
                             Duration = 98,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33783_134425_ps_sd-high.jpg",
                             Technique = "2D",
@@ -293,7 +293,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Matthijs van Heijningen Jr.",
                             Duration = 124,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/PathePartners/movie-25169-SlagOmDeScheldeDe_Poster_DEF.jpg",
                             Technique = "2D",
@@ -308,7 +308,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
                             Duration = 84,
-                            Genre = 10,
+                            Genre = 11,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23672_133688_ps_sd-high.jpg",
                             Technique = "3D",
@@ -323,7 +323,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Spike Lee",
                             Duration = 105,
-                            Genre = 16,
+                            Genre = 17,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508//gfx_content/other/api/filmdepot/v1/movie/download/33816_134505_ps_sd-high.jpg",
                             Technique = "2D",
@@ -338,7 +338,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Lee Daniels",
                             Duration = 130,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33645_134768_ps_sd-high.jpg",
                             Technique = "2D",
@@ -353,7 +353,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
                             Duration = 95,
-                            Genre = 9,
+                            Genre = 10,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg",
                             Technique = "3D",
@@ -368,7 +368,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
                             Duration = 95,
-                            Genre = 10,
+                            Genre = 11,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg",
                             Technique = "3D",
@@ -383,7 +383,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Charlène Favier",
                             Duration = 92,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/Slalom.jpg",
                             Technique = "2D",
@@ -398,7 +398,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Donato Carrisi",
                             Duration = 130,
-                            Genre = 8,
+                            Genre = 9,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33764_133801_ps_sd-high.jpg",
                             Technique = "2D",
@@ -413,7 +413,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Mike P. Nelson",
                             Duration = 110,
-                            Genre = 2,
+                            Genre = 3,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33804_134756_ps_sd-high.jpg",
                             Technique = "2D",
@@ -428,7 +428,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "David Silverman",
                             Duration = 84,
-                            Genre = 10,
+                            Genre = 11,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33774_133282_ps_sd-high.jpg",
                             Technique = "2D",
@@ -443,7 +443,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Ilya Naishuller",
                             Duration = 92,
-                            Genre = 5,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23923_133307_ps_sd-high.jpg",
                             Technique = "2D",
@@ -458,7 +458,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Florian Zeller",
                             Duration = 97,
-                            Genre = 6,
+                            Genre = 7,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33495_134471_ps_sd-high.jpg",
                             Technique = "2D",
@@ -466,6 +466,33 @@ namespace SeeSharpersCinema.Data.Migrations
                             ViewIndication = 2,
                             Year = 2020
                         });
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Order.Ticket", b =>
+                {
+                    b.Property<long>("TicketID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("MovieId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("RoomId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("TimeSlotId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("TicketID");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("TimeSlotId");
+
+                    b.ToTable("Ticket");
                 });
 
             modelBuilder.Entity("SeeSharpersCinema.Models.Program.PlayList", b =>
@@ -1417,6 +1444,27 @@ namespace SeeSharpersCinema.Data.Migrations
                         .HasForeignKey("TimeSlotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("TimeSlot");
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Order.Ticket", b =>
+                {
+                    b.HasOne("SeeSharpersCinema.Models.Film.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId");
+
+                    b.HasOne("SeeSharpersCinema.Models.Theater.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("SeeSharpersCinema.Models.TimeSlot", "TimeSlot")
+                        .WithMany()
+                        .HasForeignKey("TimeSlotId");
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Room");
 
                     b.Navigation("TimeSlot");
                 });

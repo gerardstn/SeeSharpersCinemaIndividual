@@ -22,10 +22,17 @@ namespace SeeSharpersCinema.Data.Models.Repository
 
         public async Task<IEnumerable<ReservedSeat>> FindAllAsync()
             => await context.ReservedSeats
-            .Include(s => s.SeatId)
+            //.Include(s => s.SeatId)
             .Include(c => c.TimeSlot)
             .OrderBy(q => q.TimeSlotId)
             .ToListAsync();
 
-}
+        public async Task<IEnumerable<ReservedSeat>> FindAllByTimeSlotIdAsync(long TimeSlotId)
+            => await context.ReservedSeats
+            //.Include(s => s.SeatId)
+            .Include(c => c.TimeSlot)
+            .Include(r => r.TimeSlot.Room)
+            .Where(t => t.TimeSlotId == TimeSlotId)
+            .ToListAsync();
+    }
 }
