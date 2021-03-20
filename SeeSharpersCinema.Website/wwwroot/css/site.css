@@ -94,7 +94,7 @@ p.poster_label {
     box-shadow: 0 0 25px rgb(0 0 0 / 60%);
 }
 
-/*Custom css Alert 20-03-2021, Gerard*/
+/*Custom css notice or alert banner 20-03-2021, Gerard*/
 #website-notice {
     display: grid;
     grid-template-columns: 1fr 8fr;
