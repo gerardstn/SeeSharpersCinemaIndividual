@@ -26,38 +26,51 @@ namespace SeeSharpersCinema.Website.Controllers
         [Route("Seat/Selector/{playListId}")]
         public async Task<IActionResult> Selector([FromRoute] long playListId)
         {
-
             var PlayListList = await playListRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
 
             //test all reserved seats
             var ReservedSeats = await seatRepository.FindAllByTimeSlotIdAsync(PlayList.TimeSlotId);
 
-            var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
+            //var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
+            var Seats = GetReservedSeats(ReservedSeats);
 
             //ViewData["ReservedSeats"] = Seats;
             ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
             ViewData["PlaylistId"] = PlayList.Id;
+            ViewData["ReservedSeats"] = Seats;
             TimeSlotId = PlayList.TimeSlotId;
 
             return View(Seats);
         }
 
-/*        public void SaveSeats(List<int> SeatList, int TimeSlotId)
-        {
-            SeatList.ForEach(seat =>
-            {
-                ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = seat, TimeSlotId = TimeSlotId };
-                seatRepository.AddItemAsync(ReserevedSeat);
-            });
-            
-        }
-*/
+        /// <summary>
+        /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context
+        /// </summary>
+
+        /*        public void SaveSeats(List<int> SeatList, int TimeSlotId)
+                {
+                    SeatList.ForEach(seat =>
+                    {
+                        ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = seat, TimeSlotId = TimeSlotId };
+                        seatRepository.AddItemAsync(ReserevedSeat);
+                    });
+
+                }
+        */
+
         public void SaveSeats(int SeatId)
         {
             ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = SeatId, TimeSlotId = TimeSlotId };
             seatRepository.ReserveSeats(ReserevedSeat);
         }
 
+
+        public List<int> GetReservedSeats(IEnumerable<ReservedSeat> ReservedSeats)
+        {
+            var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
+            return Seats;
+
+        }
     }
 }

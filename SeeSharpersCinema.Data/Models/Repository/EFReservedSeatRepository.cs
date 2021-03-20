@@ -41,6 +41,9 @@ namespace SeeSharpersCinema.Data.Models.Repository
 
             //save @ticketsale complete?
             //var saveResult = await context.SaveChangesAsync();
+
+            //todo Remove after dev & testing
+            var saveResult = context.SaveChanges();
             //return saveResult == 1;
         }
     }
