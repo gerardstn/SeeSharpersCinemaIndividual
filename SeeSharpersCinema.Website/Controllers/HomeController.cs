@@ -103,23 +103,6 @@ namespace SeeSharpersCinema.Website.Controllers
             return View(movieWeek);
         }
 
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null)
-            {
-                movieWeek = await repository.FindByViewIndicationAndGenre(DateTime.Now.Date, DateHelper.GetNextThursday(), uiViewIndication, uiGenre);
-            }
-
-            var movie = await repository.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
-
-            return View(movie);
-        }
-
         public IActionResult Privacy()
         {
             return View();
