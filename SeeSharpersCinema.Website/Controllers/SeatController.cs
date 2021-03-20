@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Repository;
 using System;
@@ -13,6 +14,8 @@ namespace SeeSharpersCinema.Website.Controllers
 
         private IPlayListRepository playListRepository;
         private IReservedSeatRepository seatRepository;
+        private long TimeSlotId;
+        bool COVID = true;
 
         public SeatController(IPlayListRepository playListRepository, IReservedSeatRepository seatRepository)
         {
@@ -35,8 +38,25 @@ namespace SeeSharpersCinema.Website.Controllers
             //ViewData["ReservedSeats"] = Seats;
             ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
             ViewData["PlaylistId"] = PlayList.Id;
+            TimeSlotId = PlayList.TimeSlotId;
 
             return View(Seats);
+        }
+
+/*        public void SaveSeats(List<int> SeatList, int TimeSlotId)
+        {
+            SeatList.ForEach(seat =>
+            {
+                ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = seat, TimeSlotId = TimeSlotId };
+                seatRepository.AddItemAsync(ReserevedSeat);
+            });
+            
+        }
+*/
+        public void SaveSeats(int SeatId)
+        {
+            ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = SeatId, TimeSlotId = TimeSlotId };
+            seatRepository.ReserveSeats(ReserevedSeat);
         }
 
     }
