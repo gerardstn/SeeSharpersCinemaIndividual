@@ -18,10 +18,13 @@ namespace SeeSharpersCinema.Models.Repository
             context = ctx;
         }
 
+        //Add Movies to read specific movie in details view
         public IQueryable<Movie> Movies => context.Movies;
 
-        //public IQueryable<PlayList> PlayLists => context.PlayLists;
-
+        /// <summary>
+        /// Queries the database to find all movies in a task for correct threading
+        /// </summary>
+        /// <returns>IEnumerable list of PlayList objects</returns>
         public async Task<IEnumerable<PlayList>> FindAllAsync()
             => await context.PlayLists
             .Include(b => b.Movie)

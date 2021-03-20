@@ -11,6 +11,14 @@ namespace SeeSharpersCinema.Models.Repository
     {
         //IQueryable<PlayList> PlayLists { get; }
         public Task<IEnumerable<PlayList>> FindBetweenDatesAsync(DateTime startDate, DateTime endDate);
+        public Task<IEnumerable<PlayList>> FindByTitle(DateTime startDate, DateTime endDate, string uiTitle);
+        public Task<IEnumerable<PlayList>> FindByDate(DateTime uiDate);
+        public Task<IEnumerable<PlayList>> FindByGenre(DateTime startDate, DateTime endDate, string uiGenre);
+        public Task<IEnumerable<PlayList>> FindByTitleAndDate(string uiTitle, DateTime uiDate);
+        public Task<IEnumerable<PlayList>> FindByDateAndGenre(DateTime uiDate, string uiGenre);
+        public Task<IEnumerable<PlayList>> FindByViewIndication(DateTime startDate, DateTime endDate, string uiViewIndication);
+        public Task<IEnumerable<PlayList>> FindByDateAndViewIndication(DateTime uiDate, string uiViewIndication);
+        public Task<IEnumerable<PlayList>> FindByViewIndicationAndGenre(DateTime startDate, DateTime endDate, string uiViewIndication, string uiGenre);
         IQueryable<Movie> Movies { get; }
     }
 }

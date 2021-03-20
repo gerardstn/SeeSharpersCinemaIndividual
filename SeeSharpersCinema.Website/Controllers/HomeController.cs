@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using SeeSharpersCinema.Infrastructure;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
 using System;
@@ -20,16 +20,11 @@ namespace SeeSharpersCinema.Website.Controllers
             repository = repo;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
-            if (movieWeek == null)
-            {
-                return NotFound();
-            }
-            return View(movieWeek);
-        }
-
+        /// <summary>
+        /// Read detailed view for specific Movie based on MovieId or if an incorect movieId is provided; return NotFound
+        /// </summary>
+        /// <param name="id">MovieId used to read specific Movie</param>
+        /// <returns>NotFound view or specific details view</returns>
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -47,13 +42,82 @@ namespace SeeSharpersCinema.Website.Controllers
             return View(movie);
         }
 
-        public DateTime GetNextThursday()
+        /// <summary>
+        /// Get the View Index for showing current movieweek
+        /// </summary>
+        /// <param name="uiTitle">Selection string: user input for title</param>
+        /// <param name="uiDate">Selection string: user input string for date</param>
+        /// <param name="uiGenre">Selection string: user input string for genre</param>
+        /// <param name="uiViewIndication">Selection string: user input string for view indication</param>
+        /// <returns>View of current movieweek with or without user selection</returns>
+        public async Task<IActionResult> Index(string uiTitle, string uiDate, string uiGenre, string uiViewIndication)
         {
-            DateTime today = DateTime.Now.Date;
-            //Voorbeeld voor vrijdag: 4 - 5 + 7 = 6 dagen tot donderdag. mooie uitleg: https://stackoverflow.com/questions/6346119/datetime-get-next-tuesday
-            int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)today.DayOfWeek + 7) % 7;
-            DateTime nextThursday = today.AddDays(daysUntilThursday);
-            return nextThursday;
+            // Get movies of current filmweek
+            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, DateHelper.GetNextThursday());
+
+            // Get movies of current filmweek with this title
+            if (!String.IsNullOrEmpty(uiTitle))
+            {
+                movieWeek = await repository.FindByTitle(DateTime.Now.Date, DateHelper.GetNextThursday(), uiTitle);
+            }
+
+            // Get movies of this date
+            if (!String.IsNullOrEmpty(uiDate))
+            {
+                DateTime newDate = DateHelper.StringToDateTime(uiDate);
+                movieWeek = await repository.FindByDate(newDate);
+            }
+
+            // Get movies of current filmweek with this genre
+            if (!String.IsNullOrEmpty(uiGenre))
+            {
+                movieWeek = await repository.FindByGenre(DateTime.Now.Date, DateHelper.GetNextThursday(), uiGenre);
+            }
+
+            // Get movies of current filmweek with this view indication
+            if (!String.IsNullOrEmpty(uiViewIndication))
+            {
+                movieWeek = await repository.FindByViewIndication(DateTime.Now.Date, DateHelper.GetNextThursday(), uiViewIndication);
+            }
+
+            // Get movies of this date with this title
+            if (!String.IsNullOrEmpty(uiTitle) && !String.IsNullOrEmpty(uiDate))
+            {
+                DateTime newDate = DateHelper.StringToDateTime(uiDate);
+                movieWeek = await repository.FindByTitleAndDate(uiTitle, newDate);
+            }
+
+            // Get movies of this date with this genre
+            if (!String.IsNullOrEmpty(uiDate) && !String.IsNullOrEmpty(uiGenre))
+            {
+                DateTime newDate = DateHelper.StringToDateTime(uiDate);
+                movieWeek = await repository.FindByDateAndGenre(newDate, uiGenre);
+            }
+
+            // Get movies with this view indication of this date
+            if (!String.IsNullOrEmpty(uiViewIndication) && !String.IsNullOrEmpty(uiDate))
+            {
+                DateTime newDate = DateHelper.StringToDateTime(uiDate);
+                movieWeek = await repository.FindByViewIndication(DateTime.Now.Date, DateHelper.GetNextThursday(), uiViewIndication);
+            }
+            return View(movieWeek);
+        }
+
+        public async Task<IActionResult> Details(long? id)
+        {
+            if (id == null)
+            {
+                movieWeek = await repository.FindByViewIndicationAndGenre(DateTime.Now.Date, DateHelper.GetNextThursday(), uiViewIndication, uiGenre);
+            }
+
+            var movie = await repository.Movies
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            return View(movie);
         }
 
         public IActionResult Privacy()
