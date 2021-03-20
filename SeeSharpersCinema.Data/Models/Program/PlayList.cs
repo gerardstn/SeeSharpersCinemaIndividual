@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 namespace SeeSharpersCinema.Models.Program
 {
+    /// <summary>
+    /// Class PlayList with properties 
+    /// Entity Framework creates a table with Id as primary key and 
+    /// TimeSlotId and MovieId as foreign keys
+    /// </summary>
     public class PlayList
     {
         public long Id { get; set; }
@@ -12,29 +17,5 @@ namespace SeeSharpersCinema.Models.Program
         public long MovieId { get; set; }
         public TimeSlot TimeSlot { get; set; }
         public Movie Movie { get; set; }
-
-        //public int Week { get; set;  }
-
-        //public Dictionary<TimeSlot, Movie> Program { get; set; }
-
-        //public Dictionary<TimeSlot, Movie> GetPlayList()
-        //{
-        //    return Program;
-        //}
-
-        //public void AddToPlayList(TimeSlot timeSlot, Movie movie)
-        //{
-        //    Program.Add(timeSlot, movie);
-        //}
-
-        //public int CountPlayList()
-        //{
-        //    return Program.Count;
-        //}
-
-        //public void DeleteFromPlayList(TimeSlot timeSlot)
-        //{
-        //    Program.Remove(timeSlot);
-        //}
     }
 }
