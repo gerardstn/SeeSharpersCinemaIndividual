@@ -1,29 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Models.Order;
-using SeeSharpersCinema.Models.Film;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
-using SeeSharpersCinema.Models.Payment;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class PaymentController : Controller
     {
         private IMovieRepository repository;
+
+        /// <summary>
+        /// PaymentController constructor
+        /// </summary>
+        /// <param name="repository">Constructor needs IMovieRepository object</param>
         public PaymentController(IMovieRepository repository)
         {
             this.repository = repository;
         }
 
+        /// <summary>
+        /// Get the view Index
+        /// </summary>
+        /// <param name="movieId">Method needs a parameter of type long</param>
+        /// <returns>Ticket view of a specific movie by its id</returns>
         [Route("Ticket/Selector/Payment")]
         public IActionResult Index([FromRoute] long movieId)
         {
             return View();
         }
 
+        /// <summary>
+        /// Get the view Pay and call the email_send method of Emailservice class to send a QR code
+        /// </summary>
+        /// <returns>A redirect action to the view Overview from the PlayList controller</returns>
         public IActionResult Pay()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
