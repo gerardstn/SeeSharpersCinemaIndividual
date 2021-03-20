@@ -93,3 +93,29 @@ p.poster_label {
 .poster_custom img {
     box-shadow: 0 0 25px rgb(0 0 0 / 60%);
 }
+
+/*Custom css Alert 20-03-2021, Gerard*/
+#website-notice {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    background-color: #ad1d1d;
+    color: white;
+    border-radius: 9px;
+    padding: 1em;
+    box-shadow: 0 5px 21px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    margin-bottom: 1em;
+}
+
+#website-notice>.website-notice-icon {
+    font-size: 2em;
+    justify-content: center;
+    display: grid;
+    align-content: center;
+}
+
+#website-notice >.website-notice-text {
+        display: grid;
+        align-content: center;
+        margin: 0;
+        font-size: 1.2em;
+    }
