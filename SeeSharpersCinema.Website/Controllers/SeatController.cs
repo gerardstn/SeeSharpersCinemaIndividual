@@ -14,7 +14,7 @@ namespace SeeSharpersCinema.Website.Controllers
 
         private IPlayListRepository playListRepository;
         private IReservedSeatRepository seatRepository;
-        private long TimeSlotId;
+        //private long TimeSlotId;
         bool COVID = true;
 
         public SeatController(IPlayListRepository playListRepository, IReservedSeatRepository seatRepository)
@@ -39,7 +39,7 @@ namespace SeeSharpersCinema.Website.Controllers
             ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
             ViewData["PlaylistId"] = PlayList.Id;
             ViewData["ReservedSeats"] = Seats;
-            TimeSlotId = PlayList.TimeSlotId;
+            //TimeSlotId = PlayList.TimeSlotId;
 
             return View(Seats);
         }
@@ -59,10 +59,11 @@ namespace SeeSharpersCinema.Website.Controllers
                 }
         */
 
-        public void SaveSeats(int SeatId)
+        public async Task SaveSeats(int SeatId = 32, long TimeSlotId = 2)
         {
             ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = SeatId, TimeSlotId = TimeSlotId };
-            seatRepository.ReserveSeats(ReserevedSeat);
+            await seatRepository.ReserveSeats(ReserevedSeat);
+
         }
 
 

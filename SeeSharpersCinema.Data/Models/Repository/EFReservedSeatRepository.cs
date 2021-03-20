@@ -37,14 +37,24 @@ namespace SeeSharpersCinema.Data.Models.Repository
 
         public async Task ReserveSeats(ReservedSeat reservedSeat)
         {
-            context.Add<ReservedSeat>(reservedSeat);
+            try
+            {
+                //context.Add<ReservedSeat>(reservedSeat);
+                await context.AddAsync(reservedSeat);
+                //var saveResult = await context.SaveChangesAsync();
+                //save @ticketsale complete?
+                //var saveResult = await context.SaveChangesAsync();
 
-            //save @ticketsale complete?
-            //var saveResult = await context.SaveChangesAsync();
-
-            //todo Remove after dev & testing
-            var saveResult = context.SaveChanges();
+                //todo Remove after dev & testing
+                //context.SaveChanges();
+                var saveResult = await context.SaveChangesAsync();
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
             //return saveResult == 1;
         }
+
     }
 }
