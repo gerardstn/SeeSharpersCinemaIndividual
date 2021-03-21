@@ -10,7 +10,7 @@ namespace SeeSharpersCinema.Data.Models.Repository
     public interface IReservedSeatRepository: IRepository<ReservedSeat>
     {
         public Task<IEnumerable<ReservedSeat>> FindAllByTimeSlotIdAsync(long TimeslotId);
-        public Task ReserveSeats(ReservedSeat reservedSeat);
+        public Task ReserveSeats(ICollection<ReservedSeat> reservedSeat);
         //IQueryable<ReservedSeat> ReservedSeat { get; }
 
     }

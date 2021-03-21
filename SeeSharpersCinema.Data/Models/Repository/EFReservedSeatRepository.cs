@@ -35,25 +35,27 @@ namespace SeeSharpersCinema.Data.Models.Repository
             .Where(t => t.TimeSlotId == TimeSlotId)
             .ToListAsync();
 
-        public async Task ReserveSeats(ReservedSeat reservedSeat)
+        public async Task ReserveSeats(ICollection<ReservedSeat> reservedSeat)
         {
             try
             {
                 //context.Add<ReservedSeat>(reservedSeat);
-                await context.AddAsync(reservedSeat);
+                await context.AddRangeAsync(reservedSeat);
                 //var saveResult = await context.SaveChangesAsync();
                 //save @ticketsale complete?
                 //var saveResult = await context.SaveChangesAsync();
 
                 //todo Remove after dev & testing
                 //context.SaveChanges();
+                //await context.SaveChangesAsync();
                 var saveResult = await context.SaveChangesAsync();
+                //return saveResult == 1;
             } catch(Exception e)
             {
                 Console.WriteLine(e.Message);
             }
             
-            //return saveResult == 1;
+            
         }
 
     }

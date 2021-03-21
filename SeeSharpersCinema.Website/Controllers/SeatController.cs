@@ -59,10 +59,22 @@ namespace SeeSharpersCinema.Website.Controllers
                 }
         */
 
-        public async Task SaveSeats(int SeatId = 32, long TimeSlotId = 2)
+        //todo remove once form is implemented
+        public async Task SaveSeatTest()
         {
-            ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = SeatId, TimeSlotId = TimeSlotId };
-            await seatRepository.ReserveSeats(ReserevedSeat);
+            List<int> List = new List<int> { 59, 60, 82, 83, 265, 266 };
+            await SaveSeats(List, 3);
+        }
+
+        public async Task SaveSeats(List<int> SeatId, long TimeSlotId = 2)
+        {
+            List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
+            SeatId.ForEach(s => {
+                ReservedSeat.Add(
+                new ReservedSeat { SeatId = s, TimeSlotId = TimeSlotId }
+                );
+            });
+            await seatRepository.ReserveSeats(ReservedSeat);
 
         }
 
