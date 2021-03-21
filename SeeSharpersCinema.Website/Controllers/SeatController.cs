@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Data.Models.Theater;
 using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Data.Models.ViewModel;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SeeSharpersCinema.Data.Models.Static;
+using Newtonsoft.Json;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -41,58 +43,55 @@ namespace SeeSharpersCinema.Website.Controllers
             SeatViewModel.Movie = PlayList.Movie;
             SeatViewModel.TimeSlot = PlayList.TimeSlot;
             SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
-            ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
-            //add reservedseats & covid seats
+            //ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
+            //
+            //temp room rows, add rows to room
 
+            await SaveSeatTest();
+            //
             return View(SeatViewModel);
         }
 
         //todo remove once form is implemented
         public async Task SaveSeatTest()
         {
-            List<int> List = new List<int> { 59, 60, 82, 83, 265, 266 };
-            await SaveSeats(List, 3);
+
+            List<Seat> List = new List<Seat>
+            {
+                new Seat{RowId = 1, SeatId = 3},
+                new Seat{RowId = 1, SeatId = 4},
+                new Seat{RowId = 2, SeatId = 7},
+                new Seat{RowId = 2, SeatId = 8},
+                new Seat{RowId = 3, SeatId = 9},
+                new Seat{RowId = 3, SeatId = 10}
+
+            };
+            await SaveSeats(List);
         }
 
         /// <summary>
         /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context.
-        /// If COVID is true it disables seats next to reserved seats.
+        /// todo redo covid selection/ reserved
         /// </summary>
-        private async Task SaveSeats(List<int> SeatId, long TimeSlotId)
+        private async Task SaveSeats(List<Seat> Seats, long TimeSlotId= 3)
         {
             List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
-            SeatId.ForEach(s => {
+            Seats.ForEach(s => {
                 ReservedSeat.Add(
                 new ReservedSeat 
                 { 
-                    SeatId = s, TimeSlotId = TimeSlotId , SeatState = SeatState.Reserved}
-                );
-
-                if (COVID)
-                {
-                    if (!SeatId.Contains(s - 1))
-                    {
-                        ReservedSeat.Add(
-                        new ReservedSeat 
-                        { 
-                            SeatId = s, TimeSlotId = TimeSlotId, SeatState = SeatState.Disabled 
-                        });
-                    }
-
-                    if (!SeatId.Contains(s + 1))
-                    {
-                        ReservedSeat.Add(
-                        new ReservedSeat
-                        { 
-                            SeatId = s, TimeSlotId = TimeSlotId, SeatState = SeatState.Disabled }
-                        );
-                    }
-
-                }
+                    SeatId = s.SeatId, 
+                    RowId = s.RowId, 
+                    TimeSlotId = TimeSlotId , 
+                    SeatState = SeatState.Reserved
+                });
             });
+
             await seatRepository.ReserveSeats(ReservedSeat);
 
         }
+
+        
 
     }
 }

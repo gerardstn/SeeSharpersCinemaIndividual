@@ -26,6 +26,9 @@ namespace SeeSharpersCinema.Data.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("RowId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SeatId")
                         .HasColumnType("int");
 
@@ -45,6 +48,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 1L,
+                            RowId = 1,
                             SeatId = 1,
                             SeatState = 1,
                             TimeSlotId = 1L
@@ -52,6 +56,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 2L,
+                            RowId = 1,
                             SeatId = 2,
                             SeatState = 1,
                             TimeSlotId = 1L
@@ -59,6 +64,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 3L,
+                            RowId = 1,
                             SeatId = 3,
                             SeatState = 2,
                             TimeSlotId = 1L
@@ -66,6 +72,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 4L,
+                            RowId = 1,
                             SeatId = 4,
                             SeatState = 1,
                             TimeSlotId = 1L
@@ -73,6 +80,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 5L,
+                            RowId = 1,
                             SeatId = 5,
                             SeatState = 1,
                             TimeSlotId = 1L
@@ -80,34 +88,39 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 6L,
-                            SeatId = 30,
+                            RowId = 2,
+                            SeatId = 5,
                             SeatState = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 7L,
-                            SeatId = 31,
+                            RowId = 2,
+                            SeatId = 6,
                             SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 8L,
-                            SeatId = 32,
+                            RowId = 2,
+                            SeatId = 8,
                             SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 9L,
-                            SeatId = 33,
+                            RowId = 2,
+                            SeatId = 9,
                             SeatState = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 10L,
+                            RowId = 1,
                             SeatId = 1,
                             SeatState = 1,
                             TimeSlotId = 2L
@@ -115,6 +128,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 11L,
+                            RowId = 1,
                             SeatId = 2,
                             SeatState = 1,
                             TimeSlotId = 2L
@@ -122,6 +136,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 12L,
+                            RowId = 1,
                             SeatId = 3,
                             SeatState = 2,
                             TimeSlotId = 2L
@@ -129,6 +144,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 13L,
+                            RowId = 1,
                             SeatId = 4,
                             SeatState = 1,
                             TimeSlotId = 2L
@@ -136,6 +152,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 14L,
+                            RowId = 1,
                             SeatId = 5,
                             SeatState = 1,
                             TimeSlotId = 2L
@@ -143,28 +160,32 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 15L,
-                            SeatId = 30,
+                            RowId = 2,
+                            SeatId = 5,
                             SeatState = 2,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 16L,
-                            SeatId = 31,
+                            RowId = 2,
+                            SeatId = 6,
                             SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 17L,
-                            SeatId = 32,
+                            RowId = 2,
+                            SeatId = 8,
                             SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 18L,
-                            SeatId = 33,
+                            RowId = 2,
+                            SeatId = 9,
                             SeatState = 2,
                             TimeSlotId = 2L
                         });

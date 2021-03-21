@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class Seatstates : Migration
+    public partial class addedRows : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -124,6 +124,7 @@ namespace SeeSharpersCinema.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TimeSlotId = table.Column<long>(type: "bigint", nullable: false),
                     SeatId = table.Column<int>(type: "int", nullable: false),
+                    RowId = table.Column<int>(type: "int", nullable: false),
                     SeatState = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -352,27 +353,27 @@ namespace SeeSharpersCinema.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "ReservedSeat",
-                columns: new[] { "Id", "SeatId", "SeatState", "TimeSlotId" },
+                columns: new[] { "Id", "RowId", "SeatId", "SeatState", "TimeSlotId" },
                 values: new object[,]
                 {
-                    { 9L, 33, 2, 1L },
-                    { 2L, 2, 1, 1L },
-                    { 3L, 3, 2, 1L },
-                    { 4L, 4, 1, 1L },
-                    { 5L, 5, 1, 1L },
-                    { 6L, 30, 2, 1L },
-                    { 7L, 31, 1, 1L },
-                    { 8L, 32, 1, 1L },
-                    { 17L, 32, 1, 2L },
-                    { 11L, 2, 1, 2L },
-                    { 12L, 3, 2, 2L },
-                    { 13L, 4, 1, 2L },
-                    { 14L, 5, 1, 2L },
-                    { 15L, 30, 2, 2L },
-                    { 16L, 31, 1, 2L },
-                    { 18L, 33, 2, 2L },
-                    { 10L, 1, 1, 2L },
-                    { 1L, 1, 1, 1L }
+                    { 9L, 2, 9, 2, 1L },
+                    { 2L, 1, 2, 1, 1L },
+                    { 3L, 1, 3, 2, 1L },
+                    { 4L, 1, 4, 1, 1L },
+                    { 5L, 1, 5, 1, 1L },
+                    { 6L, 2, 5, 2, 1L },
+                    { 7L, 2, 6, 1, 1L },
+                    { 8L, 2, 8, 1, 1L },
+                    { 17L, 2, 8, 1, 2L },
+                    { 11L, 1, 2, 1, 2L },
+                    { 12L, 1, 3, 2, 2L },
+                    { 13L, 1, 4, 1, 2L },
+                    { 14L, 1, 5, 1, 2L },
+                    { 15L, 2, 5, 2, 2L },
+                    { 16L, 2, 6, 1, 2L },
+                    { 18L, 2, 9, 2, 2L },
+                    { 10L, 1, 1, 1, 2L },
+                    { 1L, 1, 1, 1, 1L }
                 });
 
             migrationBuilder.CreateIndex(
