@@ -25,6 +25,9 @@ namespace SeeSharpersCinema.Website.Controllers
             this.seatRepository = seatRepository;
         }
 
+        /// <summary>
+        /// Selector creates SeatViewModel for the view
+        /// </summary>
         [Route("Seat/Selector/{playListId}")]
         public async Task<IActionResult> Selector([FromRoute] long playListId)
         {
@@ -52,7 +55,8 @@ namespace SeeSharpersCinema.Website.Controllers
         }
 
         /// <summary>
-        /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context
+        /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context.
+        /// If COVID is true it disables seats next to reserved seats.
         /// </summary>
         private async Task SaveSeats(List<int> SeatId, long TimeSlotId)
         {
