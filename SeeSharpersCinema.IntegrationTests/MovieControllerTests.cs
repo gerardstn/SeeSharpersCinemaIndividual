@@ -10,7 +10,7 @@ using Xunit;
 
 namespace SeeSharpersCinema.Tests
 {
-    public class MovieControllerTest
+    public class MovieControllerTests
     {
         [Fact]
         public void UsableMovieRepo()
