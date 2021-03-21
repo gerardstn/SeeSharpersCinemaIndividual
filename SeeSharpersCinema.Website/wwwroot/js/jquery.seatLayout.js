@@ -119,7 +119,7 @@
         _el.find('li').click(function (e) {
             if ($(this).hasClass('can-select')) {
                 var seatData = getObjData($(this))
-                var nextAll = $(this).nextAll().andSelf();
+                var nextAll = $(this).nextAll().addBack();
                 if (selectedSeats.length == nuberOfSeat) {
                     tempSelected = 0;
                     selectedSeats = [];
