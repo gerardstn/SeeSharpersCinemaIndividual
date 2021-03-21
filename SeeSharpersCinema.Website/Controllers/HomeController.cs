@@ -10,6 +10,7 @@ namespace SeeSharpersCinema.Website.Controllers
 {
     public class HomeController : Controller
     {
+
         private IPlayListRepository repository;
 
         /// <summary>

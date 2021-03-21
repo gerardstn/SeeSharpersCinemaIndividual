@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class NewFakeData : Migration
+    public partial class addingNotice : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,19 @@ namespace SeeSharpersCinema.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movie", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notice",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notice", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,6 +127,39 @@ namespace SeeSharpersCinema.Data.Migrations
                         principalTable: "TimeSlot",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ticket",
+                columns: table => new
+                {
+                    TicketID = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MovieId = table.Column<long>(type: "bigint", nullable: true),
+                    RoomId = table.Column<long>(type: "bigint", nullable: true),
+                    TimeSlotId = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ticket", x => x.TicketID);
+                    table.ForeignKey(
+                        name: "FK_Ticket_Movie_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movie",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ticket_Room_RoomId",
+                        column: x => x.RoomId,
+                        principalTable: "Room",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ticket_TimeSlot_TimeSlotId",
+                        column: x => x.TimeSlotId,
+                        principalTable: "TimeSlot",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -312,6 +358,21 @@ namespace SeeSharpersCinema.Data.Migrations
                 column: "CinemaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Ticket_MovieId",
+                table: "Ticket",
+                column: "MovieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ticket_RoomId",
+                table: "Ticket",
+                column: "RoomId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ticket_TimeSlotId",
+                table: "Ticket",
+                column: "TimeSlotId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TimeSlot_RoomId",
                 table: "TimeSlot",
                 column: "RoomId");
@@ -320,7 +381,13 @@ namespace SeeSharpersCinema.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Notice");
+
+            migrationBuilder.DropTable(
                 name: "PlayList");
+
+            migrationBuilder.DropTable(
+                name: "Ticket");
 
             migrationBuilder.DropTable(
                 name: "Movie");

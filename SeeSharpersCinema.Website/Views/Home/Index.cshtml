@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<PlayList>
+@*@{ 
+    var Notice =  { Message = "test123" };
+}*@
+@*<partial name="_Notice" model="new Notice()"/>*@
+@await Html.PartialAsync("_Notice", new Notice() { Message = }) 
 
 <div class="row"><h1>Vandaag tot Donderdag</h1></div>
 <div class="my-4">
@@ -40,5 +45,5 @@
                 </div>
             </div>
         </div>
-        }
+    }
 </div>

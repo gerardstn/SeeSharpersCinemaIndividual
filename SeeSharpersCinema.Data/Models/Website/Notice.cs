@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Website
 {
-    class Notice
+    public class Notice
     {
         public long Id { get; set; }
         public string Message { get; set; }

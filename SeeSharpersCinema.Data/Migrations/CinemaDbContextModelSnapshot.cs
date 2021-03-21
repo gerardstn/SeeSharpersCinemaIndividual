@@ -276,6 +276,33 @@ namespace SeeSharpersCinema.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SeeSharpersCinema.Models.Order.Ticket", b =>
+                {
+                    b.Property<long>("TicketID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("MovieId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("RoomId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("TimeSlotId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("TicketID");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("TimeSlotId");
+
+                    b.ToTable("Ticket");
+                });
+
             modelBuilder.Entity("SeeSharpersCinema.Models.Program.PlayList", b =>
                 {
                     b.Property<long>("Id")
@@ -1216,6 +1243,42 @@ namespace SeeSharpersCinema.Data.Migrations
                             SlotStart = new DateTime(2021, 3, 21, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 11
                         });
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Website.Notice", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notice");
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Order.Ticket", b =>
+                {
+                    b.HasOne("SeeSharpersCinema.Models.Film.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId");
+
+                    b.HasOne("SeeSharpersCinema.Models.Theater.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("SeeSharpersCinema.Models.TimeSlot", "TimeSlot")
+                        .WithMany()
+                        .HasForeignKey("TimeSlotId");
+
+                    b.Navigation("Movie");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("TimeSlot");
                 });
 
             modelBuilder.Entity("SeeSharpersCinema.Models.Program.PlayList", b =>

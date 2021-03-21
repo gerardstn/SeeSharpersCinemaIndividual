@@ -18,7 +18,7 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<Room> Rooms { get; set; }
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
-        /*public DbSet<Notice> Notices { get; set; }*/
+        public DbSet<Notice> Notices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
