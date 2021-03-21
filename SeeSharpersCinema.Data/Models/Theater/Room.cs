@@ -9,7 +9,7 @@ namespace SeeSharpersCinema.Models.Theater
         public long CinemaId { get; set; }
         public Cinema Cinema { get; set; }
 
-        public List<int> ReservedSeatList { get;}
+        public int Rows { get; set; }
 
         // public void CountDownCapacity(int seats) => Capacity -= seats;
     }

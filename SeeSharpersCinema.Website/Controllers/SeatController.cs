@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using SeeSharpersCinema.Data.Models.Static;
 using Newtonsoft.Json;
+using SeeSharpersCinema.Models.Theater;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -44,11 +47,14 @@ namespace SeeSharpersCinema.Website.Controllers
             SeatViewModel.TimeSlot = PlayList.TimeSlot;
             SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
             //ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
-            //
-            //temp room rows, add rows to room
+            
 
-            await SaveSeatTest();
-            //
+            //todo reservedseats transform to jsonobject
+            //temp room rows, add rows to room
+            var Seats = ReservedSeats.ToList();
+            var Seating = JSONSeating(PlayList.TimeSlot.Room, Seats);
+            SeatViewModel.SeatingArrangement = JSONSeating(PlayList.TimeSlot.Room, Seats);
+            //await SaveSeatTest();
             return View(SeatViewModel);
         }
 
@@ -91,6 +97,59 @@ namespace SeeSharpersCinema.Website.Controllers
 
         }
 
+        public string JSONSeating(Room Room, List<ReservedSeat> Seats)
+        {
+            List<ObjRow> ObjRowList = new List<ObjRow>();
+            for (var j = 1; j <= Room.Rows ; j++)
+            {
+                List<ObjSeat> objSeatList = new List<ObjSeat>();
+                for (var i = 1; i <= (Room.Capacity / Room.Rows); i++)
+                {
+
+                    ObjSeat ObjSeat = new ObjSeat { GridSeatNum = i, seatNumber = i, SeatStatus = "0"};
+                    var seatTaken = false;
+                    Seats.ForEach(s => {
+                        if (s.SeatId == i & s.RowId == j)
+                        {
+                            seatTaken = true;
+                        }
+                        });
+                    if (seatTaken)
+                    {
+                        ObjSeat.SeatStatus = "1";
+                    }
+
+                    objSeatList.Add(ObjSeat);
+                }
+                ObjRow ObjRow = new ObjRow { GridRowId = j, PhyRowId = j.ToString(), objSeat = objSeatList };
+                ObjRowList.Add(ObjRow);
+            }
+
+            ObjArea ObjArea = new ObjArea { AreaDesc = "EXECUTIVE", AreaCode = "0000000003", AreaNum ="1",HasCurrentOrder = true, objRow = ObjRowList };
+            List<ObjArea> ObjAreaList = new List<ObjArea>();
+            ObjAreaList.Add(ObjArea);
+
+
+            ColAreas ColAreas = new ColAreas {Count = 1, intMaxSeatId = 21, intMinSeatId=2, objArea = ObjAreaList };
+            SeatLayout SeatLayout = new SeatLayout {colAreas = ColAreas};
+            List<object> areaList = new List<object>();
+            List<object> groupedSeatsList = new List<object>();
+
+            Root Root = new Root { 
+                product_id = 46539040, 
+                freeSeating = false,
+                tempTransId= "1ecae165f2d86315fea19963d0ded41a", 
+                seatLayout = SeatLayout,
+                areas = areaList,
+                groupedSeats = groupedSeatsList
+            };
+
+            // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+            string jsonString = System.Text.Json.JsonSerializer.Serialize(Root);
+            //System.Diagnostics.Debug.WriteLine(jsonString);
+
+            return jsonString;
+        }
         
 
     }

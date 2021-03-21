@@ -10,7 +10,7 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210321162421_addedRows")]
+    [Migration("20210321174454_addedRows")]
     partial class addedRows
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -892,6 +892,9 @@ namespace SeeSharpersCinema.Data.Migrations
                     b.Property<long>("CinemaId")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("Rows")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
@@ -903,43 +906,50 @@ namespace SeeSharpersCinema.Data.Migrations
                         {
                             Id = 1L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 2L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 3L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 4L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 5L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 6L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 7L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         });
                 });
 

@@ -55,7 +55,8 @@ namespace SeeSharpersCinema.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Capacity = table.Column<int>(type: "int", nullable: false),
-                    CinemaId = table.Column<long>(type: "bigint", nullable: false)
+                    CinemaId = table.Column<long>(type: "bigint", nullable: false),
+                    Rows = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -199,16 +200,16 @@ namespace SeeSharpersCinema.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Room",
-                columns: new[] { "Id", "Capacity", "CinemaId" },
+                columns: new[] { "Id", "Capacity", "CinemaId", "Rows" },
                 values: new object[,]
                 {
-                    { 1L, 300, 1L },
-                    { 2L, 300, 1L },
-                    { 3L, 300, 1L },
-                    { 4L, 300, 1L },
-                    { 5L, 300, 1L },
-                    { 6L, 300, 1L },
-                    { 7L, 300, 1L }
+                    { 1L, 300, 1L, 15 },
+                    { 2L, 300, 1L, 15 },
+                    { 3L, 300, 1L, 15 },
+                    { 4L, 300, 1L, 15 },
+                    { 5L, 300, 1L, 15 },
+                    { 6L, 300, 1L, 15 },
+                    { 7L, 300, 1L, 15 }
                 });
 
             migrationBuilder.InsertData(
