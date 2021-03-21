@@ -1,4 +1,5 @@
-﻿using SeeSharpersCinema.Models;
+﻿using SeeSharpersCinema.Data.Models.Static;
+using SeeSharpersCinema.Models;
 using SeeSharpersCinema.Models.Theater;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace SeeSharpersCinema.Data.Models.Program
         public long TimeSlotId { get; set; }
         public int SeatId {get; set;}
         public TimeSlot TimeSlot { get; set; }
+        public SeatState SeatState { get; set; }
 
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class Reserved_Seats : Migration
+    public partial class Seatstates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -123,7 +123,8 @@ namespace SeeSharpersCinema.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TimeSlotId = table.Column<long>(type: "bigint", nullable: false),
-                    SeatId = table.Column<int>(type: "int", nullable: false)
+                    SeatId = table.Column<int>(type: "int", nullable: false),
+                    SeatState = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -179,20 +180,20 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "Country", "Description", "Director", "Duration", "Genre", "Language", "PosterUrl", "Technique", "Title", "ViewIndication", "Year" },
                 values: new object[,]
                 {
-                    { 1L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Roger Michell", 98, 7, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/32660_128633_ps_sd-high.jpg", "2D", "Blackbird", 5, 2021 },
-                    { 2L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Kar-Wai Wong", 98, 7, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33783_134425_ps_sd-high.jpg", "2D", "In the mood for love", 0, 2020 },
-                    { 3L, "NL", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Matthijs van Heijningen Jr.", 124, 7, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/PathePartners/movie-25169-SlagOmDeScheldeDe_Poster_DEF.jpg", "2D", "De slag om de schelde", 5, 2021 },
-                    { 4L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Kar-Wai Wong", 84, 11, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23672_133688_ps_sd-high.jpg", "3D", "Ainbo: Heldin van de amazone", 0, 2020 },
-                    { 5L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Spike Lee", 105, 17, "Original", "https://media.pathe.nl/thumb/360x508//gfx_content/other/api/filmdepot/v1/movie/download/33816_134505_ps_sd-high.jpg", "2D", "David Byrne's amerikan utopia", 0, 2021 },
-                    { 6L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Lee Daniels", 130, 7, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33645_134768_ps_sd-high.jpg", "2D", "The united stats vs. billie holiday", 4, 2021 },
-                    { 7L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Joel Crawford", 95, 10, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg", "3D", "The croods: a new age (OV)", 1, 2020 },
-                    { 8L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Joel Crawford", 95, 11, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg", "3D", "De croods 2: een nieuw begin (NL)", 1, 2020 },
-                    { 9L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Charlène Favier", 92, 7, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/Slalom.jpg", "2D", "Slalom", 2, 2020 },
-                    { 10L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Donato Carrisi", 130, 9, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33764_133801_ps_sd-high.jpg", "2D", "Into the labyrinth", 2, 2021 },
-                    { 11L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Mike P. Nelson", 110, 3, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33804_134756_ps_sd-high.jpg", "2D", "Wrong turn", 5, 2020 },
-                    { 12L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "David Silverman", 84, 11, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33774_133282_ps_sd-high.jpg", "2D", "De Flummels", 1, 2021 },
-                    { 13L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Ilya Naishuller", 92, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23923_133307_ps_sd-high.jpg", "2D", "Nobody", 5, 2021 },
-                    { 14L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Florian Zeller", 97, 7, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33495_134471_ps_sd-high.jpg", "2D", "The Father", 2, 2020 }
+                    { 1L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Roger Michell", 98, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/32660_128633_ps_sd-high.jpg", "2D", "Blackbird", 5, 2021 },
+                    { 2L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Kar-Wai Wong", 98, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33783_134425_ps_sd-high.jpg", "2D", "In the mood for love", 0, 2020 },
+                    { 3L, "NL", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Matthijs van Heijningen Jr.", 124, 6, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/PathePartners/movie-25169-SlagOmDeScheldeDe_Poster_DEF.jpg", "2D", "De slag om de schelde", 5, 2021 },
+                    { 4L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Kar-Wai Wong", 84, 10, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23672_133688_ps_sd-high.jpg", "3D", "Ainbo: Heldin van de amazone", 0, 2020 },
+                    { 5L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Spike Lee", 105, 16, "Original", "https://media.pathe.nl/thumb/360x508//gfx_content/other/api/filmdepot/v1/movie/download/33816_134505_ps_sd-high.jpg", "2D", "David Byrne's amerikan utopia", 0, 2021 },
+                    { 6L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Lee Daniels", 130, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33645_134768_ps_sd-high.jpg", "2D", "The united stats vs. billie holiday", 4, 2021 },
+                    { 7L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Joel Crawford", 95, 9, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg", "3D", "The croods: a new age (OV)", 1, 2020 },
+                    { 8L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Joel Crawford", 95, 10, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg", "3D", "De croods 2: een nieuw begin (NL)", 1, 2020 },
+                    { 9L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Charlène Favier", 92, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/Slalom.jpg", "2D", "Slalom", 2, 2020 },
+                    { 10L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Donato Carrisi", 130, 8, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33764_133801_ps_sd-high.jpg", "2D", "Into the labyrinth", 2, 2021 },
+                    { 11L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Mike P. Nelson", 110, 2, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33804_134756_ps_sd-high.jpg", "2D", "Wrong turn", 5, 2020 },
+                    { 12L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "David Silverman", 84, 10, "Nederlands", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33774_133282_ps_sd-high.jpg", "2D", "De Flummels", 1, 2021 },
+                    { 13L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Ilya Naishuller", 92, 5, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23923_133307_ps_sd-high.jpg", "2D", "Nobody", 5, 2021 },
+                    { 14L, "USA", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.", "Florian Zeller", 97, 6, "Original", "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33495_134471_ps_sd-high.jpg", "2D", "The Father", 2, 2020 }
                 });
 
             migrationBuilder.InsertData(
@@ -284,35 +285,25 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
-                    { 56L, 14L, 56L },
+                    { 19L, 5L, 19L },
+                    { 23L, 9L, 23L },
                     { 10L, 10L, 10L },
                     { 9L, 9L, 9L },
                     { 50L, 8L, 50L },
-                    { 4L, 4L, 4L },
-                    { 17L, 3L, 17L },
-                    { 18L, 4L, 18L },
-                    { 31L, 3L, 31L },
-                    { 32L, 4L, 32L },
-                    { 45L, 3L, 45L },
-                    { 46L, 4L, 46L },
                     { 49L, 7L, 49L },
-                    { 23L, 9L, 23L },
-                    { 55L, 13L, 55L },
-                    { 35L, 7L, 35L },
-                    { 5L, 5L, 5L },
-                    { 6L, 6L, 6L },
-                    { 19L, 5L, 19L },
-                    { 20L, 6L, 20L },
-                    { 33L, 5L, 33L },
-                    { 34L, 6L, 34L },
-                    { 47L, 5L, 47L },
-                    { 48L, 6L, 48L },
-                    { 7L, 7L, 7L },
-                    { 8L, 8L, 8L },
                     { 36L, 8L, 36L },
-                    { 3L, 3L, 3L },
                     { 24L, 10L, 24L },
+                    { 35L, 7L, 35L },
+                    { 21L, 7L, 21L },
+                    { 8L, 8L, 8L },
+                    { 7L, 7L, 7L },
+                    { 48L, 6L, 48L },
+                    { 47L, 5L, 47L },
+                    { 34L, 6L, 34L },
+                    { 22L, 8L, 22L },
                     { 37L, 9L, 37L },
+                    { 38L, 10L, 38L },
+                    { 51L, 9L, 51L },
                     { 42L, 14L, 42L },
                     { 41L, 13L, 41L },
                     { 28L, 14L, 28L },
@@ -321,11 +312,21 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 13L, 13L, 13L },
                     { 54L, 12L, 54L },
                     { 53L, 11L, 53L },
-                    { 1L, 1L, 1L },
                     { 40L, 12L, 40L },
                     { 39L, 11L, 39L },
                     { 26L, 12L, 26L },
-                    { 25L, 11L, 25L }
+                    { 25L, 11L, 25L },
+                    { 12L, 12L, 12L },
+                    { 11L, 11L, 11L },
+                    { 52L, 10L, 52L },
+                    { 33L, 5L, 33L },
+                    { 20L, 6L, 20L },
+                    { 56L, 14L, 56L },
+                    { 6L, 6L, 6L },
+                    { 55L, 13L, 55L },
+                    { 2L, 2L, 2L },
+                    { 15L, 1L, 15L },
+                    { 16L, 2L, 16L }
                 });
 
             migrationBuilder.InsertData(
@@ -333,55 +334,45 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
-                    { 12L, 12L, 12L },
-                    { 2L, 2L, 2L },
-                    { 15L, 1L, 15L },
-                    { 16L, 2L, 16L },
-                    { 29L, 1L, 29L },
                     { 30L, 2L, 30L },
                     { 43L, 1L, 43L },
                     { 44L, 2L, 44L },
-                    { 11L, 11L, 11L },
-                    { 52L, 10L, 52L },
-                    { 51L, 9L, 51L },
-                    { 38L, 10L, 38L },
-                    { 21L, 7L, 21L },
-                    { 22L, 8L, 22L }
+                    { 3L, 3L, 3L },
+                    { 29L, 1L, 29L },
+                    { 17L, 3L, 17L },
+                    { 4L, 4L, 4L },
+                    { 46L, 4L, 46L },
+                    { 45L, 3L, 45L },
+                    { 5L, 5L, 5L },
+                    { 31L, 3L, 31L },
+                    { 18L, 4L, 18L },
+                    { 32L, 4L, 32L },
+                    { 1L, 1L, 1L }
                 });
 
             migrationBuilder.InsertData(
                 table: "ReservedSeat",
-                columns: new[] { "Id", "SeatId", "TimeSlotId" },
+                columns: new[] { "Id", "SeatId", "SeatState", "TimeSlotId" },
                 values: new object[,]
                 {
-                    { 26L, 95, 5L },
-                    { 27L, 112, 5L },
-                    { 2L, 2, 1L },
-                    { 3L, 4, 1L },
-                    { 4L, 5, 1L },
-                    { 5L, 7, 1L },
-                    { 6L, 8, 1L },
-                    { 7L, 10, 1L },
-                    { 8L, 11, 1L },
-                    { 9L, 13, 1L },
-                    { 10L, 14, 2L },
-                    { 11L, 16, 2L },
-                    { 12L, 17, 2L },
-                    { 28L, 113, 5L },
-                    { 13L, 19, 2L },
-                    { 15L, 1, 3L },
-                    { 16L, 2, 3L },
-                    { 17L, 4, 3L },
-                    { 18L, 5, 3L },
-                    { 19L, 7, 3L },
-                    { 20L, 8, 3L },
-                    { 21L, 10, 4L },
-                    { 22L, 11, 4L },
-                    { 23L, 50, 4L },
-                    { 24L, 51, 4L },
-                    { 25L, 94, 5L },
-                    { 14L, 20, 2L },
-                    { 1L, 1, 1L }
+                    { 9L, 33, 2, 1L },
+                    { 2L, 2, 1, 1L },
+                    { 3L, 3, 2, 1L },
+                    { 4L, 4, 1, 1L },
+                    { 5L, 5, 1, 1L },
+                    { 6L, 30, 2, 1L },
+                    { 7L, 31, 1, 1L },
+                    { 8L, 32, 1, 1L },
+                    { 17L, 32, 1, 2L },
+                    { 11L, 2, 1, 2L },
+                    { 12L, 3, 2, 2L },
+                    { 13L, 4, 1, 2L },
+                    { 14L, 5, 1, 2L },
+                    { 15L, 30, 2, 2L },
+                    { 16L, 31, 1, 2L },
+                    { 18L, 33, 2, 2L },
+                    { 10L, 1, 1, 2L },
+                    { 1L, 1, 1, 1L }
                 });
 
             migrationBuilder.CreateIndex(

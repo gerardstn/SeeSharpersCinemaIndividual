@@ -31,42 +31,16 @@ namespace SeeSharpersCinema.Website.Controllers
             var PlayListList = await playListRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
 
-            //test all reserved seats
             var ReservedSeats = await seatRepository.FindAllByTimeSlotIdAsync(PlayList.TimeSlotId);
 
-            //var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
-            var Seats = GetReservedSeats(ReservedSeats);
-
-            //ViewData["ReservedSeats"] = Seats;
-            ViewData["RoomCapacity"] = ReservedSeats.FirstOrDefault().TimeSlot.Room.Capacity;
-            ViewData["PlaylistId"] = PlayList.Id;
-            ViewData["ReservedSeats"] = Seats;
-            //TimeSlotId = PlayList.TimeSlotId;
             //--------------------------------------------------------------------------------------------------
             SeatViewModel SeatViewModel = new SeatViewModel();
             SeatViewModel.Movie = PlayList.Movie;
             SeatViewModel.TimeSlot = PlayList.TimeSlot;
             SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
-
+            ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
             //add reservedseats & covid seats
-            Seats.ForEach(s =>
-            {
-                SeatViewModel.SeatStates.Add(s, SeatState.Reserved);
-                
-                if (COVID == true)
-                {
-                    if (!Seats.Contains(s + 1) & !SeatViewModel.SeatStates.ContainsKey(s+1))
-                    {
-                        SeatViewModel.SeatStates.Add(s + 1, SeatState.Disabled);
-                    }
-                    if (!Seats.Contains(s - 1) & !SeatViewModel.SeatStates.ContainsKey(s - 1))
-                    {
-                        SeatViewModel.SeatStates.Add(s - 1, SeatState.Disabled);
-                    }
-                };
-            });
 
-            //--------------------------------------------------------------------------------------------------
             return View(SeatViewModel);
         }
 
@@ -85,21 +59,36 @@ namespace SeeSharpersCinema.Website.Controllers
             List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
             SeatId.ForEach(s => {
                 ReservedSeat.Add(
-                new ReservedSeat { SeatId = s, TimeSlotId = TimeSlotId }
+                new ReservedSeat 
+                { 
+                    SeatId = s, TimeSlotId = TimeSlotId , SeatState = SeatState.Reserved}
                 );
+
+                if (COVID)
+                {
+                    if (!SeatId.Contains(s - 1))
+                    {
+                        ReservedSeat.Add(
+                        new ReservedSeat 
+                        { 
+                            SeatId = s, TimeSlotId = TimeSlotId, SeatState = SeatState.Disabled 
+                        });
+                    }
+
+                    if (!SeatId.Contains(s + 1))
+                    {
+                        ReservedSeat.Add(
+                        new ReservedSeat
+                        { 
+                            SeatId = s, TimeSlotId = TimeSlotId, SeatState = SeatState.Disabled }
+                        );
+                    }
+
+                }
             });
             await seatRepository.ReserveSeats(ReservedSeat);
 
         }
 
-        /// <summary>
-        /// Gets the list of reserved seats from list
-        /// </summary>
-        private List<int> GetReservedSeats(IEnumerable<ReservedSeat> ReservedSeats)
-        {
-            var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
-            return Seats;
-
-        }
     }
 }
