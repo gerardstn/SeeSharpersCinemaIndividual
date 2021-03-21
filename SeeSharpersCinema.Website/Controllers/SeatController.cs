@@ -13,6 +13,9 @@ using Newtonsoft.Json;
 using SeeSharpersCinema.Models.Theater;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -145,8 +148,16 @@ namespace SeeSharpersCinema.Website.Controllers
             };
 
             // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-            string jsonString = System.Text.Json.JsonSerializer.Serialize(Root);
-            //System.Diagnostics.Debug.WriteLine(jsonString);
+            var encoderSettings = new TextEncoderSettings();
+            encoderSettings.AllowCharacters('\u0022');
+            encoderSettings.AllowRange(UnicodeRanges.BasicLatin);
+            var options = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(encoderSettings),
+                WriteIndented = true
+            };
+            string jsonString = JsonSerializer.Serialize(Root, options);
+            // System.Diagnostics.Debug.WriteLine(jsonString);
 
             return jsonString;
         }

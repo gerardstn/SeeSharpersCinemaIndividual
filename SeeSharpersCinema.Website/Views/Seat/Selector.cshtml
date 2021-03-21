@@ -44,25 +44,20 @@
 <div id="dump-response"></div>
 
 <a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@ViewData["PlayListId"]" class="btn btn-primary btn-lg">To payment overview</a>
-
 @section Scripts{
     <script type="text/javascript">
-            $.getJSON({
-                url: '/data/layoutData.json' // JSON location. Needs to change to URL of MVC
-            }).done(function (data) {
-                $('.movieLayoutContainer').seatLayout({
-                    data: data,    // Movie seat data. This needs to be generated via ViewModel
-                    showActionButtons: false,
-                    classes: {     // Add class or classes for the component
-                        doneBtn: '',
-                        cancelBtn: '',
-                        row: '',
-                        area: '',
-                        screen: '',
-                        seat: ''
-                    },
-                    numberOfSeat: 2  // Nuber of seat want to select. This need to be filled via form
-                })
-            });
+        $('.movieLayoutContainer').seatLayout({
+            data: ("@Model.SeatingArrangement").replace('/&quot;/g', '"'),    // Movie seat data. This needs to be generated via ViewModel
+            showActionButtons: false,
+            classes: {     // Add class or classes for the component
+                doneBtn: '',
+                cancelBtn: '',
+                row: '',
+                area: '',
+                screen: '',
+                seat: ''
+            },
+            numberOfSeat: 2  // Nuber of seat want to select. This need to be filled via form
+        });
     </script>
 }
