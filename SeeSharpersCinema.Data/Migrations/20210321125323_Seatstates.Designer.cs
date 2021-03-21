@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210315133720_Reserved_Seats2")]
-    partial class Reserved_Seats2
+    [Migration("20210321125323_Seatstates")]
+    partial class Seatstates
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,9 @@ namespace SeeSharpersCinema.Data.Migrations
                     b.Property<int>("SeatId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SeatState")
+                        .HasColumnType("int");
+
                     b.Property<long>("TimeSlotId")
                         .HasColumnType("bigint");
 
@@ -45,169 +48,127 @@ namespace SeeSharpersCinema.Data.Migrations
                         {
                             Id = 1L,
                             SeatId = 1,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 2L,
                             SeatId = 2,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 3L,
-                            SeatId = 4,
+                            SeatId = 3,
+                            SeatState = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 4L,
-                            SeatId = 5,
+                            SeatId = 4,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 5L,
-                            SeatId = 7,
+                            SeatId = 5,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 6L,
-                            SeatId = 8,
+                            SeatId = 30,
+                            SeatState = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 7L,
-                            SeatId = 10,
+                            SeatId = 31,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 8L,
-                            SeatId = 11,
+                            SeatId = 32,
+                            SeatState = 1,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 9L,
-                            SeatId = 13,
+                            SeatId = 33,
+                            SeatState = 2,
                             TimeSlotId = 1L
                         },
                         new
                         {
                             Id = 10L,
-                            SeatId = 14,
+                            SeatId = 1,
+                            SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 11L,
-                            SeatId = 16,
+                            SeatId = 2,
+                            SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 12L,
-                            SeatId = 17,
+                            SeatId = 3,
+                            SeatState = 2,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 13L,
-                            SeatId = 19,
+                            SeatId = 4,
+                            SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 14L,
-                            SeatId = 20,
+                            SeatId = 5,
+                            SeatState = 1,
                             TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 15L,
-                            SeatId = 1,
-                            TimeSlotId = 3L
+                            SeatId = 30,
+                            SeatState = 2,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 16L,
-                            SeatId = 2,
-                            TimeSlotId = 3L
+                            SeatId = 31,
+                            SeatState = 1,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 17L,
-                            SeatId = 4,
-                            TimeSlotId = 3L
+                            SeatId = 32,
+                            SeatState = 1,
+                            TimeSlotId = 2L
                         },
                         new
                         {
                             Id = 18L,
-                            SeatId = 5,
-                            TimeSlotId = 3L
-                        },
-                        new
-                        {
-                            Id = 19L,
-                            SeatId = 7,
-                            TimeSlotId = 3L
-                        },
-                        new
-                        {
-                            Id = 20L,
-                            SeatId = 8,
-                            TimeSlotId = 3L
-                        },
-                        new
-                        {
-                            Id = 21L,
-                            SeatId = 10,
-                            TimeSlotId = 4L
-                        },
-                        new
-                        {
-                            Id = 22L,
-                            SeatId = 11,
-                            TimeSlotId = 4L
-                        },
-                        new
-                        {
-                            Id = 23L,
-                            SeatId = 50,
-                            TimeSlotId = 4L
-                        },
-                        new
-                        {
-                            Id = 24L,
-                            SeatId = 51,
-                            TimeSlotId = 4L
-                        },
-                        new
-                        {
-                            Id = 25L,
-                            SeatId = 94,
-                            TimeSlotId = 5L
-                        },
-                        new
-                        {
-                            Id = 26L,
-                            SeatId = 95,
-                            TimeSlotId = 5L
-                        },
-                        new
-                        {
-                            Id = 27L,
-                            SeatId = 112,
-                            TimeSlotId = 5L
-                        },
-                        new
-                        {
-                            Id = 28L,
-                            SeatId = 113,
-                            TimeSlotId = 5L
+                            SeatId = 33,
+                            SeatState = 2,
+                            TimeSlotId = 2L
                         });
                 });
 
@@ -263,7 +224,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Roger Michell",
                             Duration = 98,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/32660_128633_ps_sd-high.jpg",
                             Technique = "2D",
@@ -278,7 +239,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
                             Duration = 98,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33783_134425_ps_sd-high.jpg",
                             Technique = "2D",
@@ -293,7 +254,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Matthijs van Heijningen Jr.",
                             Duration = 124,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/PathePartners/movie-25169-SlagOmDeScheldeDe_Poster_DEF.jpg",
                             Technique = "2D",
@@ -308,7 +269,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
                             Duration = 84,
-                            Genre = 11,
+                            Genre = 10,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23672_133688_ps_sd-high.jpg",
                             Technique = "3D",
@@ -323,7 +284,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Spike Lee",
                             Duration = 105,
-                            Genre = 17,
+                            Genre = 16,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508//gfx_content/other/api/filmdepot/v1/movie/download/33816_134505_ps_sd-high.jpg",
                             Technique = "2D",
@@ -338,7 +299,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Lee Daniels",
                             Duration = 130,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33645_134768_ps_sd-high.jpg",
                             Technique = "2D",
@@ -353,7 +314,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
                             Duration = 95,
-                            Genre = 10,
+                            Genre = 9,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg",
                             Technique = "3D",
@@ -368,7 +329,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
                             Duration = 95,
-                            Genre = 11,
+                            Genre = 10,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23557_133608_ps_sd-high.jpg",
                             Technique = "3D",
@@ -383,7 +344,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Charlène Favier",
                             Duration = 92,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/Slalom.jpg",
                             Technique = "2D",
@@ -398,7 +359,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Donato Carrisi",
                             Duration = 130,
-                            Genre = 9,
+                            Genre = 8,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33764_133801_ps_sd-high.jpg",
                             Technique = "2D",
@@ -413,7 +374,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Mike P. Nelson",
                             Duration = 110,
-                            Genre = 3,
+                            Genre = 2,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33804_134756_ps_sd-high.jpg",
                             Technique = "2D",
@@ -428,7 +389,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "David Silverman",
                             Duration = 84,
-                            Genre = 11,
+                            Genre = 10,
                             Language = "Nederlands",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33774_133282_ps_sd-high.jpg",
                             Technique = "2D",
@@ -443,7 +404,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Ilya Naishuller",
                             Duration = 92,
-                            Genre = 6,
+                            Genre = 5,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/23923_133307_ps_sd-high.jpg",
                             Technique = "2D",
@@ -458,7 +419,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Florian Zeller",
                             Duration = 97,
-                            Genre = 7,
+                            Genre = 6,
                             Language = "Original",
                             PosterUrl = "https://media.pathe.nl/thumb/360x508/gfx_content/other/api/filmdepot/v1/movie/download/33495_134471_ps_sd-high.jpg",
                             Technique = "2D",

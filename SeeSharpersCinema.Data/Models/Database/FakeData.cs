@@ -4,6 +4,7 @@ using System;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Data.Models.Static;
 
 namespace SeeSharpersCinema.Models.Database
 {
@@ -371,34 +372,25 @@ namespace SeeSharpersCinema.Models.Database
         public static List<ReservedSeat> FakeReservedSeats
         = new List<ReservedSeat>
         {
-                new ReservedSeat { Id = 1, TimeSlotId =1, SeatId =1 },
-                new ReservedSeat { Id = 2, TimeSlotId =1, SeatId =2 },
-                new ReservedSeat { Id = 3, TimeSlotId =1, SeatId =4 },
-                new ReservedSeat { Id = 4, TimeSlotId =1, SeatId =5 },
-                new ReservedSeat { Id = 5, TimeSlotId =1, SeatId =7 },
-                new ReservedSeat { Id = 6, TimeSlotId =1, SeatId =8 },
-                new ReservedSeat { Id = 7, TimeSlotId =1, SeatId =10 },
-                new ReservedSeat { Id = 8, TimeSlotId =1, SeatId =11},
-                new ReservedSeat { Id = 9, TimeSlotId =1, SeatId =13 },
-                new ReservedSeat { Id = 10, TimeSlotId =2, SeatId =14 },
-                new ReservedSeat { Id = 11, TimeSlotId =2, SeatId =16 },
-                new ReservedSeat { Id = 12, TimeSlotId =2, SeatId =17 },
-                new ReservedSeat { Id = 13, TimeSlotId =2, SeatId =19 },
-                new ReservedSeat { Id = 14, TimeSlotId =2, SeatId =20 },
-                new ReservedSeat { Id = 15, TimeSlotId =3, SeatId =1 },
-                new ReservedSeat { Id = 16, TimeSlotId =3, SeatId =2 },
-                new ReservedSeat { Id = 17, TimeSlotId =3, SeatId =4 },
-                new ReservedSeat { Id = 18, TimeSlotId =3, SeatId =5 },
-                new ReservedSeat { Id = 19, TimeSlotId =3, SeatId =7 },
-                new ReservedSeat { Id = 20, TimeSlotId =3, SeatId =8 },
-                new ReservedSeat { Id = 21, TimeSlotId =4, SeatId =10 },
-                new ReservedSeat { Id = 22, TimeSlotId =4, SeatId =11 },
-                new ReservedSeat { Id = 23, TimeSlotId =4, SeatId =50 },
-                new ReservedSeat { Id = 24, TimeSlotId =4, SeatId =51 },
-                new ReservedSeat { Id = 25, TimeSlotId =5, SeatId =94 },
-                new ReservedSeat { Id = 26, TimeSlotId =5, SeatId =95 },
-                new ReservedSeat { Id = 27, TimeSlotId =5, SeatId =112 },
-                new ReservedSeat { Id = 28, TimeSlotId =5, SeatId =113 }
+                new ReservedSeat { Id = 1, TimeSlotId =1, SeatId =1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 2, TimeSlotId =1, SeatId =2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 3, TimeSlotId =1, SeatId =3, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 4, TimeSlotId =1, SeatId =4 , SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 5, TimeSlotId =1, SeatId =5 , SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 6, TimeSlotId =1, SeatId =30, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 7, TimeSlotId =1, SeatId =31, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 8, TimeSlotId =1, SeatId =32, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 9, TimeSlotId =1, SeatId =33, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 10, TimeSlotId =2, SeatId =1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 11, TimeSlotId =2, SeatId =2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 12, TimeSlotId =2, SeatId =3, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 13, TimeSlotId =2, SeatId =4 , SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 14, TimeSlotId =2, SeatId =5 , SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 15, TimeSlotId =2, SeatId =30, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 16, TimeSlotId =2, SeatId =31, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 17, TimeSlotId =2, SeatId =32, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 18, TimeSlotId =2, SeatId =33, SeatState = SeatState.Disabled },
+
         };
     }
 }
