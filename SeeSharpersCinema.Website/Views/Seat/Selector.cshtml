@@ -42,4 +42,4 @@
 
 <a class="btn btn-success" href="@Url.Action("SaveSeatTest", "Seat")">Test Add seats</a>
 
-<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@ViewData["PlayListId"]" class="btn btn-primary btn-lg">To payment overview</a>
+<a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>
