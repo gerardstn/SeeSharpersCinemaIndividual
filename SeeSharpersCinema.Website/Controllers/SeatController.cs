@@ -45,7 +45,7 @@ namespace SeeSharpersCinema.Website.Controllers
             //--------------------------------------------------------------------------------------------------
             SeatViewModel SeatViewModel = new SeatViewModel();
             SeatViewModel.Movie = PlayList.Movie;
-            SeatViewModel.Timeslot = PlayList.TimeSlot;
+            SeatViewModel.TimeSlot = PlayList.TimeSlot;
             SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
 
             //add reservedseats & covid seats
@@ -67,23 +67,8 @@ namespace SeeSharpersCinema.Website.Controllers
             });
 
             //--------------------------------------------------------------------------------------------------
-            return View(Seats);
+            return View(SeatViewModel);
         }
-
-        /// <summary>
-        /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context
-        /// </summary>
-
-        /*        public void SaveSeats(List<int> SeatList, int TimeSlotId)
-                {
-                    SeatList.ForEach(seat =>
-                    {
-                        ReservedSeat ReserevedSeat = new ReservedSeat { SeatId = seat, TimeSlotId = TimeSlotId };
-                        seatRepository.AddItemAsync(ReserevedSeat);
-                    });
-
-                }
-        */
 
         //todo remove once form is implemented
         public async Task SaveSeatTest()
@@ -92,7 +77,10 @@ namespace SeeSharpersCinema.Website.Controllers
             await SaveSeats(List, 3);
         }
 
-        public async Task SaveSeats(List<int> SeatId, long TimeSlotId = 2)
+        /// <summary>
+        /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context
+        /// </summary>
+        private async Task SaveSeats(List<int> SeatId, long TimeSlotId)
         {
             List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
             SeatId.ForEach(s => {
@@ -104,8 +92,10 @@ namespace SeeSharpersCinema.Website.Controllers
 
         }
 
-
-        public List<int> GetReservedSeats(IEnumerable<ReservedSeat> ReservedSeats)
+        /// <summary>
+        /// Gets the list of reserved seats from list
+        /// </summary>
+        private List<int> GetReservedSeats(IEnumerable<ReservedSeat> ReservedSeats)
         {
             var Seats = ReservedSeats.Select(i => i.SeatId).ToList();
             return Seats;

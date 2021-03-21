@@ -1,24 +1,17 @@
-﻿
+﻿@model SeeSharpersCinema.Data.Models.ViewModel.SeatViewModel
 <a asp-controller="Home" asp-action="Index" type="button" class="btn btn-primary btn-lg">Back</a>
 <h1>Stoel selectie</h1>
 
-@*<h2>@Model.TimeSlot.SlotStart</h2>
+<h2>@Model.TimeSlot.SlotStart</h2>
     <h2>@Model.TimeSlot.SlotStart</h2>
-    <h2>@Model.TimeSlot.Room.Capacity</h2>*@
-@*<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+    <h2>@Model.TimeSlot.Room.Capacity</h2>
+<img class="img-fluid" src="@Model.Movie.PosterUrl" />
 <ul>
     <li>@Model.Movie.Technique</li>
     <li>@Model.Movie.Duration Min</li>
-    <li>Director: @Model.Movie.Director</li>
-    <li>Opgenomen: @Model.Movie.Country</li>
-    <li>Genre: @Model.Movie.Genre</li>
-    <li>Taal: @Model.Movie.Language</li>
-    <li>Jaar: @Model.Movie.Year</li>
-    <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
-    <li>@Model.Movie.Description</li>
 </ul>
-*@
-<div class="container">
+
+@*<div class="container">
     @for (int i = 1; i <= Convert.ToInt32(ViewData["RoomCapacity"]); i++)
     {
         if (i % 20 == 1) 
@@ -45,7 +38,7 @@
         }
 
     }
-</div>
+</div>*@
 
 <a class="btn btn-success" href="@Url.Action("SaveSeatTest", "Seat")">Start</a>
 

@@ -14,7 +14,7 @@ namespace SeeSharpersCinema.Data.Models.ViewModel
     public class SeatViewModel
     {
         public Dictionary<int, SeatState> SeatStates { get; set; }
-        public TimeSlot Timeslot { get; set; }    
+        public TimeSlot TimeSlot { get; set; }    
         public Movie Movie { get; set; }
         
     }
