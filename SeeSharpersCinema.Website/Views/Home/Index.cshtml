@@ -1,9 +1,7 @@
-﻿@model IEnumerable<PlayList>
-@*@{ 
-    var Notice =  { Message = "test123" };
-}*@
-@*<partial name="_Notice" model="new Notice()"/>*@
-@await Html.PartialAsync("_Notice", new Notice() { Message = "bericht" }) 
+﻿@model HomeViewModel
+ 
+
+<partial name="_Notice" model="Model.Notices"/>
 
 <div class="row"><h1>Vandaag tot Donderdag</h1></div>
 <div class="my-4">
@@ -30,7 +28,7 @@
 </div>
 
 <div class="row">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Playlists)
     {
         <div class="col-2 pl-1 pr-1">
             <div class="poster_custom card m-1">

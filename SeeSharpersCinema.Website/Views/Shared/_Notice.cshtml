@@ -1,9 +1,13 @@
 ﻿@model Notice
 
-    <div class="row">
-        <div class="container">
-            <div id="website-notice">
-                <i class="website-notice-icon fas fa-exclamation-triangle"></i> <p class="website-notice-text">@Model.Message</p>
+@if (Model.isActive == true)
+
+    {
+        <div class="row">
+            <div class="container">
+                <div id="website-notice">
+                    <i class="website-notice-icon fas fa-exclamation-triangle"></i> <p class="website-notice-text">@Model.Message</p>
+                </div>
             </div>
         </div>
-    </div>
+    }

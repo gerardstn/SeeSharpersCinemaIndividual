@@ -33,6 +33,7 @@ namespace SeeSharpersCinema.Website
             });
             services.AddScoped<IMovieRepository, EFMovieRepository>();
             services.AddTransient<IPlayListRepository, EFPlayListRepository>();
+            services.AddTransient<INoticeRepository, EFNoticeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
