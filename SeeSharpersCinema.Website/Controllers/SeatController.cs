@@ -2,10 +2,12 @@
 using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Repository;
+using SeeSharpersCinema.Data.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeeSharpersCinema.Data.Models.Static;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -40,7 +42,31 @@ namespace SeeSharpersCinema.Website.Controllers
             ViewData["PlaylistId"] = PlayList.Id;
             ViewData["ReservedSeats"] = Seats;
             //TimeSlotId = PlayList.TimeSlotId;
+            //--------------------------------------------------------------------------------------------------
+            SeatViewModel SeatViewModel = new SeatViewModel();
+            SeatViewModel.Movie = PlayList.Movie;
+            SeatViewModel.Timeslot = PlayList.TimeSlot;
+            SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
 
+            //add reservedseats & covid seats
+            Seats.ForEach(s =>
+            {
+                SeatViewModel.SeatStates.Add(s, SeatState.Reserved);
+                
+                if (COVID == true)
+                {
+                    if (!Seats.Contains(s + 1) & !SeatViewModel.SeatStates.ContainsKey(s+1))
+                    {
+                        SeatViewModel.SeatStates.Add(s + 1, SeatState.Disabled);
+                    }
+                    if (!Seats.Contains(s - 1) & !SeatViewModel.SeatStates.ContainsKey(s - 1))
+                    {
+                        SeatViewModel.SeatStates.Add(s - 1, SeatState.Disabled);
+                    }
+                };
+            });
+
+            //--------------------------------------------------------------------------------------------------
             return View(Seats);
         }
 
