@@ -1,12 +1,12 @@
-﻿using Moq;
-using System.Linq;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Moq;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Repository;
-using SeeSharpersCinema.TouchScreen.Controllers;
-using Xunit;
 using SeeSharpersCinema.Models.ViewModel;
+using SeeSharpersCinema.TouchScreen.Controllers;
+using System.Collections.Generic;
+using System.Linq;
+using Xunit;
 
 namespace SeeSharpersCinema.Tests
 {
