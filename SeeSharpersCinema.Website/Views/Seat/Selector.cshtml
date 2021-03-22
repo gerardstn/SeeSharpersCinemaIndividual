@@ -19,15 +19,14 @@
     </form>
 </div>
 
-
 <div class="movieLayoutContainer"></div>
-<div id="dump-response"></div>
 
 <a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@ViewData["PlayListId"]" class="btn btn-primary btn-lg">To payment overview</a>
 @section Scripts{
     <script type="text/javascript">
+
         $('.movieLayoutContainer').seatLayout({
-            data: ("@Model.SeatingArrangement").replace('/&quot;/g', '"'),    // Movie seat data. This needs to be generated via ViewModel
+            data: @Html.Raw(@Model.SeatingArrangement),
             showActionButtons: false,
             classes: {     // Add class or classes for the component
                 doneBtn: '',
@@ -37,7 +36,22 @@
                 screen: '',
                 seat: ''
             },
-            numberOfSeat: 2  // Nuber of seat want to select. This need to be filled via form
+            numberOfSeat: 2,  // Nuber of seat want to select. This need to be filled via form
+            callOnSeatRender: function (Obj) {
+                //modify seat object if require and return it;
+                return Obj;
+            },
+            callOnSeatSelect: function (_event, _data, _element) {
+                console.log(_event);
+                console.log(_data);
+                console.log(_element);
+            },
+            selectionDone: function (_array) {
+                console.log(_array);
+            },
+            cancel: function () {
+                return false;
+            }
         });
     </script>
 }
