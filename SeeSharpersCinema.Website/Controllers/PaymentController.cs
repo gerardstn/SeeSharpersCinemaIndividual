@@ -18,10 +18,10 @@ namespace SeeSharpersCinema.Website.Controllers
         //IPaymentClient paymentClient = new PaymentClient("test_rWeMRKpke8RHJFezCqenNyJmHtQry8");
         //PaymentRequest paymentRequest = new PaymentRequest()
         //{
-           // Amount = new Amount(Currency.EUR, 100.00m),
-           // Description = "Test payment of the example project",
-           // RedirectUrl = "http://google.com",
-            //  Method = Mollie.Api.Models.Payment.PaymentMethod.Ideal // instead of "Ideal"
+        // Amount = new Amount(Currency.EUR, 100.00m),
+        // Description = "Test payment of the example project",
+        // RedirectUrl = "http://google.com",
+        //  Method = Mollie.Api.Models.Payment.PaymentMethod.Ideal // instead of "Ideal"
         //};
         /*        PaymentResponse paymentResponse = await paymentClient.CreatePaymentAsync(paymentRequest);
         */
@@ -93,12 +93,8 @@ namespace SeeSharpersCinema.Website.Controllers
         public async Task<IActionResult> MolliePayment()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
-            SeeSharpersCinema.Website.Controllers.HomeController homeController = new SeeSharpersCinema.Website.Controllers.HomeController(repository);
-
             emailService.email_send();
-            throw new Exception("FIXEN");
-            return NotFound();
-            //return await homeController.Index();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
