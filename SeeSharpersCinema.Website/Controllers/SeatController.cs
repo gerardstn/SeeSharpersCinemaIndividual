@@ -62,59 +62,85 @@ namespace SeeSharpersCinema.Website.Controllers
         }
 
 
+        /// <summary>
+        /// takes post input as List of reserved seats via binding and saves seats to db
+        /// </summary>
+        /*        [HttpPost]
+                //[ValidateAntiForgeryToken]
+                public async Task<IActionResult> ReserveSeats([Bind("SeatId,RowId,TimeSlotId")] List<ReservedSeat> Seat)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        //await SaveSeats(Seat);
+                        return RedirectToAction("Index", "Home");//needs to be payment view, for now index main.
+                    }
+                    return RedirectToAction("Selector", "Seat");
+                }*/
 
-
+                /// <summary>
+        /// takes post input as string and saves seats to db
+        /// </summary>
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> ReserveSeats([Bind("SeatId,RowId,TimeSlotId")] List<ReservedSeat> Seat)
+        public async Task<IActionResult> ReserveSeats(string SeatingString = "8:1|9:1" , long TimeSlotId =2)//todo remove testdata
         {
-            if (ModelState.IsValid)
+
+            List<ReservedSeat> Seats = new List<ReservedSeat>();
+
+            string[] preferedSeats = SeatingString.Split('|');
+
+            preferedSeats.ToList().ForEach(s =>
             {
-                //await SaveSeats(Seat);
-                return RedirectToAction("Index", "Home");//needs to be payment view, for now index main.
-            }
+                var seatId = Int32.Parse(s.Split(":")[0]);
+                var rowId = Int32.Parse(s.Split(":")[1]);
+                ReservedSeat ReservedSeat = new ReservedSeat { SeatId = seatId, RowId = rowId , TimeSlotId = TimeSlotId};
+                Seats.Add(ReservedSeat);
+            });
+            await SaveSeats(Seats);
+
             return RedirectToAction("Selector", "Seat");
         }
 
+
         //todo remove once form is implemented
-/*        public async Task SaveSeatTest()
-        {
+        /*        public async Task SaveSeatTest()
+                {
 
-            List<Seat> List = new List<Seat>
-            {
-                new Seat{RowId = 1, SeatId = 3},
-                new Seat{RowId = 1, SeatId = 4},
-                new Seat{RowId = 2, SeatId = 7},
-                new Seat{RowId = 2, SeatId = 8},
-                new Seat{RowId = 3, SeatId = 9},
-                new Seat{RowId = 3, SeatId = 10}
+                    List<Seat> List = new List<Seat>
+                    {
+                        new Seat{RowId = 1, SeatId = 3},
+                        new Seat{RowId = 1, SeatId = 4},
+                        new Seat{RowId = 2, SeatId = 7},
+                        new Seat{RowId = 2, SeatId = 8},
+                        new Seat{RowId = 3, SeatId = 9},
+                        new Seat{RowId = 3, SeatId = 10}
 
-            };
-            await SaveSeats(List);
-        }*/
+                    };
+                    await SaveSeats(List);
+                }*/
 
 
         /// <summary>
         /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context.
         /// todo redo covid selection/ reserved
         /// </summary>
-/*        private async Task SaveSeats(List<Seat> Seats, long TimeSlotId= 3)
-        {
-            List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
-            Seats.ForEach(s => {
-                ReservedSeat.Add(
-                new ReservedSeat 
-                { 
-                    SeatId = s.SeatId, 
-                    RowId = s.RowId, 
-                    TimeSlotId = TimeSlotId , 
-                    SeatState = SeatState.Reserved
-                });
-            });
-            //todo add covid seats
-            await seatRepository.ReserveSeats(ReservedSeat);
+        /*        private async Task SaveSeats(List<Seat> Seats, long TimeSlotId= 3)
+                {
+                    List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
+                    Seats.ForEach(s => {
+                        ReservedSeat.Add(
+                        new ReservedSeat 
+                        { 
+                            SeatId = s.SeatId, 
+                            RowId = s.RowId, 
+                            TimeSlotId = TimeSlotId , 
+                            SeatState = SeatState.Reserved
+                        });
+                    });
+                    //todo add covid seats
+                    await seatRepository.ReserveSeats(ReservedSeat);
 
-        }*/
+                }*/
 
         //tryout
         private async Task SaveSeats(List<ReservedSeat> Seats)
