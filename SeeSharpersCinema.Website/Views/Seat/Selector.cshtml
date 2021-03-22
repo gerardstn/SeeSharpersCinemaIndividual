@@ -11,23 +11,27 @@
     <li>@Model.Movie.Duration Min</li>
 </ul>
 
+@{ var SeatString = "";
+   var TimeSlotId = "";
+ }
+
 <div>
     <form asp-action="ReserveSeats">
         <div class="form-group">
-            <input type="submit" value="Selectie vastleggen en door naar betaling" class="btn btn-primary" />
+            <input type="hidden" <input asp-for="@SeatString" value="" id="SeatString" />
+            <input type="hidden" <input asp-for="@TimeSlotId" value=@Model.TimeSlot.Id />
         </div>
     </form>
 </div>
 
-<div class="movieLayoutContainer"></div>
 
+<div class="movieLayoutContainer"></div>
 <a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@ViewData["PlayListId"]" class="btn btn-primary btn-lg">To payment overview</a>
 @section Scripts{
     <script type="text/javascript">
-
         $('.movieLayoutContainer').seatLayout({
             data: @Html.Raw(@Model.SeatingArrangement),
-            showActionButtons: false,
+            showActionButtons: true,
             classes: {     // Add class or classes for the component
                 doneBtn: '',
                 cancelBtn: '',
@@ -42,16 +46,20 @@
                 return Obj;
             },
             callOnSeatSelect: function (_event, _data, _element) {
-                console.log(_event);
+@*                console.log(_event);
                 console.log(_data);
-                console.log(_element);
+                console.log(_element);*@
             },
             selectionDone: function (_array) {
-                console.log(_array);
+                //console.log(_array);
+                var SeatString = JSON.stringify(_array);
+                document.getElementById("SeatString").value = SeatString;
+                document.forms[0].submit();
             },
             cancel: function () {
                 return false;
             }
         });
-    </script>
+     </script>
 }
+
