@@ -48,7 +48,7 @@ namespace SeeSharpersCinema.Website.Controllers
             SeatViewModel SeatViewModel = new SeatViewModel();
             SeatViewModel.Movie = PlayList.Movie;
             SeatViewModel.TimeSlot = PlayList.TimeSlot;
-            SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
+            //SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
             //ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
             
 
@@ -61,8 +61,23 @@ namespace SeeSharpersCinema.Website.Controllers
             return View(SeatViewModel);
         }
 
+
+
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> ReserveSeats([Bind("SeatId,RowId,TimeSlotId")] List<ReservedSeat> Seat)
+        {
+            if (ModelState.IsValid)
+            {
+                //await SaveSeats(Seat);
+                return RedirectToAction("Index", "Home");//needs to be payment view, for now index main.
+            }
+            return RedirectToAction("Selector", "Seat");
+        }
+
         //todo remove once form is implemented
-        public async Task SaveSeatTest()
+/*        public async Task SaveSeatTest()
         {
 
             List<Seat> List = new List<Seat>
@@ -76,13 +91,14 @@ namespace SeeSharpersCinema.Website.Controllers
 
             };
             await SaveSeats(List);
-        }
+        }*/
+
 
         /// <summary>
         /// SaveSeats puts the list of seat(Id)s gained form the seat selection in the seat repo context.
         /// todo redo covid selection/ reserved
         /// </summary>
-        private async Task SaveSeats(List<Seat> Seats, long TimeSlotId= 3)
+/*        private async Task SaveSeats(List<Seat> Seats, long TimeSlotId= 3)
         {
             List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
             Seats.ForEach(s => {
@@ -95,7 +111,19 @@ namespace SeeSharpersCinema.Website.Controllers
                     SeatState = SeatState.Reserved
                 });
             });
+            //todo add covid seats
+            await seatRepository.ReserveSeats(ReservedSeat);
 
+        }*/
+
+        //tryout
+        private async Task SaveSeats(List<ReservedSeat> Seats)
+        {
+            List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
+            Seats.ForEach(s => {
+                s.SeatState = SeatState.Reserved;
+                });
+            //todo add covid seats
             await seatRepository.ReserveSeats(ReservedSeat);
 
         }
@@ -117,7 +145,7 @@ namespace SeeSharpersCinema.Website.Controllers
                             seatTaken = true;
                         }
                         });
-                    if (seatTaken)
+                    if (seatTaken)//Todo think this can be integrated in seatTaken = true. Check later
                     {
                         ObjSeat.SeatStatus = "1";
                     }
