@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Models.Order;
-using SeeSharpersCinema.Models.Film;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Repository;
-using SeeSharpersCinema.Models.Payment;
+using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {
@@ -19,9 +14,21 @@ namespace SeeSharpersCinema.TouchScreen.Controllers
         }
 
         [Route("Ticket/Selector/Payment")]
-        public IActionResult Index([FromRoute] long movieId)
+        public async Task<IActionResult> IndexAsync(long movieId)
         {
-            return View();
+            if (movieId == 0) 
+            { 
+                return NotFound(); 
+            }
+
+            var movie = await repository.Movies.FirstOrDefaultAsync(m => m.Id == movieId);
+
+            if (movie == null) 
+            { 
+                return NotFound(); 
+            }
+
+            return View(movie);
         }
 
         public IActionResult Pay()
