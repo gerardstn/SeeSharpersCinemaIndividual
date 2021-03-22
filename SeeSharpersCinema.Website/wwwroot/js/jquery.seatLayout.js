@@ -3,4 +3,163 @@
 * Copyright (c) 2017 Sachin Kurkute
 * MIT License : https://github.com/SachinKurkute/movie-seat-layout/blob/master/LICENSE
 */
-!function (e) { function t(t) { var a, n, s = e.extend({}, t.options), o = function (e) { a = e.intMaxSeatId, n = e.intMinSeatId; for (var t = "<div class='seat-selection' style='width:" + 25.5 * (a + 1) + "px'>", o = 0; o < e.objArea.length; o++)t += r(e.objArea[o]); var c = s.showActionButtons ? "<div class='seat-proccess-panel'> <button  type='button' class='layout-action-btn layout-btn-cancel  " + s.classes.cancelBtn + "'> Cancel </button> <button type='button' class='layout-action-btn layout-btn-done " + s.classes.doneBtn + "'> Done </button> </div>" : ""; return t += "<div class='movie-screen " + s.classes.screen + "'>-- Screen --</div>" + c + "</div>" }, r = function (e) { var t = "<div class='seat-area " + s.classes.area + "'>"; t += "<div class='seat-area-desc'>" + e.AreaDesc + "</div>"; for (var a = 0; a < e.objRow.length; a++)t += c(e.objRow[a], e); return t += "</div>" }, c = function (e, t) { for (var o = "<ul class='seat-area-row " + s.classes.row + "'> <li class='seat-row-seat row-indicator'>" + e.PhyRowId + "</li>", r = 0, c = 0; c < e.objSeat.length; c++) { if (0 == c) { var l = e.objSeat[c].GridSeatNum - n - (e.objSeat[c].GridSeatNum - e.objSeat[c].seatNumber); if (l > 0) for (var i = 0; l > i; i++)o += getSeatLayoutFunc({}, !1, e, t) } var u = parseInt(e.objSeat[c].GridSeatNum - (e.objSeat[c].seatNumber + r)); if (u > 0) { r += u; for (var d = 0; u > d; d++)o += getSeatLayoutFunc({}, !1, e, t) } o += getSeatLayoutFunc(e.objSeat[c], !0, e, t) } var f = a - (e.objSeat.length + l + r); if (f > 0) for (var S = 0; f > S; S++)o += getSeatLayoutFunc({}, !1, e, t); return o += "</ul>" }; return getSeatLayoutFunc = function (e, a, n, o) { if (e.GridRowId = n.GridRowId, e.PhyRowId = n.PhyRowId, e.AreaNum = o.AreaNum, e.AreaCode = o.AreaCode, e.AreaDesc = o.AreaDesc, e = t.callSeatRender(e)) { var r = JSON.stringify(e), c = s.classes.seat; return a ? (e && "0" == e.SeatStatus && (c += " can-select"), "<li data-seatdefination='" + r + "' class='seat-row-seat seat-yes " + c + " '><span></span></li>") : "<li class='seat-row-seat " + c + "'></li>" } }, { getAreaLayout: r, getRowLayout: c, getSeatLayout: getSeatLayoutFunc, getMainLayout: o } } e.fn.seatLayout = function (a) { function n(e) { return e.data("seatdefination") } var s = e.extend(!0, {}, { type: "movie", showActionButtons: !0, classes: { doneBtn: "", cancelBtn: "", seat: "", row: "", area: "", screen: "" }, numberOfSeat: 1 }, a), o = [], r = s.numberOfSeat, c = 0, l = this, i = "", u = new t({ callSeatRender: function (e) { return s.callOnSeatRender ? s.callOnSeatRender(e) : e }, options: s }); return i = u.getMainLayout(s.data.seatLayout.colAreas), l.html(i), l.find("li").click(function (t) { if (e(this).hasClass("can-select")) { var a = (n(e(this)), e(this).nextAll().andSelf()); o.length == r && (c = 0, o = [], l.find("li.current-selected").removeClass("current-selected")); for (var i = c, u = 0; r - c > u && (a[u] && e(a[u]).hasClass("can-select") && !e(a[u]).hasClass("current-selected")); u++)o.push(n(e(a[u]))), e(a[u]).addClass("current-selected"), i++; c = i, l.find(".layout-btn-done").prop("disabled", !(r == o.length)); var d = e.extend({}, n(e(this))); d.selected = o, s.callOnSeatSelect(t, d, this) } }), l.find(".layout-btn-done").prop("disabled", !0), l.find(".layout-btn-done").click(function (e) { s.selectionDone && s.selectionDone({ selected: o }) }), l.find(".layout-btn-cancel").click(function (t) { returnFlag = !0, s.cancel && (returnFlag = 0 == s.cancel(t) ? !1 : !0), returnFlag && (e(l).remove(), u = null, s = null) }), this } }(jQuery);
+(function ($) {
+    function Movieseat(_paramObject) {
+        var maxSeat, minSeat, pluginOptions = $.extend({}, _paramObject.options);
+        var getMainLayoutFunc = function (_obj) {
+            maxSeat = _obj.intMaxSeatId;
+            minSeat = _obj.intMinSeatId;
+            var _html = "<div class='seat-selection' style='width:" + (maxSeat + 1) * 25.5 + "px'>";
+            for (var i = 0; i < _obj.objArea.length; i++) {
+                _html += getAreaLayoutFunc(_obj.objArea[i]);
+            }
+            var actionPanel = pluginOptions.showActionButtons ? "<div class='seat-proccess-panel'> <button  type='button' class='layout-action-btn layout-btn-cancel  " + pluginOptions.classes.cancelBtn + "'> Cancel </button> <button type='button' class='layout-action-btn layout-btn-done " + pluginOptions.classes.doneBtn + "'> Done </button> </div>" : "";
+            _html += "<div class='movie-screen " + pluginOptions.classes.screen + "'>-- Screen --</div>" + actionPanel + "</div>";
+            return _html;
+        }
+        var getAreaLayoutFunc = function (_obj) {
+            var _html = "<div class='seat-area " + pluginOptions.classes.area + "'>";
+            _html += "<div class='seat-area-desc'>" + _obj.AreaDesc + "</div>";
+            for (var i = 0; i < _obj.objRow.length; i++) {
+                _html += getRowLayoutFunc(_obj.objRow[i], _obj);
+            }
+            _html += "</div>";
+            return _html;
+        }
+        var getRowLayoutFunc = function (_obj, _area) {
+            var _html = "<ul class='seat-area-row " + pluginOptions.classes.row + "'> <li class='seat-row-seat row-indicator'>" + _obj.PhyRowId + "</li>";
+            var totalSpace = 0;
+            for (var i = 0; i < _obj.objSeat.length; i++) {
+                if (i == 0) {
+                    var startSpace = _obj.objSeat[i].GridSeatNum - minSeat - (_obj.objSeat[i].GridSeatNum - _obj.objSeat[i].seatNumber);
+                    if (startSpace > 0) {
+                        for (var k = 0; k < startSpace; k++) {
+                            _html += getSeatLayoutFunc({}, false, _obj, _area);
+                        }
+                    }
+                }
+                var extraSpace = parseInt(_obj.objSeat[i].GridSeatNum - (_obj.objSeat[i].seatNumber + totalSpace));
+                if (extraSpace > 0) {
+                    totalSpace += extraSpace;
+                    for (var j = 0; j < extraSpace; j++) {
+                        _html += getSeatLayoutFunc({}, false, _obj, _area);
+                    }
+                }
+                _html += getSeatLayoutFunc(_obj.objSeat[i], true, _obj, _area);
+            }
+            var endSpace = maxSeat - (_obj.objSeat.length + startSpace + totalSpace)
+            if (endSpace > 0) {
+                for (var l = 0; l < endSpace; l++) {
+                    _html += getSeatLayoutFunc({}, false, _obj, _area);
+                }
+            }
+            _html += "</ul>";
+            return _html;
+        }
+        getSeatLayoutFunc = function (_obj, isSeat, _row, _area) {
+            _obj.GridRowId = _row.GridRowId;
+            _obj.PhyRowId = _row.PhyRowId;
+            _obj.AreaNum = _area.AreaNum;
+            _obj.AreaCode = _area.AreaCode;
+            _obj.AreaDesc = _area.AreaDesc;
+            _obj = _paramObject.callSeatRender(_obj);
+            if (_obj) {
+                var dataString = JSON.stringify(_obj);
+                var classes = pluginOptions.classes.seat;
+                if (isSeat) {
+                    if (_obj && _obj.SeatStatus == "0") {
+                        classes += " can-select";
+                    }
+                    return "<li data-seatdefination='" + dataString + "' class='seat-row-seat seat-yes " + classes + " '><span></span></li>";
+                } else {
+                    return "<li class='seat-row-seat " + classes + "'></li>";
+                }
+            }
+        }
+        return {
+            getAreaLayout: getAreaLayoutFunc,
+            getRowLayout: getRowLayoutFunc,
+            getSeatLayout: getSeatLayoutFunc,
+            getMainLayout: getMainLayoutFunc
+        }
+    }
+    $.fn.seatLayout = function (_options) {
+        var _optionsObj = $.extend(true, {}, {
+            type: 'movie',
+            showActionButtons: true,
+            classes: {
+                doneBtn: '',
+                cancelBtn: '',
+                seat: '',
+                row: '',
+                area: '',
+                screen: ''
+            },
+            numberOfSeat: 1
+        }, _options);
+        var selectedSeats = [];
+        var nuberOfSeat = _optionsObj.numberOfSeat;
+        var tempSelected = 0;
+        var _el = this;
+        var _html = "";
+        var seatInstance = new Movieseat({
+            callSeatRender: function (_seatObj) {
+                if (_optionsObj.callOnSeatRender) {
+                    return _optionsObj.callOnSeatRender(_seatObj);
+                }
+                return _seatObj;
+            },
+            options: _optionsObj
+        });
+        _html = seatInstance.getMainLayout(_optionsObj.data.seatLayout.colAreas);
+        _el.html(_html);
+        function getObjData(_ele) {
+            return _ele.data('seatdefination');
+        }
+        _el.find('li').click(function (e) {
+            if ($(this).hasClass('can-select')) {
+                var seatData = getObjData($(this))
+                var nextAll = $(this).nextAll().addBack();
+                if (selectedSeats.length == nuberOfSeat) {
+                    tempSelected = 0;
+                    selectedSeats = [];
+                    _el.find('li.current-selected').removeClass('current-selected');
+                }
+                var count = tempSelected;
+                for (var i = 0; i < nuberOfSeat - tempSelected; i++) {
+                    if (nextAll[i] && $(nextAll[i]).hasClass('can-select') && !$(nextAll[i]).hasClass('current-selected')) {
+                        selectedSeats.push(getObjData($(nextAll[i])));
+                        $(nextAll[i]).addClass('current-selected');
+                        count++;
+                    } else {
+                        break;
+                    }
+                }
+                tempSelected = count;
+                _el.find('.layout-btn-done').prop('disabled', !(nuberOfSeat == selectedSeats.length));
+                var dataToPass = $.extend({}, getObjData($(this)));
+                dataToPass.selected = selectedSeats;
+                _optionsObj.callOnSeatSelect(e, dataToPass, this);
+            }
+        });
+
+        _el.find('.layout-btn-done').prop('disabled', true);
+        _el.find('.layout-btn-done').click(function (e) {
+            if (_optionsObj.selectionDone) {
+                _optionsObj.selectionDone({ "selected": selectedSeats });
+            }
+        });
+        _el.find('.layout-btn-cancel').click(function (e) {
+            returnFlag = true;
+            if (_optionsObj.cancel) {
+                returnFlag = _optionsObj.cancel(e) == false ? false : true;
+            }
+            if (returnFlag) {
+                $(_el).remove();
+                seatInstance = null;
+                _optionsObj = null;
+            }
+        });
+        return this;
+    };
+})(jQuery);
