@@ -82,13 +82,10 @@ namespace SeeSharpersCinema.Website.Controllers
         /// </summary>
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> ReserveSeats(string SeatingString = "8:1|9:1" , long TimeSlotId =2)//todo remove testdata
+        public async Task<IActionResult> ReserveSeats(string SeatingString = "12:1|13:1" , long TimeSlotId =2)//todo remove testdata
         {
-
             List<ReservedSeat> Seats = new List<ReservedSeat>();
-
             string[] preferedSeats = SeatingString.Split('|');
-
             preferedSeats.ToList().ForEach(s =>
             {
                 var seatId = Int32.Parse(s.Split(":")[0]);
@@ -98,7 +95,7 @@ namespace SeeSharpersCinema.Website.Controllers
             });
             await SaveSeats(Seats);
 
-            return RedirectToAction("Selector", "Seat");
+            return RedirectToAction("Index", "Home");//needs to be payment view, for now index main.
         }
 
 
@@ -145,12 +142,11 @@ namespace SeeSharpersCinema.Website.Controllers
         //tryout
         private async Task SaveSeats(List<ReservedSeat> Seats)
         {
-            List<ReservedSeat> ReservedSeat = new List<ReservedSeat>();
             Seats.ForEach(s => {
                 s.SeatState = SeatState.Reserved;
                 });
             //todo add covid seats
-            await seatRepository.ReserveSeats(ReservedSeat);
+            await seatRepository.ReserveSeats(Seats);
 
         }
 
