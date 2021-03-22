@@ -1,22 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Order;
-using SeeSharpersCinema.Models.Film;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
+using System.Linq;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {
     public class SeatController : Controller
     {
         private IMovieRepository repository;
+
+        /// <summary>
+        /// SeatController constructor
+        /// </summary>
+        /// <param name="repository">Constructor needs an IMovieRepository object</param>
         public SeatController(IMovieRepository repository)
         {
             this.repository = repository;
         }
 
+        /// <summary>
+        /// Get the view Selector
+        /// </summary>
+        /// <param name="movieId">Method needs a parameter of type long</param>
+        /// <returns>Seat view of a specific movie by its id</returns>
         [Route("Seat/Selector/{movieId}")]
         public IActionResult Selector([FromRoute] long movieId)
         {

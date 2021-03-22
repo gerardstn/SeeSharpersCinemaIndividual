@@ -1,14 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using QRCoder;
 using SeeSharpersCinema.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {
@@ -16,23 +9,28 @@ namespace SeeSharpersCinema.TouchScreen.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>
+        /// HomeController constructor
+        /// </summary>
+        /// <param name="logger">Constructor needs a Ilogger<HomeController> object</param>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Get the view Index
+        /// </summary>
+        /// <returns>Redirect action to view Overview from controller PlayList</returns>
         public IActionResult Index()
         {
             return RedirectToAction("Overview", "Playlist");
         }
 
-/*        public IActionResult Privacy()
-        {
-            SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
-            emailService.email_send();
-            return View();
-        }*/
-
+        /// <summary>
+        /// Get the view Error
+        /// </summary>
+        /// <returns>A view with errormessages</returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
