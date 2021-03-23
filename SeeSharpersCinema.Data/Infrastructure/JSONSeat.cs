@@ -53,5 +53,21 @@ namespace SeeSharpersCinema.Data.Models.Program
         public List<object> groupedSeats { get; set; }
     }
 
+    public class Selected
+    {
+        public int GridSeatNum { get; set; }
+        public string SeatStatus { get; set; }
+        public int seatNumber { get; set; }
+        public int GridRowId { get; set; }
+        public string PhyRowId { get; set; }
+        public string AreaNum { get; set; }
+        public string AreaCode { get; set; }
+        public string AreaDesc { get; set; }
+    }
+
+    public class DeserializeRoot
+    {
+        public List<Selected> selected { get; set; }
+    }
 
 }
