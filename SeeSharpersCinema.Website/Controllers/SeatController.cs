@@ -8,10 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SeeSharpersCinema.Data.Models.Static;
 using SeeSharpersCinema.Models.Theater;
 using SeeSharpersCinema.Data.Infrastructure;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using SeeSharpersCinema.Data.Program;
 
 namespace SeeSharpersCinema.Website.Controllers
 {

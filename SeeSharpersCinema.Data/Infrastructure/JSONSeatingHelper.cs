@@ -10,6 +10,7 @@ using System.Text.Json.Serialization;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using SeeSharpersCinema.Data.Program;
 
 namespace SeeSharpersCinema.Data.Infrastructure
 {
@@ -31,16 +32,21 @@ namespace SeeSharpersCinema.Data.Infrastructure
                 {
 
                     ObjSeat ObjSeat = new ObjSeat { GridSeatNum = i, seatNumber = i, SeatStatus = "0" };
-                    var seatTaken = false;
+                    var seatTaken = 0;
                     Seats.ForEach(s => {
-                        if (s.SeatId == i & s.RowId == j)
+                        if (s.SeatId == i & s.RowId == j & s.SeatState == SeatState.Reserved)
                         {
-                            seatTaken = true;
+                            seatTaken = 1;
+                        }
+                        if (s.SeatId == i & s.RowId == j & s.SeatState == SeatState.Disabled)
+                        {
+                            seatTaken = 2;
                         }
                     });
-                    if (seatTaken)//Todo think this can be integrated in seatTaken = true. Check later
+                    if (seatTaken>0)//Todo think this can be integrated in seatTaken = true. Check later
                     {
-                        ObjSeat.SeatStatus = "1";
+                        ObjSeat.SeatStatus = seatTaken.ToString();
+                        seatTaken = 0;
                     }
 
                     objSeatList.Add(ObjSeat);

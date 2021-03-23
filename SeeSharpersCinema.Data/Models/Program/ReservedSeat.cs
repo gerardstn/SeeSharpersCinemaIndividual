@@ -1,4 +1,5 @@
-﻿using SeeSharpersCinema.Data.Models.Static;
+﻿
+using SeeSharpersCinema.Data.Program;
 using SeeSharpersCinema.Models;
 using SeeSharpersCinema.Models.Theater;
 using System;

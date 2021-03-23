@@ -4,7 +4,7 @@ using System;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Data.Models.Program;
-using SeeSharpersCinema.Data.Models.Static;
+using SeeSharpersCinema.Data.Program;
 
 namespace SeeSharpersCinema.Models.Database
 {

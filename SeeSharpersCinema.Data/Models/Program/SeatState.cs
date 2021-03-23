@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Data.Models.Static
+namespace SeeSharpersCinema.Data.Program
 {
     public enum SeatState
     {
