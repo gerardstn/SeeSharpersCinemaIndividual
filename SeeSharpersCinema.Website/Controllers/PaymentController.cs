@@ -95,11 +95,11 @@ namespace SeeSharpersCinema.Website.Controllers
             return View();
         }
 
-        public async Task<IActionResult> MolliePayment()
+        public IActionResult MolliePayment()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
             emailService.email_send();
-            return RedirectToAction("Index", "Home");
+            return View();
         }
     }
 }
