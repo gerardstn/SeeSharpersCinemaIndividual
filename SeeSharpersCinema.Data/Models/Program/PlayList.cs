@@ -1,7 +1,4 @@
 ﻿using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Theater;
-using System;
-using System.Collections.Generic;
 
 namespace SeeSharpersCinema.Models.Program
 {

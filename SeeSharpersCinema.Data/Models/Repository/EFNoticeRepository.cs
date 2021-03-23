@@ -1,8 +1,8 @@
-﻿using SeeSharpersCinema.Models.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Website;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository

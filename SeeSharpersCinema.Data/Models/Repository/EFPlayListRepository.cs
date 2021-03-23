@@ -98,7 +98,7 @@ namespace SeeSharpersCinema.Models.Repository
             .Include(c => c.TimeSlot)
             .OrderBy(p => p.TimeSlot.SlotStart)
             .ThenBy(q => q.TimeSlot.RoomId)
-            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate && 
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate &&
                     z.Movie.Genre.Equals(Enum.Parse(typeof(Genre), uiGenre)))
             .ToListAsync();
 
@@ -145,7 +145,7 @@ namespace SeeSharpersCinema.Models.Repository
             .Include(c => c.TimeSlot)
             .OrderBy(p => p.TimeSlot.SlotStart)
             .ThenBy(q => q.TimeSlot.RoomId)
-            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate && 
+            .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate &&
                     z.Movie.ViewIndication.Equals(Enum.Parse(typeof(ViewIndication), uiViewIndication)))
             .ToListAsync();
 

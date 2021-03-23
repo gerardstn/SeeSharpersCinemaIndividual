@@ -52,10 +52,10 @@ namespace SeeSharpersCinema.Models.Order
                 price += ThreeDimensionalAddition;
             }
 
-/*            if (Discount == "Child" & IsChildDiscountValid)
-            {
-                price += ChildDiscount;
-            }*/
+            /*            if (Discount == "Child" & IsChildDiscountValid)
+                        {
+                            price += ChildDiscount;
+                        }*/
             //if (Movie.//htmlpost input form TicketType.Student && IsStudentDiscountValid)
             //{
             //    price += StudentDiscount;

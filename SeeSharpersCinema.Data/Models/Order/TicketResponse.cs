@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SeeSharpersCinema.Models.Film;
+﻿using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Theater;
 
 namespace SeeSharpersCinema.Models.Order
@@ -21,4 +17,3 @@ namespace SeeSharpersCinema.Models.Order
         public bool IsSeniorDiscount { get; set; }
     }
 }
- 

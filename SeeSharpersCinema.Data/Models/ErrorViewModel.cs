@@ -1,5 +1,3 @@
-using System;
-
 namespace SeeSharpersCinema.Models
 {
     public class ErrorViewModel

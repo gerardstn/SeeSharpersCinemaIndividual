@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Models;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {

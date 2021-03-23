@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Order;
-using SeeSharpersCinema.Models.Film;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using SeeSharpersCinema.Models.Repository;
+using System.Linq;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {
