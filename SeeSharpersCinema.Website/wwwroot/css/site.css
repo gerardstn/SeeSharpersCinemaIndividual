@@ -93,3 +93,111 @@ p.poster_label {
 .poster_custom img {
     box-shadow: 0 0 25px rgb(0 0 0 / 60%);
 }
+
+/*Custom css notice or alert banner 20-03-2021, Gerard*/
+#website-notice {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    background-color: #ad1d1d;
+    color: white;
+    border-radius: 9px;
+    padding: 1em;
+    box-shadow: 0 5px 21px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
+    margin-bottom: 1em;
+}
+
+#website-notice>.website-notice-icon {
+    font-size: 2em;
+    justify-content: center;
+    display: grid;
+    align-content: center;
+}
+
+#website-notice >.website-notice-text {
+        display: grid;
+        align-content: center;
+        margin: 0;
+        font-size: 1.2em;
+    }
+    
+.SeatReserved{
+    color: red;
+}
+
+.SeatFree {
+    color: green;
+}
+
+/* jQuery Seats Charts CSS */
+div.seatCharts-container {
+    /*min-width: 700px;*/
+}
+
+div.seatCharts-cell {
+    height: 16px;
+    width: 16px;
+    margin: 3px;
+    float: left;
+    text-align: center;
+    outline: none;
+    font-size: 13px;
+    line-height: 16px;
+    color: blue;
+}
+
+div.seatCharts-seat {
+    background-color: green;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: default;
+}
+
+    div.seatCharts-seat:focus {
+        border: none;
+    }
+/*
+.seatCharts-seat:focus {
+	outline: none;
+}
+*/
+
+div.seatCharts-space {
+    background-color: white;
+}
+
+div.seatCharts-row {
+    height: 50px;
+}
+
+    div.seatCharts-row:after {
+        clear: both;
+    }
+
+div.seatCharts-seat.selected {
+    background-color: aqua;
+}
+
+div.seatCharts-seat.focused {
+    background-color: #6db131;
+}
+
+div.seatCharts-seat.available {
+    background-color: green;
+}
+
+div.seatCharts-seat.unavailable {
+    background-color: red;
+    cursor: not-allowed;
+}
+
+ul.seatCharts-legendList {
+    list-style: none;
+}
+
+li.seatCharts-legendItem {
+    margin-top: 10px;
+    line-height: 2;
+}
+}

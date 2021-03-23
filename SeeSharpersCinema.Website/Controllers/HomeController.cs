@@ -1,24 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SeeSharpersCinema.Data.Models.ViewModel;
 using SeeSharpersCinema.Infrastructure;
 using SeeSharpersCinema.Models.Repository;
+using SeeSharpersCinema.Models.Website;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
-
 
 namespace SeeSharpersCinema.Website.Controllers
 {
     public class HomeController : Controller
     {
+
         private IPlayListRepository repository;
+
+        private INoticeRepository noticeRepository;
 
         /// <summary>
         /// Constructor HomeController
         /// </summary>
         /// <param name="repo">Constructor needs IPlayListRepository object</param>
-        public HomeController(IPlayListRepository repo)
+        /// <param name="noticeRepo">Constructor needs INoticeRepository object</param>
+        public HomeController(IPlayListRepository repo, INoticeRepository noticeRepo)
         {
             repository = repo;
+            noticeRepository = noticeRepo;
         }
 
         /// <summary>
@@ -32,15 +41,15 @@ namespace SeeSharpersCinema.Website.Controllers
             {
                 return NotFound();
             }
+            var PlayListList = await repository.FindAllAsync();
+            var PlayList = PlayListList.FirstOrDefault(p => p.Id == id);
 
-            var movie = await repository.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            if (PlayList == null)
             {
                 return NotFound();
             }
 
-            return View(movie);
+            return View(PlayList);
         }
 
         /// <summary>
@@ -55,6 +64,8 @@ namespace SeeSharpersCinema.Website.Controllers
         {
             // Get movies of current filmweek
             var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, DateHelper.GetNextThursday());
+            // Get the notice where the Id equals 1
+            Notice notice = await noticeRepository.Notices.FirstOrDefaultAsync(n => n.Id == 1);
 
             // Get movies of current filmweek with this title
             if (!String.IsNullOrEmpty(uiTitle))
@@ -113,7 +124,10 @@ namespace SeeSharpersCinema.Website.Controllers
                 return NotFound();
             }
 
-            return View(movieWeek);
+            HomeViewModel homeViewModel = new HomeViewModel();
+            homeViewModel.Playlists = movieWeek;
+            homeViewModel.Notices = notice;
+            return View(homeViewModel);
         }
 
         public IActionResult Privacy()

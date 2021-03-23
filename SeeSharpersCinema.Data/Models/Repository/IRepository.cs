@@ -1,7 +1,4 @@
-﻿using SeeSharpersCinema.Models.Program;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository
@@ -12,5 +9,7 @@ namespace SeeSharpersCinema.Models.Repository
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface IRepository<T> where T : class
-    { }
+    {
+        Task<IEnumerable<T>> FindAllAsync();
+    }
 }

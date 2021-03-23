@@ -3,6 +3,10 @@ using System;
 
 namespace SeeSharpersCinema.Models
 {
+    /// <summary>
+    /// Class TimeSlot with properties 
+    /// Entity Framework creates a table with Id as primary key and RoomId as foreign key
+    /// </summary>
     public class TimeSlot
     {
         public long Id { get; set; }

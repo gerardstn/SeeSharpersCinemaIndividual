@@ -2,6 +2,10 @@
 <div class="row"><h1>DASHBOARD: Vandaag tot Donderdag</h1></div>
 
 <div class="row">
+    <a asp-controller="Notices" asp-action="Edit" asp-route-id="1" class="btn btn-danger btn-lg m5">Edit banner</a>
+</div>
+
+<div class="row">
     @foreach (var item in Model)
     {
         <div class="col-2 pl-1 pr-1">
