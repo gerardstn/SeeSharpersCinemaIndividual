@@ -21,6 +21,7 @@ namespace SeeSharpersCinema.Website.Controllers
         /// Constructor HomeController
         /// </summary>
         /// <param name="repo">Constructor needs IPlayListRepository object</param>
+        /// <param name="noticeRepo">Constructor needs INoticeRepository object</param>
         public HomeController(IPlayListRepository repo, INoticeRepository noticeRepo)
         {
             repository = repo;
@@ -61,6 +62,7 @@ namespace SeeSharpersCinema.Website.Controllers
         {
             // Get movies of current filmweek
             var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, DateHelper.GetNextThursday());
+            // Get the notice where the Id equals 1
             Notice notice = await noticeRepository.Notices.FirstOrDefaultAsync(n => n.Id == 1);
 
             // Get movies of current filmweek with this title
