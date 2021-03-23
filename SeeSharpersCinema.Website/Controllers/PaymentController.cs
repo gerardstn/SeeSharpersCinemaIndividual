@@ -16,9 +16,8 @@ namespace SeeSharpersCinema.Website.Controllers
             repository = repo;
         }
 
-        [Route("Payment/Pay")]
-
-        public async Task<IActionResult> IndexAsync(long? movieId)
+        [Route("Payment/Pay/{movieId}")]
+        public async Task<IActionResult> IndexAsync([FromRoute] long? movieId)
         {
             if (movieId == null)
             {
