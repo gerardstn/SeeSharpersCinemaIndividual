@@ -8,22 +8,23 @@
                     <img class="card-img-top img-fluid" src="@Model.Movie.PosterUrl" alt="@Model.Movie.Title" title="@Model.Movie.Title" loading="eager" />
                     <div class="card-body">
                         <h3 class="card-title">@Model.Movie.Title</h3>
+                        <hr />
                         <h5>@Model.TimeSlot.SlotStart.ToString("dddd, dd MMMM")</h5>
                         <h4>@Model.TimeSlot.SlotStart.ToString("hh:mm") - @Model.TimeSlot.SlotEnd.ToString("hh:mm")</h4>
                         <ul class="mt-4">
                             <li>@Model.Movie.Technique</li>
                             <li>@Model.Movie.Duration Min</li>
                         </ul>
+                        <hr />
                         <p class="card-text">@Model.Movie.Description</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-8">
-                <h1>Selecteer uw stoel!</h1>
+                <h1>Pick your seats!</h1>
                 <hr />
                 <div class="movieLayoutContainer"></div>
-                <a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@ViewData["PlayListId"]" class="btn btn-success btn-lg ml-4">To payment overview</a>
             </div>
         </div>
     </div>

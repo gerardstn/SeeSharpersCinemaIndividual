@@ -13,7 +13,7 @@
             for (var i = 0; i < _obj.objArea.length; i++) {
                 _html += getAreaLayoutFunc(_obj.objArea[i]);
             }
-            var actionPanel = pluginOptions.showActionButtons ? "<div class='seat-proccess-panel'> <button  type='button' class='layout-action-btn layout-btn-cancel  " + pluginOptions.classes.cancelBtn + "'> Cancel </button> <button type='button' class='layout-action-btn layout-btn-done " + pluginOptions.classes.doneBtn + "'> Done </button> </div>" : "";
+            var actionPanel = pluginOptions.showActionButtons ? "<div class='seat-proccess-panel'> <button  type='button' class='layout-action-btn layout-btn-cancel  " + pluginOptions.classes.cancelBtn + "'> Cancel </button> <button type='button' class='layout-action-btn layout-btn-done " + pluginOptions.classes.doneBtn + "'> To payment </button> </div>" : "";
             _html += "<div class='movie-screen " + pluginOptions.classes.screen + "'>-- Screen --</div>" + actionPanel + "</div>";
             return _html;
         }
