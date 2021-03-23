@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210323142420_Banenschil")]
-    partial class Banenschil
+    [Migration("20210323150812_covidseat_hotfix")]
+    partial class covidseat_hotfix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
