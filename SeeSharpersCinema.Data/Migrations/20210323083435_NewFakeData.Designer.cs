@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeeSharpersCinema.Models.Database;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210323083435_NewFakeData")]
+    partial class NewFakeData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,9 +27,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cast")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
@@ -70,7 +69,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 1L,
-                            Cast = "Sam Neill, Susan Sarandon, Anson Boon",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Roger Michell",
@@ -86,7 +84,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 2L,
-                            Cast = "Tony Chiu-Wai Leung, Maggie Cheung, Ping Lam Siu",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
@@ -102,7 +99,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 3L,
-                            Cast = "Gijs Blom, Jamie Flatters, Susan Radder",
                             Country = "NL",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Matthijs van Heijningen Jr.",
@@ -118,7 +114,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 4L,
-                            Cast = "Bernardo De Paula, Thom Hoffman, Lola Raie",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Kar-Wai Wong",
@@ -134,7 +129,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 5L,
-                            Cast = "David Byrne, Jacqueline Acevedo, Gustavo Di Dalva",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Spike Lee",
@@ -150,7 +144,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 6L,
-                            Cast = "Andra Day, Trevante Rhodes, Garrett Hedlund",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Lee Daniels",
@@ -166,7 +159,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 7L,
-                            Cast = "Nicolas Cage, Emma Stone, Ryan Reynolds",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
@@ -182,7 +174,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 8L,
-                            Cast = "Nicolas Cage, Emma Stone, Ryan Reynolds",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Joel Crawford",
@@ -198,7 +189,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 9L,
-                            Cast = "Noée Abita, Jérémie Renier, Marie Denarnaud",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Charlène Favier",
@@ -214,7 +204,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 10L,
-                            Cast = "Dustin Hoffman, Toni Servillo, Valentina Bellè",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Donato Carrisi",
@@ -230,7 +219,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 11L,
-                            Cast = "Charlotte Vega, Adain Bradley, Bill Sage",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Mike P. Nelson",
@@ -246,7 +234,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 12L,
-                            Cast = "Adam Devine, Rachel Bloom, Ken Jeong",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "David Silverman",
@@ -262,7 +249,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 13L,
-                            Cast = "Bob Odenkirk, Aleksey Serebryakov, Connie Nielsen",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Ilya Naishuller",
@@ -278,7 +264,6 @@ namespace SeeSharpersCinema.Data.Migrations
                         new
                         {
                             Id = 14L,
-                            Cast = "Anthony Hopkins, Olivia Colman, Mark Gatiss",
                             Country = "USA",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elementum rutrum magna at sagittis. Curabitur viverra hendrerit enim, at gravida elit venenatis vel. Pellentesque aliquam maximus suscipit. Pellentesque et dolor elit. Duis rhoncus interdum quam, maximus pharetra tortor auctor sed. Ut congue molestie nisl ut aliquam.",
                             Director = "Florian Zeller",
@@ -1822,7 +1807,7 @@ namespace SeeSharpersCinema.Data.Migrations
                             Name = "Pathé",
                             Phone = "0885152050",
                             TotalCapacity = 1500,
-                            TotalRooms = 7
+                            TotalRooms = 5
                         });
                 });
 
