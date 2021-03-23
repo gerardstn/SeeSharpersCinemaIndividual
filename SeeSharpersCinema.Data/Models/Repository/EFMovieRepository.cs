@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SeeSharpersCinema.Models.Database;
+﻿using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Film;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository
 {

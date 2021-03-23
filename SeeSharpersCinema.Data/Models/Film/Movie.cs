@@ -20,6 +20,5 @@
         public bool IsLongMovie => Duration >= 120;
         public bool IsGenreChild => Genre == Genre.Children;
         public bool IsThreeDimensional => Technique == "3D";
-
     }
 }
