@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class Noti : Migration
+    public partial class Banenschil : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,7 +70,8 @@ namespace SeeSharpersCinema.Data.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Capacity = table.Column<int>(type: "int", nullable: false),
-                    CinemaId = table.Column<long>(type: "bigint", nullable: false)
+                    CinemaId = table.Column<long>(type: "bigint", nullable: false),
+                    Rows = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -125,6 +126,28 @@ namespace SeeSharpersCinema.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PlayList_TimeSlot_TimeSlotId",
+                        column: x => x.TimeSlotId,
+                        principalTable: "TimeSlot",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ReservedSeat",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TimeSlotId = table.Column<long>(type: "bigint", nullable: false),
+                    SeatId = table.Column<int>(type: "int", nullable: false),
+                    RowId = table.Column<int>(type: "int", nullable: false),
+                    SeatState = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReservedSeat", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ReservedSeat_TimeSlot_TimeSlotId",
                         column: x => x.TimeSlotId,
                         principalTable: "TimeSlot",
                         principalColumn: "Id",
@@ -197,16 +220,16 @@ namespace SeeSharpersCinema.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Room",
-                columns: new[] { "Id", "Capacity", "CinemaId" },
+                columns: new[] { "Id", "Capacity", "CinemaId", "Rows" },
                 values: new object[,]
                 {
-                    { 1L, 300, 1L },
-                    { 2L, 300, 1L },
-                    { 3L, 300, 1L },
-                    { 4L, 300, 1L },
-                    { 5L, 300, 1L },
-                    { 6L, 300, 1L },
-                    { 7L, 300, 1L }
+                    { 1L, 300, 1L, 15 },
+                    { 2L, 300, 1L, 15 },
+                    { 3L, 300, 1L, 15 },
+                    { 4L, 300, 1L, 15 },
+                    { 5L, 300, 1L, 15 },
+                    { 6L, 300, 1L, 15 },
+                    { 7L, 300, 1L, 15 }
                 });
 
             migrationBuilder.InsertData(
@@ -497,20 +520,27 @@ namespace SeeSharpersCinema.Data.Migrations
                 values: new object[,]
                 {
                     { 1L, 1L, 1L },
+                    { 75L, 5L, 75L },
+                    { 76L, 6L, 76L },
+                    { 89L, 5L, 89L },
+                    { 90L, 6L, 90L },
+                    { 103L, 5L, 103L },
+                    { 104L, 6L, 104L },
+                    { 109L, 11L, 109L },
                     { 110L, 12L, 110L },
                     { 124L, 12L, 124L },
                     { 125L, 13L, 125L },
                     { 138L, 12L, 138L },
                     { 139L, 13L, 139L },
                     { 152L, 12L, 152L },
+                    { 62L, 6L, 62L },
                     { 153L, 13L, 153L },
-                    { 166L, 12L, 166L },
                     { 167L, 13L, 167L },
                     { 180L, 12L, 180L },
                     { 181L, 13L, 181L },
                     { 194L, 12L, 194L },
-                    { 109L, 11L, 109L },
                     { 195L, 13L, 195L },
+                    { 208L, 12L, 208L },
                     { 209L, 13L, 209L },
                     { 222L, 12L, 222L },
                     { 223L, 13L, 223L },
@@ -518,26 +548,19 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 237L, 13L, 237L },
                     { 11L, 11L, 11L },
                     { 12L, 12L, 12L },
+                    { 166L, 12L, 166L },
                     { 25L, 11L, 25L },
-                    { 26L, 12L, 26L },
-                    { 38L, 10L, 38L },
-                    { 49L, 7L, 49L },
-                    { 50L, 8L, 50L },
-                    { 208L, 12L, 208L },
-                    { 63L, 7L, 63L },
-                    { 104L, 6L, 104L },
-                    { 90L, 6L, 90L },
-                    { 150L, 10L, 150L },
-                    { 151L, 11L, 151L },
-                    { 164L, 10L, 164L },
-                    { 165L, 11L, 165L },
-                    { 178L, 10L, 178L },
-                    { 179L, 11L, 179L },
-                    { 192L, 10L, 192L },
-                    { 193L, 11L, 193L },
-                    { 206L, 10L, 206L },
-                    { 207L, 11L, 207L },
-                    { 220L, 10L, 220L }
+                    { 61L, 5L, 61L },
+                    { 47L, 5L, 47L },
+                    { 74L, 4L, 74L },
+                    { 87L, 3L, 87L },
+                    { 88L, 4L, 88L },
+                    { 101L, 3L, 101L },
+                    { 102L, 4L, 102L },
+                    { 122L, 10L, 122L },
+                    { 123L, 11L, 123L },
+                    { 136L, 10L, 136L },
+                    { 137L, 11L, 137L }
                 });
 
             migrationBuilder.InsertData(
@@ -545,25 +568,31 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
+                    { 150L, 10L, 150L },
+                    { 151L, 11L, 151L },
+                    { 164L, 10L, 164L },
+                    { 165L, 11L, 165L },
+                    { 48L, 6L, 48L },
+                    { 178L, 10L, 178L },
+                    { 192L, 10L, 192L },
+                    { 193L, 11L, 193L },
+                    { 206L, 10L, 206L },
+                    { 207L, 11L, 207L },
+                    { 220L, 10L, 220L },
                     { 221L, 11L, 221L },
-                    { 103L, 5L, 103L },
                     { 234L, 10L, 234L },
+                    { 235L, 11L, 235L },
                     { 9L, 9L, 9L },
                     { 10L, 10L, 10L },
                     { 23L, 9L, 23L },
                     { 24L, 10L, 24L },
                     { 37L, 9L, 37L },
-                    { 47L, 5L, 47L },
-                    { 48L, 6L, 48L },
-                    { 61L, 5L, 61L },
-                    { 62L, 6L, 62L },
-                    { 75L, 5L, 75L },
-                    { 76L, 6L, 76L },
-                    { 89L, 5L, 89L },
-                    { 235L, 11L, 235L },
-                    { 137L, 11L, 137L },
-                    { 64L, 8L, 64L },
-                    { 78L, 8L, 78L },
+                    { 179L, 11L, 179L },
+                    { 26L, 12L, 26L },
+                    { 38L, 10L, 38L },
+                    { 49L, 7L, 49L },
+                    { 51L, 9L, 51L },
+                    { 52L, 10L, 52L },
                     { 65L, 9L, 65L },
                     { 66L, 10L, 66L },
                     { 79L, 9L, 79L },
@@ -575,18 +604,12 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 114L, 2L, 114L },
                     { 115L, 3L, 115L },
                     { 128L, 2L, 128L },
+                    { 28L, 14L, 28L },
                     { 129L, 3L, 129L },
-                    { 52L, 10L, 52L },
-                    { 142L, 2L, 142L },
+                    { 143L, 3L, 143L },
                     { 156L, 2L, 156L },
                     { 157L, 3L, 157L },
-                    { 170L, 2L, 170L },
-                    { 171L, 3L, 171L },
-                    { 184L, 2L, 184L },
-                    { 185L, 3L, 185L },
-                    { 198L, 2L, 198L },
-                    { 199L, 3L, 199L },
-                    { 212L, 2L, 212L }
+                    { 170L, 2L, 170L }
                 });
 
             migrationBuilder.InsertData(
@@ -594,13 +617,24 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
+                    { 171L, 3L, 171L },
+                    { 184L, 2L, 184L },
+                    { 185L, 3L, 185L },
+                    { 198L, 2L, 198L },
+                    { 199L, 3L, 199L },
+                    { 212L, 2L, 212L },
                     { 213L, 3L, 213L },
                     { 226L, 2L, 226L },
                     { 227L, 3L, 227L },
-                    { 143L, 3L, 143L },
-                    { 77L, 7L, 77L },
-                    { 51L, 9L, 51L },
+                    { 142L, 2L, 142L },
                     { 27L, 13L, 27L },
+                    { 14L, 14L, 14L },
+                    { 13L, 13L, 13L },
+                    { 50L, 8L, 50L },
+                    { 63L, 7L, 63L },
+                    { 64L, 8L, 64L },
+                    { 77L, 7L, 77L },
+                    { 78L, 8L, 78L },
                     { 91L, 7L, 91L },
                     { 92L, 8L, 92L },
                     { 105L, 7L, 105L },
@@ -613,8 +647,8 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 141L, 1L, 141L },
                     { 154L, 14L, 154L },
                     { 155L, 1L, 155L },
-                    { 28L, 14L, 28L },
                     { 168L, 14L, 168L },
+                    { 169L, 1L, 169L },
                     { 182L, 14L, 182L },
                     { 183L, 1L, 183L },
                     { 196L, 14L, 196L },
@@ -624,18 +658,7 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 224L, 14L, 224L },
                     { 225L, 1L, 225L },
                     { 238L, 14L, 238L },
-                    { 239L, 11L, 239L },
-                    { 13L, 13L, 13L },
-                    { 14L, 14L, 14L },
-                    { 169L, 1L, 169L },
-                    { 136L, 10L, 136L },
-                    { 123L, 11L, 123L },
-                    { 122L, 10L, 122L },
-                    { 215L, 5L, 215L },
-                    { 228L, 4L, 228L },
-                    { 229L, 5L, 229L },
-                    { 3L, 3L, 3L },
-                    { 4L, 4L, 4L }
+                    { 239L, 11L, 239L }
                 });
 
             migrationBuilder.InsertData(
@@ -643,16 +666,27 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
+                    { 73L, 3L, 73L },
+                    { 60L, 4L, 60L },
+                    { 59L, 3L, 59L },
+                    { 46L, 4L, 46L },
+                    { 201L, 5L, 201L },
+                    { 214L, 4L, 214L },
+                    { 215L, 5L, 215L },
+                    { 228L, 4L, 228L },
+                    { 229L, 5L, 229L },
+                    { 3L, 3L, 3L },
+                    { 4L, 4L, 4L },
                     { 17L, 3L, 17L },
                     { 18L, 4L, 18L },
                     { 30L, 2L, 30L },
                     { 34L, 6L, 34L },
+                    { 200L, 4L, 200L },
                     { 41L, 13L, 41L },
-                    { 42L, 14L, 42L },
                     { 55L, 13L, 55L },
-                    { 214L, 4L, 214L },
                     { 56L, 14L, 56L },
-                    { 70L, 14L, 70L },
+                    { 69L, 13L, 69L },
+                    { 240L, 12L, 240L },
                     { 83L, 13L, 83L },
                     { 84L, 14L, 84L },
                     { 97L, 13L, 97L },
@@ -660,14 +694,10 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 118L, 6L, 118L },
                     { 119L, 7L, 119L },
                     { 132L, 6L, 132L },
+                    { 42L, 14L, 42L },
                     { 133L, 7L, 133L },
-                    { 146L, 6L, 146L },
-                    { 147L, 7L, 147L },
-                    { 160L, 6L, 160L },
-                    { 69L, 13L, 69L },
-                    { 161L, 7L, 161L },
-                    { 201L, 5L, 201L },
                     { 187L, 5L, 187L },
+                    { 173L, 5L, 173L },
                     { 2L, 2L, 2L },
                     { 15L, 1L, 15L },
                     { 16L, 2L, 16L },
@@ -677,14 +707,7 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 40L, 12L, 40L },
                     { 53L, 11L, 53L },
                     { 54L, 12L, 54L },
-                    { 67L, 11L, 67L },
-                    { 68L, 12L, 68L },
-                    { 81L, 11L, 81L },
-                    { 200L, 4L, 200L },
-                    { 82L, 12L, 82L },
-                    { 96L, 12L, 96L },
-                    { 116L, 4L, 116L },
-                    { 117L, 5L, 117L }
+                    { 67L, 11L, 67L }
                 });
 
             migrationBuilder.InsertData(
@@ -692,6 +715,13 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
+                    { 68L, 12L, 68L },
+                    { 186L, 4L, 186L },
+                    { 81L, 11L, 81L },
+                    { 95L, 11L, 95L },
+                    { 96L, 12L, 96L },
+                    { 116L, 4L, 116L },
+                    { 117L, 5L, 117L },
                     { 130L, 4L, 130L },
                     { 131L, 5L, 131L },
                     { 144L, 4L, 144L },
@@ -699,41 +729,34 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 158L, 4L, 158L },
                     { 159L, 5L, 159L },
                     { 172L, 4L, 172L },
-                    { 173L, 5L, 173L },
-                    { 186L, 4L, 186L },
-                    { 95L, 11L, 95L },
-                    { 174L, 6L, 174L },
-                    { 175L, 7L, 175L },
-                    { 188L, 6L, 188L },
-                    { 176L, 8L, 176L },
+                    { 82L, 12L, 82L },
+                    { 146L, 6L, 146L },
+                    { 70L, 14L, 70L },
+                    { 160L, 6L, 160L },
+                    { 121L, 9L, 121L },
+                    { 134L, 8L, 134L },
+                    { 135L, 9L, 135L },
+                    { 148L, 8L, 148L },
+                    { 149L, 9L, 149L },
+                    { 162L, 8L, 162L },
+                    { 163L, 9L, 163L },
+                    { 147L, 7L, 147L },
                     { 177L, 9L, 177L },
                     { 190L, 8L, 190L },
                     { 191L, 9L, 191L },
+                    { 120L, 8L, 120L },
                     { 204L, 8L, 204L },
-                    { 205L, 9L, 205L },
                     { 218L, 8L, 218L },
                     { 219L, 9L, 219L },
                     { 232L, 8L, 232L },
                     { 233L, 9L, 233L },
                     { 7L, 7L, 7L },
                     { 8L, 8L, 8L },
-                    { 163L, 9L, 163L },
                     { 21L, 7L, 21L },
+                    { 22L, 8L, 22L },
                     { 32L, 4L, 32L },
                     { 36L, 8L, 36L },
-                    { 45L, 3L, 45L },
-                    { 46L, 4L, 46L },
-                    { 59L, 3L, 59L },
-                    { 60L, 4L, 60L },
-                    { 73L, 3L, 73L },
-                    { 74L, 4L, 74L },
-                    { 87L, 3L, 87L },
-                    { 88L, 4L, 88L },
-                    { 101L, 3L, 101L },
-                    { 102L, 4L, 102L },
-                    { 22L, 8L, 22L },
-                    { 162L, 8L, 162L },
-                    { 149L, 9L, 149L }
+                    { 45L, 3L, 45L }
                 });
 
             migrationBuilder.InsertData(
@@ -741,7 +764,14 @@ namespace SeeSharpersCinema.Data.Migrations
                 columns: new[] { "Id", "MovieId", "TimeSlotId" },
                 values: new object[,]
                 {
-                    { 148L, 8L, 148L },
+                    { 205L, 9L, 205L },
+                    { 100L, 2L, 100L },
+                    { 176L, 8L, 176L },
+                    { 86L, 2L, 86L },
+                    { 161L, 7L, 161L },
+                    { 174L, 6L, 174L },
+                    { 99L, 1L, 99L },
+                    { 188L, 6L, 188L },
                     { 189L, 7L, 189L },
                     { 202L, 6L, 202L },
                     { 203L, 7L, 203L },
@@ -750,27 +780,52 @@ namespace SeeSharpersCinema.Data.Migrations
                     { 230L, 6L, 230L },
                     { 231L, 7L, 231L },
                     { 5L, 5L, 5L },
-                    { 6L, 6L, 6L },
+                    { 175L, 7L, 175L },
                     { 19L, 5L, 19L },
-                    { 20L, 6L, 20L },
-                    { 31L, 3L, 31L },
-                    { 35L, 7L, 35L },
-                    { 43L, 1L, 43L },
-                    { 44L, 2L, 44L },
-                    { 57L, 1L, 57L },
-                    { 58L, 2L, 58L },
-                    { 71L, 1L, 71L },
-                    { 72L, 2L, 72L },
                     { 85L, 1L, 85L },
-                    { 86L, 2L, 86L },
-                    { 99L, 1L, 99L },
-                    { 100L, 2L, 100L },
-                    { 120L, 8L, 120L },
-                    { 121L, 9L, 121L },
-                    { 134L, 8L, 134L },
-                    { 135L, 9L, 135L },
-                    { 240L, 12L, 240L },
-                    { 241L, 13L, 241L }
+                    { 6L, 6L, 6L },
+                    { 72L, 2L, 72L },
+                    { 71L, 1L, 71L },
+                    { 58L, 2L, 58L },
+                    { 241L, 13L, 241L },
+                    { 44L, 2L, 44L },
+                    { 43L, 1L, 43L },
+                    { 35L, 7L, 35L },
+                    { 31L, 3L, 31L },
+                    { 57L, 1L, 57L },
+                    { 20L, 6L, 20L }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ReservedSeat",
+                columns: new[] { "Id", "RowId", "SeatId", "SeatState", "TimeSlotId" },
+                values: new object[,]
+                {
+                    { 1L, 1, 1, 1, 1L },
+                    { 2L, 1, 2, 1, 1L },
+                    { 3L, 1, 3, 2, 1L },
+                    { 4L, 1, 4, 1, 1L },
+                    { 5L, 1, 5, 1, 1L },
+                    { 6L, 2, 5, 2, 1L },
+                    { 7L, 2, 6, 1, 1L },
+                    { 8L, 2, 8, 1, 1L },
+                    { 10L, 1, 1, 1, 2L },
+                    { 11L, 1, 2, 1, 2L },
+                    { 12L, 1, 3, 2, 2L },
+                    { 14L, 1, 5, 1, 2L }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ReservedSeat",
+                columns: new[] { "Id", "RowId", "SeatId", "SeatState", "TimeSlotId" },
+                values: new object[,]
+                {
+                    { 15L, 2, 5, 2, 2L },
+                    { 16L, 2, 6, 1, 2L },
+                    { 17L, 2, 8, 1, 2L },
+                    { 18L, 2, 9, 2, 2L },
+                    { 9L, 2, 9, 2, 1L },
+                    { 13L, 1, 4, 1, 2L }
                 });
 
             migrationBuilder.CreateIndex(
@@ -781,6 +836,11 @@ namespace SeeSharpersCinema.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_PlayList_TimeSlotId",
                 table: "PlayList",
+                column: "TimeSlotId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ReservedSeat_TimeSlotId",
+                table: "ReservedSeat",
                 column: "TimeSlotId");
 
             migrationBuilder.CreateIndex(
@@ -816,6 +876,9 @@ namespace SeeSharpersCinema.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "PlayList");
+
+            migrationBuilder.DropTable(
+                name: "ReservedSeat");
 
             migrationBuilder.DropTable(
                 name: "Ticket");

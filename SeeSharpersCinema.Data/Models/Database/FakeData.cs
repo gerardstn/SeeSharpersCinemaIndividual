@@ -1,4 +1,6 @@
-﻿using SeeSharpersCinema.Models.Film;
+﻿using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Data.Program;
+using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Theater;
 using SeeSharpersCinema.Models.Website;
@@ -25,13 +27,13 @@ namespace SeeSharpersCinema.Models.Database
         public static List<Room> FakeRooms
             = new List<Room>
             {
-                new Room { Id = 1, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 2, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 3, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 4, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 5, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 6, Capacity = 300, CinemaId = 1 },
-                new Room { Id = 7, Capacity = 300, CinemaId = 1 }
+                new Room { Id = 1, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 2, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 3, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 4, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 5, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 6, Capacity = 300, CinemaId = 1, Rows = 15 },
+                new Room { Id = 7, Capacity = 300, CinemaId = 1, Rows = 15 }
             };
 
         public static List<TimeSlot> FakeTimeSlots
@@ -785,5 +787,27 @@ namespace SeeSharpersCinema.Models.Database
                 new PlayList { Id = 241, MovieId = 13, TimeSlotId = 241 }
             };
 
+        public static List<ReservedSeat> FakeReservedSeats
+        = new List<ReservedSeat>
+        {
+                new ReservedSeat { Id = 1, TimeSlotId = 1, SeatId = 1, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 2, TimeSlotId = 1, SeatId = 2, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 3, TimeSlotId = 1, SeatId = 3, RowId = 1, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 4, TimeSlotId = 1, SeatId = 4, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 5, TimeSlotId = 1, SeatId = 5, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 6, TimeSlotId = 1, SeatId = 5, RowId = 2, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 7, TimeSlotId = 1, SeatId = 6, RowId = 2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 8, TimeSlotId = 1, SeatId = 8, RowId = 2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 9, TimeSlotId = 1, SeatId = 9, RowId = 2, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 10, TimeSlotId = 2, SeatId = 1, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 11, TimeSlotId = 2, SeatId = 2, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 12, TimeSlotId = 2, SeatId = 3, RowId = 1, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 13, TimeSlotId = 2, SeatId = 4, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 14, TimeSlotId = 2, SeatId = 5, RowId = 1, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 15, TimeSlotId = 2, SeatId = 5, RowId = 2, SeatState = SeatState.Disabled },
+                new ReservedSeat { Id = 16, TimeSlotId = 2, SeatId = 6, RowId = 2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 17, TimeSlotId = 2, SeatId = 8, RowId = 2, SeatState = SeatState.Reserved },
+                new ReservedSeat { Id = 18, TimeSlotId = 2, SeatId = 9, RowId = 2, SeatState = SeatState.Disabled }
+        };
     }
 }
