@@ -1,29 +1,41 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SeeSharpersCinema.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Repository;
 
 namespace SeeSharpersCinema
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            Configuration = config;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<CinemaDbContext>(opts =>
+            {
+                opts.UseSqlServer(
+                    Configuration["ConnectionStrings:CinemaConnection"]);
+            });
+            services.AddScoped<IMovieRepository, EFMovieRepository>();
+            services.AddScoped<ITicketRepository, EFTicketRepository>();
+            services.AddTransient<IPlayListRepository, EFPlayListRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,10 +60,9 @@ namespace SeeSharpersCinema
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
+
         }
     }
 }

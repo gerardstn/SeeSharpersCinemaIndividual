@@ -1,0 +1,25 @@
+﻿@using SeeSharpersCinema.Models.Order;
+@model Ticket
+
+<h1>Pinnen</h1>
+        <h2>@Model.Movie.Title</h2>
+        <img class="img-fluid" src="@Model.Movie.PosterUrl" />
+        <ul>
+            <li>@Model.Movie.Technique</li>
+            <li>@Model.Movie.Duration Min</li>
+            <li>Genre: @Model.Movie.Genre</li>
+            <li>Taal: @Model.Movie.Language</li>
+            <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
+        </ul>
+
+
+
+        @*<h2>Totaalprijs: € @Model.Ticket.TotalPrice()</h2>*@
+
+    @*<li>no discount: @Model.IsChildDiscount</li>*@
+<li>child discount:</li>
+<li>senior discount:</li>
+<li>student discount:</li>
+
+<button type="button" class="btn btn-primary btn-lg">Ik heb gepint!</button>
+<a asp-controller="playlist" asp-action="Overview" class="btn btn-primary btn-lg">Annuleren</a>
