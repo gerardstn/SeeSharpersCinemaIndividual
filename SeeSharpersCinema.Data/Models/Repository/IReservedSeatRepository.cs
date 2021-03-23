@@ -1,4 +1,4 @@
-﻿using SeeSharpersCinema.Data.Models.Program;
+﻿using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Repository;
 using System;
 using System.Collections.Generic;

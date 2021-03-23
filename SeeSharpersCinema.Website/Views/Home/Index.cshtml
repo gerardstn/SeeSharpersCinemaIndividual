@@ -1,4 +1,7 @@
-﻿@model IEnumerable<SeeSharpersCinema.Models.Program.PlayList>
+﻿@model HomeViewModel
+ 
+
+<partial name="_Notice" model="Model.Notices"/>
 
 <div class="row"><h1>Vandaag tot Donderdag</h1></div>
 
@@ -26,8 +29,7 @@
 </div>
 
 <div class="row">
-
-    @foreach (var item in Model)
+    @foreach (var item in Model.Playlists)
     {
         <div class="col-2 pl-1 pr-1">
             <div class="poster_custom card m-1">

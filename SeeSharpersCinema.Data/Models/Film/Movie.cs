@@ -12,11 +12,11 @@
         public ViewIndication ViewIndication { get; set; }
         public Genre Genre { get; set; }
         public int Year { get; set; }
+        public string Cast { get; set; }
         public string Director { get; set; }
         public string Country { get; set; }
         public bool IsLongMovie => Duration >= 120;
         public bool IsGenreChild => Genre == Genre.Children;
         public bool IsThreeDimensional => Technique == "3D";
-
     }
 }

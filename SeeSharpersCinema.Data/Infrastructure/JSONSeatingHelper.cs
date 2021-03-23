@@ -1,4 +1,4 @@
-﻿using SeeSharpersCinema.Data.Models.Program;
+﻿using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Theater;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using SeeSharpersCinema.Data.Program;
+using SeeSharpersCinema.Data.Models.Program;
 
 namespace SeeSharpersCinema.Data.Infrastructure
 {

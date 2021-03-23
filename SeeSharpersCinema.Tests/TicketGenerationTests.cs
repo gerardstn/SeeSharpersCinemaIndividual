@@ -1,6 +1,4 @@
-﻿using SeeSharpersCinema.Models.Order;
-using System;
-using Xunit;
+﻿using Xunit;
 
 namespace SeeSharpersCinema.Tests
 {

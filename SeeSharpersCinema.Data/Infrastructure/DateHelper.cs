@@ -4,6 +4,10 @@ namespace SeeSharpersCinema.Infrastructure
 {
     public static class DateHelper
     {
+        /// <summary>
+        /// Gets the name of the weekday
+        /// </summary>
+        /// <returns>String with the weekday of today</returns>
         public static string GetDay()
         {
             DayOfWeek today = DateTime.Today.DayOfWeek;

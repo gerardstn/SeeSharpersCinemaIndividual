@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Data.Models.Theater;
 using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Repository;

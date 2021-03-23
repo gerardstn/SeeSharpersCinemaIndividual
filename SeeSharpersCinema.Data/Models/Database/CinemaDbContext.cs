@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Theater;
-using SeeSharpersCinema.Models.Program;
-using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Models.Order;
+using SeeSharpersCinema.Models.Program;
+using SeeSharpersCinema.Models.Theater;
+using SeeSharpersCinema.Models.Website;
 
 namespace SeeSharpersCinema.Models.Database
 {
@@ -19,6 +19,7 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<ReservedSeat> ReservedSeats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Notice> Notices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +29,7 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<Movie>().ToTable("Movie");
             modelBuilder.Entity<PlayList>().ToTable("PlayList");
             modelBuilder.Entity<Ticket>().ToTable("Ticket");
+            modelBuilder.Entity<Notice>().ToTable("Notice");
             modelBuilder.Entity<ReservedSeat>().ToTable("ReservedSeat");
 
             modelBuilder.Entity<Cinema>().HasData(FakeData.FakeCinemas);
@@ -35,8 +37,9 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<TimeSlot>().HasData(FakeData.FakeTimeSlots);
             modelBuilder.Entity<Movie>().HasData(FakeData.FakeMovies);
             modelBuilder.Entity<PlayList>().HasData(FakeData.FakePlayLists);
+            modelBuilder.Entity<Notice>().HasData(FakeData.FakeNotices);
             //modelBuilder.Entity<Ticket>().HasData(FakeData.FakeTicket);
-           
+
             modelBuilder.Entity<ReservedSeat>().HasData(FakeData.FakeReservedSeats);
 
         }

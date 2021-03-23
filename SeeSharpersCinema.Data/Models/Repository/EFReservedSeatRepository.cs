@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Database;
 using System;
 using System.Collections.Generic;
