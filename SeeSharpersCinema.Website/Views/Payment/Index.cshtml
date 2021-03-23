@@ -41,8 +41,8 @@
                             <td class="col-md-9">
                                 @Html.DisplayNameFor(model => model.Title)
                             </td>
-                            
-                            <td class="col-md-1" style="text-align: center"> 2 </td>
+
+                            <td class="col-md-1" style="text-align: center"> @Model.Title </td>
                             <td class="col-md-1 text-center">€13</td>
                             <td class="col-md-1 text-center">€26</td>
                         </tr>
@@ -80,7 +80,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <a class="navbar-brand" asp-area="" asp-controller="Payment" asp-action="Pay">Pay</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Payment" asp-action="MolliePayment">Pay</a>
             </div>
         </div>
     </div>

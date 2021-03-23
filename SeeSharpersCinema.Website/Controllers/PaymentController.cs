@@ -19,14 +19,15 @@ namespace SeeSharpersCinema.Website.Controllers
 
     public class PaymentController : Controller
     {
-   /*     IPaymentClient paymentClient = new PaymentClient("test_rWeMRKpke8RHJFezCqenNyJmHtQry8");
-        PaymentRequest paymentRequest = new PaymentRequest()
-        {
-            Amount = new Amount(Currency.EUR, 100.00m),
-            Description = "Test payment of the example project",
-            RedirectUrl = "http://google.com",
-            Method = Mollie.Api.Models.Payment.PaymentMethod.Ideal // instead of "Ideal"
-        };*/
+        Movie mov;
+        //IPaymentClient paymentClient = new PaymentClient("test_rWeMRKpke8RHJFezCqenNyJmHtQry8");
+        //PaymentRequest paymentRequest = new PaymentRequest()
+        //{
+        // Amount = new Amount(Currency.EUR, 100.00m),
+        // Description = "Test payment of the example project",
+        // RedirectUrl = "http://google.com",
+        //  Method = Mollie.Api.Models.Payment.PaymentMethod.Ideal // instead of "Ideal"
+        //};
         /*        PaymentResponse paymentResponse = await paymentClient.CreatePaymentAsync(paymentRequest);
         */
 
@@ -38,9 +39,21 @@ namespace SeeSharpersCinema.Website.Controllers
 
         [Route("Payment/Pay")]
 
-        public IActionResult Index([FromRoute] long movieId)
+        public async Task<IActionResult> IndexAsync(long movieId)
         {
-            return View();
+            if (movieId == 0)
+            {
+                return NotFound();
+            }
+
+            var movie = await repository.Movies
+                .FirstOrDefaultAsync(m => m.Id == movieId);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            mov = movie;
+            return View(movie);
         }
         public async Task<IActionResult> Index()
         {
@@ -82,6 +95,12 @@ namespace SeeSharpersCinema.Website.Controllers
             return View();
         }
 
+        public async Task<IActionResult> MolliePayment()
+        {
+            SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
+            emailService.email_send();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
 
