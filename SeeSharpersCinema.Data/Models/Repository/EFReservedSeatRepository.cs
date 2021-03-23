@@ -1,15 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Program;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Data.Models.Repository
 {
-    public class EFReservedSeatRepository: IReservedSeatRepository
+    public class EFReservedSeatRepository : IReservedSeatRepository
     {
         private CinemaDbContext context;
 
@@ -51,12 +50,13 @@ namespace SeeSharpersCinema.Data.Models.Repository
             {
                 await context.AddRangeAsync(reservedSeat);
                 var saveResult = await context.SaveChangesAsync();
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            
-            
+
+
         }
 
     }

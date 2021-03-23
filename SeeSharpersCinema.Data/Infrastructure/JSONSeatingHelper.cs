@@ -1,17 +1,12 @@
-﻿using SeeSharpersCinema.Models.Program;
-using SeeSharpersCinema.Models.Theater;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using JsonSerializer = System.Text.Json.JsonSerializer;
-using System.Text.Encodings.Web;
-using System.Text.Unicode;
+﻿using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Data.Program;
-using SeeSharpersCinema.Data.Models.Program;
+using SeeSharpersCinema.Models.Program;
+using SeeSharpersCinema.Models.Theater;
+using System.Collections.Generic;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace SeeSharpersCinema.Data.Infrastructure
 {
@@ -34,7 +29,8 @@ namespace SeeSharpersCinema.Data.Infrastructure
 
                     ObjSeat ObjSeat = new ObjSeat { GridSeatNum = i, seatNumber = i, SeatStatus = "0" };
                     var seatTaken = 0;
-                    Seats.ForEach(s => {
+                    Seats.ForEach(s =>
+                    {
                         if (s.SeatId == i & s.RowId == j & s.SeatState == SeatState.Reserved)
                         {
                             seatTaken = 1;
@@ -44,7 +40,7 @@ namespace SeeSharpersCinema.Data.Infrastructure
                             seatTaken = 2;
                         }
                     });
-                    if (seatTaken>0)
+                    if (seatTaken > 0)
                     {
                         ObjSeat.SeatStatus = seatTaken.ToString();
                         seatTaken = 0;

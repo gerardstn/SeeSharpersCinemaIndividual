@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SeeSharpersCinema.Models.Theater
+﻿namespace SeeSharpersCinema.Models.Theater
 {
     public class Room
     {
