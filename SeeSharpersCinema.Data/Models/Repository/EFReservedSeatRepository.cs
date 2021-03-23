@@ -20,6 +20,10 @@ namespace SeeSharpersCinema.Data.Models.Repository
 
         //public IQueryable<ReservedSeat> ReservedSeat => context.ReservedSeats;
 
+        /// <summary>
+        /// Queries the database to return all Reserved Seats between specific dates.
+        /// </summary>
+        /// <returns>ReservedSeats</returns>
         public async Task<IEnumerable<ReservedSeat>> FindAllAsync()
             => await context.ReservedSeats
             //.Include(s => s.SeatId)
@@ -27,6 +31,11 @@ namespace SeeSharpersCinema.Data.Models.Repository
             .OrderBy(q => q.TimeSlotId)
             .ToListAsync();
 
+        /// <summary>
+        /// Queries the database to return all Reserved Seats between specific dates.
+        /// </summary>
+        /// <param name="TimeSlotId">The TimeSlotId the reserved seats should match. This is defined by the method in SeatController.</param>
+        /// <returns>ReservedSeats that match the TimeSlotId</returns>
         public async Task<IEnumerable<ReservedSeat>> FindAllByTimeSlotIdAsync(long TimeSlotId)
             => await context.ReservedSeats
             //.Include(s => s.SeatId)
@@ -35,21 +44,17 @@ namespace SeeSharpersCinema.Data.Models.Repository
             .Where(t => t.TimeSlotId == TimeSlotId)
             .ToListAsync();
 
+
+        /// <summary>
+        /// Adds a collection of type ReservedSeat to the database.
+        /// </summary>
+        /// <param name="reservedSeat">A collection of Type Reserved Seat. This is defined by the method in SeatController.</param>
         public async Task ReserveSeats(ICollection<ReservedSeat> reservedSeat)
         {
             try
             {
-                //context.Add<ReservedSeat>(reservedSeat);
                 await context.AddRangeAsync(reservedSeat);
-                //var saveResult = await context.SaveChangesAsync();
-                //save @ticketsale complete?
-                //var saveResult = await context.SaveChangesAsync();
-
-                //todo Remove after dev & testing
-                //context.SaveChanges();
-                //await context.SaveChangesAsync();
                 var saveResult = await context.SaveChangesAsync();
-                //return saveResult == 1;
             } catch(Exception e)
             {
                 Console.WriteLine(e.Message);

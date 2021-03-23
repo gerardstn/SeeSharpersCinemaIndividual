@@ -36,28 +36,23 @@ namespace SeeSharpersCinema.Website.Controllers
         /// <summary>
         /// Selector creates SeatViewModel for the view
         /// </summary>
+        /// <param name="playListId">The playListId given by the route.</param>
+        /// <returns>SeatViewModel</returns>
         [Route("Seat/Selector/{playListId}")]
         public async Task<IActionResult> Selector([FromRoute] long playListId)
         {
             var PlayListList = await playListRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == playListId);
-
             var ReservedSeats = await seatRepository.FindAllByTimeSlotIdAsync(PlayList.TimeSlotId);
-
-            //--------------------------------------------------------------------------------------------------
+                     
             SeatViewModel SeatViewModel = new SeatViewModel();
             SeatViewModel.Movie = PlayList.Movie;
             SeatViewModel.TimeSlot = PlayList.TimeSlot;
-            //SeatViewModel.SeatStates = new Dictionary<int, SeatState>();
-            //ReservedSeats.ToList().ForEach(s => SeatViewModel.SeatStates.Add(s.SeatId, s.SeatState));
-            
 
-            //todo reservedseats transform to jsonobject
-            //temp room rows, add rows to room
             var Seats = ReservedSeats.ToList();
             var Seating = JSONSeating(PlayList.TimeSlot.Room, Seats);
             SeatViewModel.SeatingArrangement = JSONSeating(PlayList.TimeSlot.Room, Seats);
-            //await SaveSeatTest();
+          
             return View(SeatViewModel);
         }
 
@@ -65,6 +60,9 @@ namespace SeeSharpersCinema.Website.Controllers
         /// <summary>
         /// takes post input as JSONstring and saves seats to db
         /// </summary>
+        /// <param name="Seatstring">The JSON string given back from the form in the Seat/Selector.</param>
+        /// <param name="TimeSlotId">The id corresponding to a specific TimeSlot. This is given back from the form in the Seat/Selector.</param>
+        /// <returns>SeatViewModel</returns>
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> ReserveSeats(string Seatstring, long TimeSlotId)//todo remove testdata
@@ -89,6 +87,9 @@ namespace SeeSharpersCinema.Website.Controllers
         /// <summary>
         /// Creates a JSON objectstring to render the reserved Seats in the view
         /// </summary>
+        /// <param name="Room">A Room of type Room.</param>
+        /// <param name="Seats">A list of type ReservedSeat.</param>
+        /// <returns>A JSON string to the ViewModel</returns>
         public string JSONSeating(Room Room, List<ReservedSeat> Seats)
         {
             List<ObjRow> ObjRowList = new List<ObjRow>();
