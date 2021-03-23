@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class bananenschil : Migration
+    public partial class covidseat_hotfix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
