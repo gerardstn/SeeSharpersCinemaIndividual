@@ -10,8 +10,8 @@ using SeeSharpersCinema.Models.Database;
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20210323090402_Cast-Added")]
-    partial class CastAdded
+    [Migration("20210323112249_Noti")]
+    partial class Noti
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -3837,6 +3837,32 @@ namespace SeeSharpersCinema.Data.Migrations
                             SlotEnd = new DateTime(2021, 4, 20, 23, 0, 0, 0, DateTimeKind.Unspecified),
                             SlotStart = new DateTime(2021, 4, 20, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             Week = 16
+                        });
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Website.Notice", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notice");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Message = "Houd anderhalve meter afstand van iedereen in het theater, niet eerder dan 15 minuten voor aanvang arriveren, direct na afloop van de voorstelling weer vertrekken.",
+                            isActive = true
                         });
                 });
 

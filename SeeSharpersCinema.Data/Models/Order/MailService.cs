@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using QRCoder;
+using System;
+using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
-using System.Net.Mime;
-using System.Threading;
-using System.ComponentModel;
-using System.Drawing;
-using QRCoder;
-using System.IO;
 
 namespace SeeSharpersCinema.Models
 {
     public class EmailService
     {
-        private const String cinemaEmail    = "SeeSharpersCinema@gmail.com";
-        private const String cinemaEmailPw  = "SeeSharpersCinema1!";
-        private const String emailClient    = "smtp.gmail.com";
+        private const String cinemaEmail = "SeeSharpersCinema@gmail.com";
+        private const String cinemaEmailPw = "SeeSharpersCinema1!";
+        private const String emailClient = "smtp.gmail.com";
 
         public void email_send()
         {

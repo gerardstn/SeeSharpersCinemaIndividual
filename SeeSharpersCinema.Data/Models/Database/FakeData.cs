@@ -1,6 +1,7 @@
 ﻿using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Theater;
+using SeeSharpersCinema.Models.Website;
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +17,11 @@ namespace SeeSharpersCinema.Models.Database
             {
                 new Cinema { Id = 1, Name = "Pathé", Address= "Gedempte Zuiderdiep 78", City = "Groningen", Phone = "0885152050", TotalRooms = 7, TotalCapacity = 1500 }
             };
-
+        public static List<Notice> FakeNotices
+             = new List<Notice>
+            {
+                new Notice { Id = 1, Message="Houd anderhalve meter afstand van iedereen in het theater, niet eerder dan 15 minuten voor aanvang arriveren, direct na afloop van de voorstelling weer vertrekken.", isActive=true }
+            };
         public static List<Room> FakeRooms
             = new List<Room>
             {
