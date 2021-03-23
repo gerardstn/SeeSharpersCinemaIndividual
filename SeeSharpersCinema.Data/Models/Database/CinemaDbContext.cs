@@ -1,13 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Theater;
-using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Order;
+using SeeSharpersCinema.Models.Program;
+using SeeSharpersCinema.Models.Theater;
 
 namespace SeeSharpersCinema.Models.Database
 {
     public class CinemaDbContext : DbContext
     {
+        /// <summary>
+        /// CinemaDbContext constructor with inheritance from superclass DbContext
+        /// </summary>
+        /// <param name="options">Constructor needs an object of type DbContextOptions<CinemaDbContext></param>
         public CinemaDbContext(DbContextOptions<CinemaDbContext> options)
             : base(options) { }
 
@@ -18,6 +22,10 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
 
+        /// <summary>
+        /// Configuration tablecreation from models and adding fakedata
+        /// </summary>
+        /// <param name="modelBuilder">Method needs an ModelBuilder object</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cinema>().ToTable("Cinema");
