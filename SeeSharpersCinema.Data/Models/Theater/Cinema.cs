@@ -1,5 +1,9 @@
 ﻿namespace SeeSharpersCinema.Models.Theater
 {
+    /// <summary>
+    /// Class Cinema with properties 
+    /// Entity Framework creates a table with Id as primary key 
+    /// </summary>
     public class Cinema
     {
         public long Id { get; set; }
