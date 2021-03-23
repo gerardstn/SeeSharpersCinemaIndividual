@@ -18,15 +18,12 @@ namespace SeeSharpersCinema.Data.Models.Repository
             context = ctx;
         }
 
-        //public IQueryable<ReservedSeat> ReservedSeat => context.ReservedSeats;
-
         /// <summary>
         /// Queries the database to return all Reserved Seats between specific dates.
         /// </summary>
         /// <returns>ReservedSeats</returns>
         public async Task<IEnumerable<ReservedSeat>> FindAllAsync()
             => await context.ReservedSeats
-            //.Include(s => s.SeatId)
             .Include(c => c.TimeSlot)
             .OrderBy(q => q.TimeSlotId)
             .ToListAsync();
@@ -38,7 +35,6 @@ namespace SeeSharpersCinema.Data.Models.Repository
         /// <returns>ReservedSeats that match the TimeSlotId</returns>
         public async Task<IEnumerable<ReservedSeat>> FindAllByTimeSlotIdAsync(long TimeSlotId)
             => await context.ReservedSeats
-            //.Include(s => s.SeatId)
             .Include(c => c.TimeSlot)
             .Include(r => r.TimeSlot.Room)
             .Where(t => t.TimeSlotId == TimeSlotId)

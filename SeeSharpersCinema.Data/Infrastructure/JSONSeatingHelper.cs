@@ -44,7 +44,7 @@ namespace SeeSharpersCinema.Data.Infrastructure
                             seatTaken = 2;
                         }
                     });
-                    if (seatTaken>0)//Todo think this can be integrated in seatTaken = true. Check later
+                    if (seatTaken>0)
                     {
                         ObjSeat.SeatStatus = seatTaken.ToString();
                         seatTaken = 0;
@@ -76,7 +76,6 @@ namespace SeeSharpersCinema.Data.Infrastructure
                 groupedSeats = groupedSeatsList
             };
 
-            // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
             var encoderSettings = new TextEncoderSettings();
             encoderSettings.AllowCharacters('\u0022');
             encoderSettings.AllowRange(UnicodeRanges.BasicLatin);
@@ -86,7 +85,6 @@ namespace SeeSharpersCinema.Data.Infrastructure
                 WriteIndented = true
             };
             string jsonString = JsonSerializer.Serialize(Root, options);
-            // System.Diagnostics.Debug.WriteLine(jsonString);
 
             return jsonString;
         }

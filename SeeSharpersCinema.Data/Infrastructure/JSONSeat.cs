@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Data.Models.Program
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class ObjSeat
     {
         public int GridSeatNum { get; set; }

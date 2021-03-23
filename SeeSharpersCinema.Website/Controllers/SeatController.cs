@@ -21,7 +21,6 @@ namespace SeeSharpersCinema.Website.Controllers
 
         private IPlayListRepository playListRepository;
         private IReservedSeatRepository seatRepository;
-        //private long TimeSlotId;
         bool COVID = true;
 
         public SeatController(IPlayListRepository playListRepository, IReservedSeatRepository seatRepository)
@@ -61,12 +60,11 @@ namespace SeeSharpersCinema.Website.Controllers
         /// <param name="TimeSlotId">The id corresponding to a specific TimeSlot. This is given back from the form in the Seat/Selector.</param>
         /// <returns>SeatViewModel</returns>
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ReserveSeats(string Seatstring, long TimeSlotId)//todo remove testdata
         {
             var SeatingArrangement = JsonSerializer.Deserialize<DeserializeRoot>(Seatstring);
 
-            //System.Diagnostics.Debug.WriteLine(Seatstring);
             List<ReservedSeat> SeatList = new List<ReservedSeat>();
             SeatingArrangement.selected.ForEach(s =>
             {
@@ -74,13 +72,12 @@ namespace SeeSharpersCinema.Website.Controllers
                 SeatList.Add(ReservedSeat);
             });
 
-            //await SaveSeats(SeatList);
             if (COVID)
             {
                 SeatList = await COVIDSeats(SeatList);
             }
             await seatRepository.ReserveSeats(SeatList);
-            return RedirectToAction("Index", "Home");//needs to be payment view, for now index main.*/
+            return RedirectToAction("Index", "Home");
         }
 
 
