@@ -8,18 +8,19 @@ namespace SeeSharpersCinema.TouchScreen.Controllers
     {
         private IPlayListRepository repository;
 
+        /// <summary>
+        /// PlayListController constructor
+        /// </summary>
+        /// <param name="repo">Constructor needs an IPlayListRepository object</param>
         public PlayListController(IPlayListRepository repo)
         {
             repository = repo;
         }
 
-        //public ViewResult Overview()
-        //    => View(new PlayListViewModel
-        //    {
-        //        PlayLists = repository.PlayLists
-        //        .OrderBy(p => p.TimeSlotId)
-        //    });
-
+        /// <summary>
+        /// Get the view Overview in a task for correct threading in the background
+        /// </summary>
+        /// <returns>Movie view with all movies from the repository</returns>
         public async Task<IActionResult> Overview()
         {
             return View(await repository.FindAllAsync());
