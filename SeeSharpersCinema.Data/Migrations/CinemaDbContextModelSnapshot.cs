@@ -3838,6 +3838,32 @@ namespace SeeSharpersCinema.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SeeSharpersCinema.Models.Website.Notice", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Notice");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Message = "Houd anderhalve meter afstand van iedereen in het theater, niet eerder dan 15 minuten voor aanvang arriveren, direct na afloop van de voorstelling weer vertrekken.",
+                            isActive = true
+                        });
+                });
+
             modelBuilder.Entity("SeeSharpersCinema.Models.Order.Ticket", b =>
                 {
                     b.HasOne("SeeSharpersCinema.Models.Film.Movie", "Movie")
