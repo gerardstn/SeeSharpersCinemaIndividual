@@ -13,6 +13,9 @@ namespace SeeSharpersCinema.Models
         private const String cinemaEmailPw = "SeeSharpersCinema1!";
         private const String emailClient = "smtp.gmail.com";
 
+        /// <summary>
+        /// Send email to customer with generated QR code
+        /// </summary>
         public void email_send()
         {
             SeeSharpersCinema.Models.Order.Ticket ticket = new SeeSharpersCinema.Models.Order.Ticket();
@@ -20,7 +23,6 @@ namespace SeeSharpersCinema.Models
             String qrCodew = ticket.GetQr();
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            //QRCodeData qrCodeData = qrGenerator.CreateQrCode("https://www.google.com", QRCodeGenerator.ECCLevel.Q);
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(guid.ToString(), QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
@@ -45,20 +47,12 @@ namespace SeeSharpersCinema.Models
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(cinemaEmail);
-
-                //Mail TO customer email
                 mail.To.Add("SeeSharpersCinema@gmail.com");
-
-                //Add name and moviename from purchase information
                 mail.Subject = "Thank you " + "(name)" + " for ordering a ticket for movie " + "(moviename)";
-
                 mail.Body = emailBody;
                 mail.IsBodyHtml = true;
-
-                //Attach Generated PNG from QR code.
                 mail.Attachments.Add(new Attachment("D:/Avans/Temp/QRCode_" + guid + ".png"));
 
-                //Set mail client
                 using (SmtpClient smtp = new SmtpClient(emailClient, 587))
                 {
                     smtp.Credentials = new NetworkCredential(cinemaEmail, cinemaEmailPw);
