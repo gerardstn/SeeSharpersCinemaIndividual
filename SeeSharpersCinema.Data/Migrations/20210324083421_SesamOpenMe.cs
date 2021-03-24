@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
-    public partial class covidseat_hotfix : Migration
+    public partial class SesamOpenMe : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
