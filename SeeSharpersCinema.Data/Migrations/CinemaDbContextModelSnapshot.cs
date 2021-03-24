@@ -1784,6 +1784,178 @@ namespace SeeSharpersCinema.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SeeSharpersCinema.Models.Program.ReservedSeat", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RowId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeatId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeatState")
+                        .HasColumnType("int");
+
+                    b.Property<long>("TimeSlotId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TimeSlotId");
+
+                    b.ToTable("ReservedSeat");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            RowId = 1,
+                            SeatId = 1,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            RowId = 1,
+                            SeatId = 2,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            RowId = 1,
+                            SeatId = 3,
+                            SeatState = 2,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            RowId = 1,
+                            SeatId = 4,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            RowId = 1,
+                            SeatId = 5,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            RowId = 2,
+                            SeatId = 5,
+                            SeatState = 2,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            RowId = 2,
+                            SeatId = 6,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            RowId = 2,
+                            SeatId = 8,
+                            SeatState = 1,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            RowId = 2,
+                            SeatId = 9,
+                            SeatState = 2,
+                            TimeSlotId = 1L
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            RowId = 1,
+                            SeatId = 1,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 11L,
+                            RowId = 1,
+                            SeatId = 2,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 12L,
+                            RowId = 1,
+                            SeatId = 3,
+                            SeatState = 2,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 13L,
+                            RowId = 1,
+                            SeatId = 4,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 14L,
+                            RowId = 1,
+                            SeatId = 5,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            RowId = 2,
+                            SeatId = 5,
+                            SeatState = 2,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            RowId = 2,
+                            SeatId = 6,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            RowId = 2,
+                            SeatId = 8,
+                            SeatState = 1,
+                            TimeSlotId = 2L
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            RowId = 2,
+                            SeatId = 9,
+                            SeatState = 2,
+                            TimeSlotId = 2L
+                        });
+                });
+
             modelBuilder.Entity("SeeSharpersCinema.Models.Theater.Cinema", b =>
                 {
                     b.Property<long>("Id")
@@ -1839,6 +2011,9 @@ namespace SeeSharpersCinema.Data.Migrations
                     b.Property<long>("CinemaId")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("Rows")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CinemaId");
@@ -1850,43 +2025,50 @@ namespace SeeSharpersCinema.Data.Migrations
                         {
                             Id = 1L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 2L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 3L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 4L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 5L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 6L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         },
                         new
                         {
                             Id = 7L,
                             Capacity = 300,
-                            CinemaId = 1L
+                            CinemaId = 1L,
+                            Rows = 15
                         });
                 });
 
@@ -3900,6 +4082,17 @@ namespace SeeSharpersCinema.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Movie");
+
+                    b.Navigation("TimeSlot");
+                });
+
+            modelBuilder.Entity("SeeSharpersCinema.Models.Program.ReservedSeat", b =>
+                {
+                    b.HasOne("SeeSharpersCinema.Models.TimeSlot", "TimeSlot")
+                        .WithMany()
+                        .HasForeignKey("TimeSlotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TimeSlot");
                 });

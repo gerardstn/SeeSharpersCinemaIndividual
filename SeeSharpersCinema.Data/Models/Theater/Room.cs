@@ -6,9 +6,6 @@
         public int Capacity { get; set; }
         public long CinemaId { get; set; }
         public Cinema Cinema { get; set; }
-
-        // public List<Seat> SeatList { get; set; }
-
-        // public void CountDownCapacity(int seats) => Capacity -= seats;
+        public int Rows { get; set; }
     }
 }

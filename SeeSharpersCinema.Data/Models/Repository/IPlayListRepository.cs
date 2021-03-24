@@ -14,7 +14,6 @@ namespace SeeSharpersCinema.Models.Repository
         /// in a taks for correct threading
         /// </summary>
         /// <returns>IEnumerable<PlayList> objects</returns>
-        public Task<IEnumerable<PlayList>> FindAllAsync();
         public Task<IEnumerable<PlayList>> FindBetweenDatesAsync(DateTime startDate, DateTime endDate);
         public Task<IEnumerable<PlayList>> FindByTitle(DateTime startDate, DateTime endDate, string uiTitle);
         public Task<IEnumerable<PlayList>> FindByDate(DateTime uiDate);
