@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeeSharpersCinema.TouchScre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeeSharpersCinema.Website", "SeeSharpersCinema.Website\SeeSharpersCinema.Website.csproj", "{C5FD794C-B033-4582-B7EA-D04942319665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharpersCinema.IntegrationTests", "SeeSharpersCinema.IntegrationTests\SeeSharpersCinema.IntegrationTests.csproj", "{BC5DB557-BAFC-40E7-8A91-AAA79F775BA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeeSharpersCinema.IntegrationTests", "SeeSharpersCinema.IntegrationTests\SeeSharpersCinema.IntegrationTests.csproj", "{BC5DB557-BAFC-40E7-8A91-AAA79F775BA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharpersCinema.BackOffice", "SeeSharpersCinema.BackOffice\SeeSharpersCinema.BackOffice.csproj", "{745D7D0A-E524-47B4-ADC8-D6D1A798EEBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeSharpersCinema.CashRegister", "SeeSharpersCinema.CashRegister\SeeSharpersCinema.CashRegister.csproj", "{1DAA5F67-7C13-40CF-A332-292E82527C58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{BC5DB557-BAFC-40E7-8A91-AAA79F775BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC5DB557-BAFC-40E7-8A91-AAA79F775BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC5DB557-BAFC-40E7-8A91-AAA79F775BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745D7D0A-E524-47B4-ADC8-D6D1A798EEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745D7D0A-E524-47B4-ADC8-D6D1A798EEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745D7D0A-E524-47B4-ADC8-D6D1A798EEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745D7D0A-E524-47B4-ADC8-D6D1A798EEBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DAA5F67-7C13-40CF-A332-292E82527C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAA5F67-7C13-40CF-A332-292E82527C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DAA5F67-7C13-40CF-A332-292E82527C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DAA5F67-7C13-40CF-A332-292E82527C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

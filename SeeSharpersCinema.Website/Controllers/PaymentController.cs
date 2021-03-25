@@ -81,7 +81,7 @@ namespace SeeSharpersCinema.Website.Controllers
         public IActionResult MolliePayment()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
-            emailService.email_send();
+           // emailService.email_send();
             return View();
         }
     }
