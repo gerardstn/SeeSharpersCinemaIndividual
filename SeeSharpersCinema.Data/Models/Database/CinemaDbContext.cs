@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Order;
 using SeeSharpersCinema.Models.Program;
@@ -7,7 +9,7 @@ using SeeSharpersCinema.Models.Website;
 
 namespace SeeSharpersCinema.Models.Database
 {
-    public class CinemaDbContext : DbContext
+    public class CinemaDbContext : IdentityDbContext
     {
         public CinemaDbContext(DbContextOptions<CinemaDbContext> options)
             : base(options) { }
@@ -20,6 +22,7 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<ReservedSeat> ReservedSeats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Notice> Notices { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,6 +42,8 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<PlayList>().HasData(FakeData.FakePlayLists);
             modelBuilder.Entity<Notice>().HasData(FakeData.FakeNotices);
             modelBuilder.Entity<ReservedSeat>().HasData(FakeData.FakeReservedSeats);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

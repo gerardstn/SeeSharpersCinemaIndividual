@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,15 +28,21 @@ namespace SeeSharpersCinema.CashRegister
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
 
-            services.AddIdentity<IdentityUser<Guid>, IdentityRole<Guid>>(config =>
+            services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
                 config.Password.RequiredLength = 4;
                 config.Password.RequireDigit = false;
                 config.Password.RequireNonAlphanumeric = false;
                 config.Password.RequireUppercase = false;
             })
-                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddEntityFrameworkStores<CinemaDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "Identity.Cookie";
+                config.LoginPath = "/Home/Login";
+            });
 
             services.AddControllersWithViews();
         }
@@ -50,7 +55,6 @@ namespace SeeSharpersCinema.CashRegister
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
-
 
             app.UseRouting();
 
