@@ -1,23 +1,35 @@
 ﻿@model RegisterUserViewModel
 
+@section Styles {
+    <link href="@Url.Content("~/css/user.css")" rel="stylesheet" type="text/css" />
+}
 @{ ViewData["Title"] = "Registeren"; }
 
-<div class="row">
-        <h1>Registeren als nieuwe gebruiker</h1>
 
+    <main class="center text-center form-signin">
         <form asp-action="Register" method="post">
-                <label asp-for="Name"></label>
-                <input class="form-control" asp-for="Name" />
+            <img class="mb-4" src="/custom/film-solid.svg" alt="" width="72" height="57">
+            <h1 class="h3 text-light mb-3 fw-normal">Registeren als nieuwe gebruiker</h1>
+            <div class="form-floating m-2">
+                <label class="text-light" asp-for="Name"></label>
+                <input class="form-control" placeholder="Naam" asp-for="Name" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-                <label asp-for="Email"></label>
-                <input class="form-control" asp-for="Email" />
+            </div>
+            <div class="form-floating m-2">
+                <label class="text-light" asp-for="Email"></label>
+                <input class="form-control" placeholder="naam@email.nl" asp-for="Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
-                <label asp-for="Password"></label>
-                <input class="form-control" asp-for="Password" />
+            </div>
+            <div class="form-floating m-2">
+                <label class="text-light" asp-for="Password"></label>
+                <input class="form-control" placeholder="Wachtwoord" asp-for="Password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
-                <label asp-for="ConfirmedPassword"></label>
-                <input class="form-control" asp-for="ConfirmedPassword" />
+            </div>
+            <div class="form-floating m-2">
+                <label class="text-light" asp-for="ConfirmedPassword"></label>
+                <input class="form-control" placeholder="Wachtwoord" asp-for="ConfirmedPassword" />
                 <span asp-validation-for="ConfirmedPassword" class="text-danger"></span>
-            <button class="btn btn-primary" type="submit">Registeren</button>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Registeren</button>
+            <p class="mt-5 mb-3 text-light">&copy; 2021</p>
         </form>
-</div>

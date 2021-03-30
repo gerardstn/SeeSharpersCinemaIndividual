@@ -46,10 +46,9 @@ namespace SeeSharpersCinema.Website
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "Identity.Cookie";
-                config.LoginPath = "/Home/Login";
+                config.LoginPath = "/user/Login";
+                config.AccessDeniedPath = "/user/NotAllowed";
             });
-
-            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

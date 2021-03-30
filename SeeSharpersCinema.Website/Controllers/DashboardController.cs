@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Infrastructure;
 using SeeSharpersCinema.Models.Repository;
 using System;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Website.Controllers
-{   
+{
+    [Authorize(Roles = "Admin,Manager")]
     public class DashboardController : Controller
     {
         private IPlayListRepository repository;

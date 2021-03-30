@@ -36,35 +36,6 @@ namespace SeeSharpersCinema.Website.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register() {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterUserViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                IdentityUser user = new IdentityUser
-                {
-                    UserName = model.Name,
-                    Email = model.Email
-                };
-                IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-            return View(model);
-        }
-
-        [HttpGet]
         public IActionResult Login()
         {
             return View();
@@ -95,7 +66,7 @@ namespace SeeSharpersCinema.Website.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "User");
         }
 
 

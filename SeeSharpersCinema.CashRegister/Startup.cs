@@ -22,6 +22,7 @@ namespace SeeSharpersCinema.CashRegister
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
             services.AddDbContext<CinemaDbContext>(opts =>
             {
                 opts.UseSqlServer(
@@ -41,30 +42,45 @@ namespace SeeSharpersCinema.CashRegister
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "Identity.Cookie";
-                config.LoginPath = "/Home/Login";
+                config.LoginPath = "/user/Login";
+                config.AccessDeniedPath = "/user/NotAllowed";
             });
-
-            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env
+            , UserManager<IdentityUser> userManager
+            , RoleManager<IdentityRole> roleManager
+            )
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseMigrationsEndPoint();
             }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-           
+
+            UserAndRoleDataInitializer.SeedRoles(roleManager);
+            UserAndRoleDataInitializer.SeedUsers(userManager);
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=User}/{action=Login}/{id?}");
             });
         }
     }

@@ -21,34 +21,15 @@ namespace SeeSharpersCinema.CashRegister.Controllers
             _signInManager = signInManager;
         }
 
-        [HttpGet]
-        public IActionResult Register()
+        [AllowAnonymous]
+        public IActionResult AccesDenied()
         {
-            return View();
+            return RedirectToAction("NotAllowed", "User");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterUserViewModel model)
+        public IActionResult NotAllowed()
         {
-            if (ModelState.IsValid)
-            {
-                IdentityUser user = new IdentityUser
-                {
-                    UserName = model.Name,
-                    Email = model.Email
-                };
-                IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-            return View(model);
+            return View();
         }
 
         [HttpGet]
@@ -70,7 +51,7 @@ namespace SeeSharpersCinema.CashRegister.Controllers
                         lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Cashier", "Home");
                 }
                 ModelState.AddModelError("", "Login failed.");
             }
@@ -83,19 +64,10 @@ namespace SeeSharpersCinema.CashRegister.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Login", "User");
         }
 
-        [AllowAnonymous]
-        public IActionResult AccesDenied()
-        {
-            return RedirectToAction("NoAccess", "Users");
-        }
 
-        public IActionResult NoAccess()
-        {
-            return View();
-        }
     }
 }
 
