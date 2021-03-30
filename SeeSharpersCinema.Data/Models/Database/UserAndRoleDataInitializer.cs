@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Database
 {
-    class UserAndRoleDataInitializer
+    public static class UserAndRoleDataInitializer
     {
         public static void SeedRoles(RoleManager<IdentityRole> roleManager)
         {
@@ -17,14 +17,30 @@ namespace SeeSharpersCinema.Models.Database
                 role.Name = "Admin";
                 IdentityResult roleResult = roleManager.CreateAsync(role).Result;
             }
-
-            if (!roleManager.RoleExistsAsync("Desk").Result)
+            if (!roleManager.RoleExistsAsync("Backoffice").Result)
             {
                 IdentityRole role = new IdentityRole();
-                role.Name = "Desk";
+                role.Name = "Backoffice";
                 IdentityResult roleResult = roleManager.CreateAsync(role).Result;
             }
-
+            if (!roleManager.RoleExistsAsync("Manager").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Manager";
+                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+            }
+            if (!roleManager.RoleExistsAsync("Cashier").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Cashier";
+                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+            }
+            if (!roleManager.RoleExistsAsync("Subscriber").Result)
+            {
+                IdentityRole role = new IdentityRole();
+                role.Name = "Subscriber";
+                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+            }
             if (!roleManager.RoleExistsAsync("Member").Result)
             {
                 IdentityRole role = new IdentityRole();
@@ -34,63 +50,89 @@ namespace SeeSharpersCinema.Models.Database
         }
         public static void SeedUsers(UserManager<IdentityUser> userManager)
         {
-            if (userManager.FindByEmailAsync("admin@avd.nl").Result == null)
+            if (userManager.FindByEmailAsync("admin@sscinema.nl").Result == null)
             {
                 IdentityUser user = new IdentityUser();
                 user.UserName = "admin";
-                user.Email = "admin@avd.nl";
+                user.Email = "admin@sscinema.nl";
 
-                IdentityResult result = userManager.CreateAsync(user, "Admin1234").Result;
+                IdentityResult result = userManager.CreateAsync(user, "admin").Result;
 
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user, "Admin").Wait();
-                    userManager.AddToRoleAsync(user, "Desk").Wait();
                 }
             }
 
-            if (userManager.FindByEmailAsync("Henk").Result == null)
+            if (userManager.FindByEmailAsync("backoffice@sscinema.nl").Result == null)
             {
                 IdentityUser user = new IdentityUser();
-                user.UserName = "Henk";
-                user.Email = "henk@avd.nl";
+                user.UserName = "backoffice";
+                user.Email = "backoffice@sscinema.nl";
 
-                IdentityResult result = userManager.CreateAsync(user, "Henkisok").Result;
+                IdentityResult result = userManager.CreateAsync(user, "backoffice").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Backoffice").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("manager@sscinema.nl").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "manager";
+                user.Email = "manager@sscinema.nl";
+
+                IdentityResult result = userManager.CreateAsync(user, "manager").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Manager").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("cashier@sscinema.nl").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "cashier";
+                user.Email = "cashier@sscinema.nl";
+
+                IdentityResult result = userManager.CreateAsync(user, "cashier").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Cashier").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("subscriber@sscinema.nl").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "subscriber";
+                user.Email = "subscriber@sscinema.nl";
+
+                IdentityResult result = userManager.CreateAsync(user, "subscriber").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user, "Subscriber").Wait();
+                }
+            }
+
+            if (userManager.FindByEmailAsync("member@sscinema.nl").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "member";
+                user.Email = "member@sscinema.nl";
+
+                IdentityResult result = userManager.CreateAsync(user, "member").Result;
 
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user, "Member").Wait();
                 }
             }
-
-            if (userManager.FindByEmailAsync("Anne").Result == null)
-            {
-                IdentityUser user = new IdentityUser();
-                user.UserName = "Anne";
-                user.Email = "anne@avd.nl";
-
-                IdentityResult result = userManager.CreateAsync(user, "Anne1234").Result;
-
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user, "Desk").Wait();
-                }
-            }
-
-            if (userManager.FindByEmailAsync("Piet").Result == null)
-            {
-                IdentityUser user = new IdentityUser();
-                user.UserName = "Piet";
-                user.Email = "piet@avd.nl";
-
-                IdentityResult result = userManager.CreateAsync(user, "Piet1234").Result;
-
-                if (result.Succeeded)
-                {
-                    userManager.AddToRoleAsync(user, "Member").Wait();
-                }
-            }
-
         }
     }
 }

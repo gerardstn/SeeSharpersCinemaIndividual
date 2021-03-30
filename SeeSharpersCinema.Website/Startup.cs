@@ -66,13 +66,19 @@ namespace SeeSharpersCinema.Website
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
             app.UseRouting();
+
             app.UseAuthentication();
+
             app.UseAuthorization();
 
-/*            UserAndRoleDataInitializer.SeedRoles(roleManager);
-            UserAndRoleDataInitializer.SeedUsers(userManager);*/
+            UserAndRoleDataInitializer.SeedRoles(roleManager);
+            UserAndRoleDataInitializer.SeedUsers(userManager);
 
             app.UseEndpoints(endpoints =>
             {
