@@ -1,9 +1,8 @@
-﻿using SeeSharpersCinema.Data.Models.Theater;
-using SeeSharpersCinema.Models;
+﻿using SeeSharpersCinema.Models.Theater;
 using SeeSharpersCinema.Models.Film;
 using System.Collections.Generic;
 
-namespace SeeSharpersCinema.Data.Models.ViewModel
+namespace SeeSharpersCinema.Models.ViewModel
 {
     public class SeatViewModel
     {

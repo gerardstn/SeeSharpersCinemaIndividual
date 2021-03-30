@@ -1,4 +1,4 @@
-﻿namespace SeeSharpersCinema.Data.Models.Theater
+﻿namespace SeeSharpersCinema.Models.Theater
 {
     public class Seat
     {

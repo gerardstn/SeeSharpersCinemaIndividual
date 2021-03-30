@@ -2,7 +2,7 @@
 using SeeSharpersCinema.Models.Website;
 using System.Collections.Generic;
 
-namespace SeeSharpersCinema.Data.Models.ViewModel
+namespace SeeSharpersCinema.Models.ViewModel
 {    
     /// <summary>
      /// HomeViewModel used by the Home view (index)

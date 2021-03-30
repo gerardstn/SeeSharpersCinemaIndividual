@@ -1,4 +1,4 @@
-﻿namespace SeeSharpersCinema.Data.Program
+﻿namespace SeeSharpersCinema.Models.Program
 {
     /// <summary>
     /// Different States Reserved Seats can be in.

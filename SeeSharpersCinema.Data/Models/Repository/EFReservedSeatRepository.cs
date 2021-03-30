@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Data.Models.Repository
+namespace SeeSharpersCinema.Models.Repository
 {
     public class EFReservedSeatRepository : IReservedSeatRepository
     {

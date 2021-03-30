@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SeeSharpersCinema.Models;
 using System.Diagnostics;
+using SeeSharpersCinema.Models.ViewModel;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {

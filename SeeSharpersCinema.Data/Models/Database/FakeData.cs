@@ -1,5 +1,4 @@
-﻿using SeeSharpersCinema.Data.Program;
-using SeeSharpersCinema.Models.Film;
+﻿using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Theater;
 using SeeSharpersCinema.Models.Website;

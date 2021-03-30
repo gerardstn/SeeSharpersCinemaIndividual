@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SeeSharpersCinema.Data.Models.Repository;
 using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Repository;
 
@@ -32,11 +32,31 @@ namespace SeeSharpersCinema.Website
             services.AddTransient<IPlayListRepository, EFPlayListRepository>();
             services.AddTransient<IReservedSeatRepository, EFReservedSeatRepository>();
             services.AddTransient<INoticeRepository, EFNoticeRepository>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+            {
+                config.Password.RequiredLength = 4;
+                config.Password.RequireDigit = false;
+                config.Password.RequireNonAlphanumeric = false;
+                config.Password.RequireUppercase = false;
+            })
+                .AddEntityFrameworkStores<CinemaDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "Identity.Cookie";
+                config.LoginPath = "/Home/Login";
+            });
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env
+            , UserManager<IdentityUser> userManager
+            , RoleManager<IdentityRole> roleManager
+            ) {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -44,12 +64,15 @@ namespace SeeSharpersCinema.Website
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
-            app.UseStaticFiles();
-
+            app.UseHttpsRedirection();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+
+/*            UserAndRoleDataInitializer.SeedRoles(roleManager);
+            UserAndRoleDataInitializer.SeedUsers(userManager);*/
 
             app.UseEndpoints(endpoints =>
             {

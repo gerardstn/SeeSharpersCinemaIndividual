@@ -1,9 +1,8 @@
 ﻿using SeeSharpersCinema.Models.Program;
-using SeeSharpersCinema.Models.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SeeSharpersCinema.Data.Models.Repository
+namespace SeeSharpersCinema.Models.Repository
 {
 
     /// <summary>

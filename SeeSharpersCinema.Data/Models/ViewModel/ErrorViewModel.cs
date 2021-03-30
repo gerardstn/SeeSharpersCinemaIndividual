@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace SeeSharpersCinema.CashRegister.Models
+namespace SeeSharpersCinema.Models.ViewModel
 {
     public class ErrorViewModel
     {

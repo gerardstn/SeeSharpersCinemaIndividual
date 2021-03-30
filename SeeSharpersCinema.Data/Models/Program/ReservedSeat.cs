@@ -1,5 +1,4 @@
 ﻿
-using SeeSharpersCinema.Data.Program;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SeeSharpersCinema.Models.Program
