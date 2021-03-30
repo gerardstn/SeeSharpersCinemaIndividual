@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SeeSharpersCinema.Models;
-using System.Diagnostics;
 using SeeSharpersCinema.Models.ViewModel;
+using System.Diagnostics;
 
 namespace SeeSharpersCinema.TouchScreen.Controllers
 {

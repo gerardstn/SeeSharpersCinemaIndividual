@@ -36,7 +36,8 @@ namespace SeeSharpersCinema.Website.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register() {
+        public IActionResult Register()
+        {
             return View();
         }
 

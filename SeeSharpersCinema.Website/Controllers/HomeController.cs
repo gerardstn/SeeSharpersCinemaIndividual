@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SeeSharpersCinema.Models.ViewModel;
 using SeeSharpersCinema.Infrastructure;
 using SeeSharpersCinema.Models.Repository;
+using SeeSharpersCinema.Models.ViewModel;
 using SeeSharpersCinema.Models.Website;
 using System;
 using System.Linq;

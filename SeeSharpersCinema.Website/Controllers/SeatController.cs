@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Data.Infrastructure;
+using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Repository;
 using SeeSharpersCinema.Models.ViewModel;
@@ -7,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JsonSerializer = System.Text.Json.JsonSerializer;
-using SeeSharpersCinema.Data.Models.Program;
 
 namespace SeeSharpersCinema.Website.Controllers
 {

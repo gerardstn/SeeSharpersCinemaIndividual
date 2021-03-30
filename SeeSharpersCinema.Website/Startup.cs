@@ -55,7 +55,8 @@ namespace SeeSharpersCinema.Website
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env
             , UserManager<IdentityUser> userManager
             , RoleManager<IdentityRole> roleManager
-            ) {
+            )
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

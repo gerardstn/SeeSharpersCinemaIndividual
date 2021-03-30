@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Order;
@@ -22,7 +21,7 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<ReservedSeat> ReservedSeats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Notice> Notices { get; set; }
-        
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SeeSharpersCinema.Models.ViewModel
+﻿namespace SeeSharpersCinema.Models.ViewModel
 {
     public class ErrorViewModel
     {

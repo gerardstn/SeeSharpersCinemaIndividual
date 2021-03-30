@@ -6,7 +6,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SeeSharpersCinema.Models.Database;
-using System;
 
 namespace SeeSharpersCinema.CashRegister
 {

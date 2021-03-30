@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-SeeSharpersCinema.BackOffice-0AC8D25D-6AEE-4DAF-A2DB-745AAF657881</UserSecretsId>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 	
 	<ItemGroup>

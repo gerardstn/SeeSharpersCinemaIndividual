@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SeeSharpersCinema.Models.Repository;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using SeeSharpersCinema.Models.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -81,7 +80,7 @@ namespace SeeSharpersCinema.Website.Controllers
         public IActionResult MolliePayment()
         {
             SeeSharpersCinema.Models.EmailService emailService = new SeeSharpersCinema.Models.EmailService();
-           // emailService.email_send();
+            // emailService.email_send();
             return View();
         }
     }
