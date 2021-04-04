@@ -13,7 +13,7 @@ namespace SeeSharpersCinema.Models.ViewModel
         public string Password { get; set; }
 
         [Required]
-        [Display(Name = "Bevestig je wachtwoord.")]
+        [Display(Name = "Bevestig het wachtwoord.")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "De wachtwoorden komen niet overeen.")]
         public string ConfirmedPassword { get; set; }

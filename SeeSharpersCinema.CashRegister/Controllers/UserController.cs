@@ -45,7 +45,7 @@ namespace SeeSharpersCinema.CashRegister.Controllers
             {
                 Microsoft.AspNetCore.Identity.SignInResult result
                     = await _signInManager.PasswordSignInAsync(
-                        model.Name,
+                        model.UserName,
                         model.Password,
                         isPersistent: false,
                         lockoutOnFailure: false);

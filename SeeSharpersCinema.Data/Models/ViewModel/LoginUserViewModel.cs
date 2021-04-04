@@ -5,7 +5,7 @@ namespace SeeSharpersCinema.Models.ViewModel
     public class LoginUserViewModel
     {
         [Required]
-        public string Name { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

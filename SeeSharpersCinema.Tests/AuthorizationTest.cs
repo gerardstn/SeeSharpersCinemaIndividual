@@ -1,30 +1,77 @@
-﻿namespace SeeSharpersCinema.Tests
+﻿using Xunit;
+
+namespace SeeSharpersCinema.Tests
 {
     public class AuthorizationTest
     {
+        //TODO: 
+
 
         //login
-        /*        [Fact]
-                public void CanChangeId()
-                {
-                    // Arrange
-                    Name p = new Login { Id = 1 };
+        [Fact]
+        public void canLogin()
+        {
+            // arrange
 
-                    // Act
-                    p.Id = 2;
+            // act
 
-                    // Assert
-                    Assert.Equal(2, p.Id);
-                }*/
+            // assert
+
+
+        }
 
         //login failed
+        [Fact]
+        public void loginFailsThrowException()
+        {
+            // arrange
+
+            // act
+
+            // assert
 
 
+        }
         //register
+        [Fact]
+        public void canRegister()
+        {
+            // arrange
 
+            // act
+
+            // assert
+
+
+        }
         //register failed
+        [Fact]
+        public void registerFailsThrowException()
+        {
+            // arrange
 
+            // act
+
+            // assert
+
+
+        }
         //seed data entering
+        [Fact]
+        public void seedDataIsIn()
+        {
+            // arrange
+
+            // act
+
+            // assert
+
+
+        }
+
+
+
+
 
 
     }

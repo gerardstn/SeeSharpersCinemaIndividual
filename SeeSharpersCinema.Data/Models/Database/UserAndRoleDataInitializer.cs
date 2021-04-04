@@ -12,10 +12,10 @@ namespace SeeSharpersCinema.Models.Database
                 role.Name = "Admin";
                 IdentityResult roleResult = roleManager.CreateAsync(role).Result;
             }
-            if (!roleManager.RoleExistsAsync("Backoffice").Result)
+            if (!roleManager.RoleExistsAsync("BackOffice").Result)
             {
                 IdentityRole role = new IdentityRole();
-                role.Name = "Backoffice";
+                role.Name = "BackOffice";
                 IdentityResult roleResult = roleManager.CreateAsync(role).Result;
             }
             if (!roleManager.RoleExistsAsync("Manager").Result)
@@ -69,7 +69,7 @@ namespace SeeSharpersCinema.Models.Database
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, "Backoffice").Wait();
+                    userManager.AddToRoleAsync(user, "BackOffice").Wait();
                 }
             }
 
