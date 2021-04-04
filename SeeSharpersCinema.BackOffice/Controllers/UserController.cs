@@ -143,21 +143,6 @@ namespace SeeSharpersCinema.Website.Controllers
             return View(users);
         }
 
-        /*      [Authorize(Roles = "Admin, BackOffice")]
-              [HttpPost]
-              public async Task<IActionResult> Edit( EditUserViewModel model)
-              {
-                  if (ModelState.IsValid)
-                  {
-                      IdentityUser user = new IdentityUser
-                      {
-                          UserName = model.UserName,
-                          Email = model.Email,
-                      };
-                  }
-                  return View(model);
-              }*/
-
 
         [Authorize(Roles = "Admin, BackOffice")]
         [HttpGet]
