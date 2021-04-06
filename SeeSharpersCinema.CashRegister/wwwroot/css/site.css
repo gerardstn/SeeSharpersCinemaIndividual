@@ -69,3 +69,9 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*big square buttons*/
+.btn-sq-lg {
+    width: 150px !important;
+    height: 150px !important;
+}

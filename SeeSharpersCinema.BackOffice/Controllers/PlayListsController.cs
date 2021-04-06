@@ -46,13 +46,32 @@ namespace SeeSharpersCinema.BackOffice.Controllers
             return View(playList);
         }
 
-        // GET: PlayLists/Create
-        public IActionResult Create()
+
+
+
+
+
+/*        public IActionResult Create()
         {
-            ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Id");
-            ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id");
+            PopulateTimeSlotDropDownList();
             return View();
         }
+        private void PopulateTimeSlotDropDownList(object selectedDepartment = null)
+        {
+            var departmentsQuery = from d in _context.TimeSlots
+                                   orderby d.SlotStart
+                                   select d;
+            ViewBag.TimeslotId = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
+        }*/
+
+
+        // GET: PlayLists/Create
+                public IActionResult Create()
+                {
+                    ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Id");
+                    ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id");
+                    return View();
+                }
 
         // POST: PlayLists/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -72,6 +91,14 @@ namespace SeeSharpersCinema.BackOffice.Controllers
             ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id", playList.TimeSlotId);
             return View(playList);
         }
+
+
+
+
+
+
+
+
 
         // GET: PlayLists/Edit/5
         public async Task<IActionResult> Edit(long? id)
@@ -127,6 +154,12 @@ namespace SeeSharpersCinema.BackOffice.Controllers
             ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id", playList.TimeSlotId);
             return View(playList);
         }
+
+
+
+
+
+
 
         // GET: PlayLists/Delete/5
         public async Task<IActionResult> Delete(long? id)
