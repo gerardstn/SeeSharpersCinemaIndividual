@@ -15,7 +15,6 @@ namespace SeeSharpersCinema.Models.Order
         public TimeSlot TimeSlot { get; set; }
 
         public double BasePrice = 8.5;
-
         public double LongMovieAddition = 0.5;
         public double ThreeDimensionalAddition = 2.5;
 
@@ -31,7 +30,6 @@ namespace SeeSharpersCinema.Models.Order
             {
                 price += ThreeDimensionalAddition;
             }
-
             return price;
         }
         public bool isThreeDimensional() => Movie.Technique == "3D";

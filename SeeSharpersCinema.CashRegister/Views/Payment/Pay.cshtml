@@ -1,0 +1,28 @@
+﻿
+<h1>Betaling</h1>
+
+<h2>@Model.Movie.Title</h2>
+<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+<ul>
+    <li>@Model.Movie.Technique</li>
+    <li>@Model.Movie.Duration Min</li>
+    <li>Genre: @Model.Movie.Genre</li>
+    <li>Taal: @Model.Movie.Language</li>
+    <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
+</ul>
+
+
+
+<h2>Totaalprijs: € @Model.TotalPrice()</h2>
+
+
+<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
+<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
+<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> Bioscoop bon</a>
+<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> MaDiWoDo-bon</a>
+<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-tasks"></i> Rittenkaart</a>
+
+
+
+
+<a asp-controller="Cashier" asp-action="MovieOverview" class="btn btn-secondary">Annuleren</a>

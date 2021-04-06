@@ -39,41 +39,6 @@ namespace SeeSharpersCinema.Website.Controllers
         }
 
         /// <summary>
-        /// Movies per week
-        /// </summary>
-        /// <returns>Return view</returns>
-        public async Task<IActionResult> Index()
-        {
-            var movieWeek = await repository.FindBetweenDatesAsync(DateTime.Now.Date, GetNextThursday());
-            if (movieWeek == null)
-            {
-                return NotFound();
-            }
-            return View(movieWeek);
-        }
-
-        /// <summary>
-        /// Get datetime for next thursday
-        /// </summary>
-        /// <returns>DateTime for next thursday</returns>
-        public DateTime GetNextThursday()
-        {
-            DateTime today = DateTime.Now.Date;
-            int daysUntilThursday = ((int)DayOfWeek.Thursday - (int)today.DayOfWeek + 7) % 7;
-            DateTime nextThursday = today.AddDays(daysUntilThursday);
-            return nextThursday;
-        }
-
-        /// <summary>
-        /// Go to Privacy View
-        /// </summary>
-        /// <returns>Privacy View</returns>
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        /// <summary>
         /// Sends email to customer with QR code
         /// </summary>
         /// <returns>Payment View</returns>

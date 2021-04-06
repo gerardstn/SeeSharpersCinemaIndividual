@@ -51,7 +51,7 @@ namespace SeeSharpersCinema.CashRegister.Controllers
                         lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Overview", "Cashier");
+                    return RedirectToAction("MovieOverview", "Cashier");
                 }
                 ModelState.AddModelError("", "Login failed.");
             }

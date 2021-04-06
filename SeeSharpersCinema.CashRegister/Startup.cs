@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SeeSharpersCinema.Models.Database;
+using SeeSharpersCinema.Models.Repository;
 
 namespace SeeSharpersCinema.CashRegister
 {
@@ -27,6 +28,8 @@ namespace SeeSharpersCinema.CashRegister
                 opts.UseSqlServer(
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
+            services.AddTransient<IPlayListRepository, EFPlayListRepository>();
+            services.AddTransient<IReservedSeatRepository, EFReservedSeatRepository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {

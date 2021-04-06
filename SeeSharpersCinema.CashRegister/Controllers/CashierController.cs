@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SeeSharpersCinema.Infrastructure;
+using SeeSharpersCinema.Models.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +9,23 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.CashRegister.Controllers
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class CashierController : Controller
     {
-        [Authorize(Roles = "Cashier, Admin")]
-        public IActionResult Overview()
+
+        private IPlayListRepository repository;
+
+        public CashierController(IPlayListRepository repository)
         {
-            return View();
+            this.repository = repository;
+        }
+
+
+        public async Task<IActionResult> MovieOverviewAsync()
+        {
+            var playlist = await repository.FindByDate(DateTime.Now.Date);
+            return View(playlist);
         }
     }
 }
+

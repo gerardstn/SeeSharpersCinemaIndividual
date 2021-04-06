@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SeeSharpersCinema Cash Register</title>
+    <link rel="stylesheet" href="~/css/seatLayout.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     @RenderSection("Styles", false)
@@ -14,8 +15,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/Custom/cash-register-solid.svg" width="30" height="30" class="d-inline-block align-top mr-1" alt="">
+                <a class="navbar-brand" asp-area="" asp-controller="Cashier" asp-action="MovieOverview">
+                    <img src="~/Custom/cash-register-solid.svg" width="30" height="30" class="d-inline-block align-top mr-1">
                     SeeSharpersCinema
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -24,7 +25,6 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -40,6 +40,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/jquery.seatLayout.js" type="text/javascript"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

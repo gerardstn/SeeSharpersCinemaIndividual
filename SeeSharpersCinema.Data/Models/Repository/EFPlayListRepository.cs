@@ -56,6 +56,7 @@ namespace SeeSharpersCinema.Models.Repository
             .Where(z => z.TimeSlot.SlotStart.Date >= startDate && z.TimeSlot.SlotStart.Date <= endDate)
             .ToListAsync();
 
+
         /// <summary>
         /// Queries the database to find a movie by title in a task for correct threading
         /// </summary>
