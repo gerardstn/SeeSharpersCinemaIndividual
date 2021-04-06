@@ -1,0 +1,42 @@
+﻿@model SeeSharpersCinema.Models.Program.PlayList
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Zaal:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeSlot.RoomId)
+        </dd>
+        <dt class="col-sm-2">
+            Starttijd: 
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeSlot.SlotStart)
+        </dd>
+        <dt class="col-sm-2">
+            Eindtijd:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimeSlot.SlotEnd)
+        </dd>
+        <dt class="col-sm-2">
+            Titel
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Index">Terug naar het overzicht</a>
+
+    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Id">Bewerken</a>
+</div>

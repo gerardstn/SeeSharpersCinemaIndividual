@@ -9,6 +9,7 @@ namespace SeeSharpersCinema.Models
     /// </summary>
     public class TimeSlot
     {
+        //iets maken wat dit genereert aan de hand van de vorige etc
         public long Id { get; set; }
         public int Week { get; set; }
         public DateTime SlotStart { get; set; }

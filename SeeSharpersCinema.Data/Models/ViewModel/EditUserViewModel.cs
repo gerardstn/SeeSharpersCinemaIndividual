@@ -14,6 +14,5 @@ namespace SeeSharpersCinema.Models.ViewModel
         public string Email { get; set; }
 
         public IList<string> Roles { get; set; }
-
     }
 }
