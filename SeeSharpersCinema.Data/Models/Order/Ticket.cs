@@ -1,6 +1,7 @@
 ﻿using QRCoder;
 using SeeSharpersCinema.Models.Film;
 using SeeSharpersCinema.Models.Theater;
+using SeeSharpersCinema.Models.Program;
 using System;
 using System.Drawing;
 using System.IO;
@@ -9,10 +10,13 @@ namespace SeeSharpersCinema.Models.Order
 {
     public class Ticket
     {
-        public long TicketID { get; set; }
+        public long Id { get; set; }
         public Movie Movie { get; set; }
-        public Room Room { get; set; }
         public TimeSlot TimeSlot { get; set; }
+        public string Cashier { get; set; }
+        public string Coupon { get; set; }
+        public double Price { get; set; }
+
 
         public double BasePrice = 8.5;
         public double LongMovieAddition = 0.5;

@@ -1,4 +1,5 @@
 ﻿using SeeSharpersCinema.Models.Film;
+using SeeSharpersCinema.Models.Order;
 using SeeSharpersCinema.Models.Program;
 using SeeSharpersCinema.Models.Theater;
 using SeeSharpersCinema.Models.Website;
@@ -33,6 +34,36 @@ namespace SeeSharpersCinema.Models.Database
                 new Room { Id = 6, Capacity = 300, CinemaId = 1, Rows = 15 },
                 new Room { Id = 7, Capacity = 300, CinemaId = 1, Rows = 15 }
             };
+
+        public static List<Coupon> FakeCoupons
+            = new List<Coupon>
+            {
+                new Coupon { Id = 1, Type = "TienRitten", IsActive = true, Code = "qdzffpKWzeUQWnxyhhtYdZbAFhbXVzXnsfNoPzBBodkQErfXGt" },
+                new Coupon { Id = 2, Type = "TienRitten", IsActive = true, Code = "iuqtjGFbvPtAGtuYPzRuCpGrLjXzfMkMiNFsZFDwTcduAzQeAp" },
+                new Coupon { Id = 3, Type = "TienRitten", IsActive = true, Code = "UvfqHbadzNnbgUbCzACgazabSiVzasuhrDHvfKkuHxSQHybroJ" },
+                new Coupon { Id = 4, Type = "TienRitten", IsActive = true, Code = "ceeMYxuUNEsktQkepPUTMPJuApFQZtndqrjbuGUohWzHYETxdf" },
+                new Coupon { Id = 5, Type = "TienRitten", IsActive = true, Code = "TRHivQPvgHECuYdpyxsdMXFQMzhvEpwPYsVcbsrUXkhwoCqRNg" },
+                new Coupon { Id = 6, Type = "TienRitten", IsActive = true, Code = "UhkakywsFfRVJRJVevmYujSkjbSPbrrkmxJFQyEWiUEHDiRtfa" },
+                new Coupon { Id = 7, Type = "TienRitten", IsActive = true, Code = "cizvkSGfRbSvjSwwKNGBaGFBNHJfZooKzWXnDBwqWNoeJswZCz" },
+                new Coupon { Id = 8, Type = "TienRitten", IsActive = true, Code = "kjtbnqKvSEoFXsrLCpSDMEKzNEPAfwbVtgnPfBxrZpJzxqZjgv" },
+                new Coupon { Id = 9, Type = "TienRitten", IsActive = true, Code = "kpUjDNtdFewzWnvhmYQNUKUTLNajvRnjhTCedqHbmFCaMriyXk" },
+                new Coupon { Id = 10, Type = "TienRitten", IsActive = true, Code = "hRvwLhAqauNbpFFRbMGQhRouTiVXftZrAVfaLqTTtwCAaAnTWg" },
+                new Coupon { Id = 11, Type = "MaDiWoDo", IsActive = true, Code = "rWFZDavFTAKLUpgduKgnZbJYhJmeNuJYqKacymjXtcAreTpGXt" },
+                new Coupon { Id = 12, Type = "MaDiWoDo", IsActive = true, Code = "QMPwpeuboNqLsHpQMTKuNmzfYZKVWXEnpzyPpbfsAcqMNpYbVM" },
+                new Coupon { Id = 13, Type = "MaDiWoDo", IsActive = true, Code = "tzSXUxyNguYRuJobmPWHTXhWjSbDDhiJhrYJMsCTnNxUiukauo" },
+                new Coupon { Id = 14, Type = "MaDiWoDo", IsActive = true, Code = "ncTVbNNhUHVoWFESMprVBFGLZgUVykgYSSocopexaAYGiiVXWt" },
+                new Coupon { Id = 15, Type = "MaDiWoDo", IsActive = true, Code = "jUxrtLBGXhtnzieKPUrQXjdYbAgYQNBLEtASyjYRddDNStdLta" },
+                new Coupon { Id = 16, Type = "NationaleBios", IsActive = true, Code = "LzFXNjFxqLvhfdbHKjdnoFJsyGWFhJdahjwmPZcYkVyCUvniWL" },
+                new Coupon { Id = 17, Type = "NationaleBios", IsActive = true, Code = "iUtmgyNDrhjzVNJeqAYNVJhcPqkZLiLsGJLUbGnCsadqzNmQxK" },
+                new Coupon { Id = 18, Type = "NationaleBios", IsActive = true, Code = "zbTSiSeabZqRHYbiQqGMPaDkmpMdWRgJqsBjdAjWyzQMfcyiWd" },
+                new Coupon { Id = 19, Type = "NationaleBios", IsActive = true, Code = "ieUiKLSUmFBJEAmwWaDpvDjejMiaJUjyQbNvYcTvmMVSvJXkvJ" },
+                new Coupon { Id = 20, Type = "NationaleBios", IsActive = true, Code = "emhKrFgnnYELTheDFnsXZQwYkQmNagSzkBeEgZrdTxmmFqUDPv" }
+            };
+
+        public long Id { get; set; }
+        public string Type { get; set; }
+        public bool IsActive { get; set; }
+        public string Code { get; set; }
 
         public static List<TimeSlot> FakeTimeSlots
             = new List<TimeSlot>

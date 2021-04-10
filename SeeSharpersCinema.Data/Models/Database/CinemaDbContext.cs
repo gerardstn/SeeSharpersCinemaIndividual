@@ -20,6 +20,7 @@ namespace SeeSharpersCinema.Models.Database
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<ReservedSeat> ReservedSeats { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Coupon> Coupons { get; set; }
         public DbSet<Notice> Notices { get; set; }
 
 
@@ -31,6 +32,7 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<Movie>().ToTable("Movie");
             modelBuilder.Entity<PlayList>().ToTable("PlayList");
             modelBuilder.Entity<Ticket>().ToTable("Ticket");
+            modelBuilder.Entity<Coupon>().ToTable("Coupon");
             modelBuilder.Entity<Notice>().ToTable("Notice");
             modelBuilder.Entity<ReservedSeat>().ToTable("ReservedSeat");
 
@@ -41,6 +43,7 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<PlayList>().HasData(FakeData.FakePlayLists);
             modelBuilder.Entity<Notice>().HasData(FakeData.FakeNotices);
             modelBuilder.Entity<ReservedSeat>().HasData(FakeData.FakeReservedSeats);
+            modelBuilder.Entity<Coupon>().HasData(FakeData.FakeCoupons);
 
             base.OnModelCreating(modelBuilder);
         }
