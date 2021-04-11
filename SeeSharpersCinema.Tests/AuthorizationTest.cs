@@ -4,9 +4,6 @@ namespace SeeSharpersCinema.Tests
 {
     public class AuthorizationTest
     {
-        //TODO: 
-
-
         //login
         [Fact]
         public void canLogin()
@@ -16,10 +13,7 @@ namespace SeeSharpersCinema.Tests
             // act
 
             // assert
-
-
         }
-
         //login failed
         [Fact]
         public void loginFailsThrowException()
@@ -29,8 +23,6 @@ namespace SeeSharpersCinema.Tests
             // act
 
             // assert
-
-
         }
         //register
         [Fact]
@@ -41,8 +33,6 @@ namespace SeeSharpersCinema.Tests
             // act
 
             // assert
-
-
         }
         //register failed
         [Fact]
@@ -53,8 +43,6 @@ namespace SeeSharpersCinema.Tests
             // act
 
             // assert
-
-
         }
         //seed data entering
         [Fact]
@@ -65,14 +53,6 @@ namespace SeeSharpersCinema.Tests
             // act
 
             // assert
-
-
         }
-
-
-
-
-
-
     }
 }

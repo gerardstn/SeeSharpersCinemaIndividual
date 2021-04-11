@@ -29,6 +29,7 @@ namespace SeeSharpersCinema.CashRegister
                     Configuration["ConnectionStrings:CinemaConnection"]);
             });
             services.AddScoped<IMovieRepository, EFMovieRepository>();
+            services.AddScoped<IPaymentRepository, EFPaymentRepository>();
             services.AddTransient<IPlayListRepository, EFPlayListRepository>();
             services.AddTransient<IReservedSeatRepository, EFReservedSeatRepository>();
 

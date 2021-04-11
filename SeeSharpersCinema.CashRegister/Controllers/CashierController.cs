@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.CashRegister.Controllers
 {
-    [Authorize(Roles = "Admin,Manager")]
+    [Authorize(Roles = "Admin,Cashier")]
     public class CashierController : Controller
     {
 
@@ -26,6 +26,7 @@ namespace SeeSharpersCinema.CashRegister.Controllers
             var playlist = await repository.FindByDate(DateTime.Now.Date);
             return View(playlist);
         }
+
     }
 }
 

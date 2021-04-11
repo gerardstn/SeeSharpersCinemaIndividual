@@ -77,7 +77,7 @@ namespace SeeSharpersCinema.Website.Controllers
             var PlayList = PlayListList.FirstOrDefault(p => p.TimeSlotId == TimeSlotId);
 
             await seatRepository.ReserveSeats(SeatList);
-            return RedirectToAction("Pay", "Payment", new { id = PlayList.MovieId });
+            return RedirectToAction("Pay", "Payment", new { id = PlayList.Id });
         }
 
 

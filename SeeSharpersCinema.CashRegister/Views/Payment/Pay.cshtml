@@ -1,26 +1,41 @@
 ﻿
 <h1>Betaling</h1>
 
-<h2>@Model.Movie.Title</h2>
-<img class="img-fluid" src="@Model.Movie.PosterUrl" />
+<h2>@Model.PlayList.Movie.Title</h2>
+<img class="img-fluid" src="@Model.PlayList.Movie.PosterUrl" />
 <ul>
-    <li>@Model.Movie.Technique</li>
-    <li>@Model.Movie.Duration Min</li>
-    <li>Genre: @Model.Movie.Genre</li>
-    <li>Taal: @Model.Movie.Language</li>
-    <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
+    <li>@Model.PlayList.Movie.Technique</li>
+    <li>@Model.PlayList.Movie.Duration Min</li>
+    <li>Genre: @Model.PlayList.Movie.Genre</li>
+    <li>Taal: @Model.PlayList.Movie.Language</li>
+    <li>Kijkwijzer: @Model.PlayList.Movie.ViewIndication</li>
+
+    <li>Starttijd: @Model.PlayList.TimeSlot.SlotStart</li>
+    <li>Zaal: @Model.PlayList.TimeSlot.RoomId</li>
+
 </ul>
 
 
 
-@*<h2>Totaalprijs: € @Model.TotalPrice()</h2>*@
+@*<h2>Totaalprijs: € @Model.Ticket.TotalPrice()</h2>
+*@
 
 
-<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
-<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
-<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> Bioscoop bon</a>
-<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> MaDiWoDo-bon</a>
-<a href="#" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-tasks"></i> Rittenkaart</a>
+<a asp-controller="Payment" asp-action="Success" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
+<a asp-controller="Payment" asp-action="Success" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
+<form  method="post">
+    <input type="text" />
+    <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> Bioscoop bon</button>
+</form>
+<form method="post">
+    <input type="text" />
+
+    <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> MaDiWoDo-bon</button>
+</form>
+<form method="post">
+    <input type="text" />
+    <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-tasks"></i> Rittenkaart</button>
+</form>
 
 
 

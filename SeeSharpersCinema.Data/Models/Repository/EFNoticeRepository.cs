@@ -20,15 +20,9 @@ namespace SeeSharpersCinema.Models.Repository
             context = ctx;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         public IQueryable<Notice> Notices => context.Notices;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public async Task<IEnumerable<Notice>> FindFirstNotice() => await context.Notices.ToListAsync();
     }
 }

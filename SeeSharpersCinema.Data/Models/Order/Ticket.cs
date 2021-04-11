@@ -5,6 +5,7 @@ using SeeSharpersCinema.Models.Program;
 using System;
 using System.Drawing;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace SeeSharpersCinema.Models.Order
 {
@@ -14,9 +15,9 @@ namespace SeeSharpersCinema.Models.Order
         public Movie Movie { get; set; }
         public TimeSlot TimeSlot { get; set; }
         public string Cashier { get; set; }
-        public string Coupon { get; set; }
+        public Coupon Coupon { get; set; }
         public double Price { get; set; }
-
+        public static EntityState State { get; internal set; }
 
         public double BasePrice = 8.5;
         public double LongMovieAddition = 0.5;
