@@ -1,0 +1,24 @@
+﻿@model SeeSharpersCinema.Models.ViewModel.PaymentViewModel
+@{
+    ViewData["Title"] = "Betaling gelukt";
+}
+
+<h1>De betaling is gelukt, hier is uw ticket</h1>
+
+<h2>Ticket:</h2>
+<img class="img-fluid" src="@Model.Ticket.Movie.PosterUrl" />
+<ul>
+    <li>@Model.Ticket.Movie.Title</li>
+    <li>@Model.Ticket.Movie.Technique</li>
+    <li>@Model.Ticket.Movie.Duration Min</li>
+    <li>Genre: @Model.Ticket.Movie.Genre</li>
+    <li>Taal: @Model.Ticket.Movie.Language</li>
+    <li>Kijkwijzer: @Model.Ticket.Movie.ViewIndication</li>
+    <li>Starttijd: @Model.Ticket.TimeSlot.SlotStart</li>
+    <li>Zaal: @Model.Ticket.TimeSlot.RoomId</li>
+    <li>U bent geholpen door: @Model.Ticket.Cashier</li>
+</ul>
+
+<a OnClick="javascript: window.print();" class="btn btn-primary btn-sq-lg">Ticket afdrukken</a>
+
+<a asp-controller="Cashier" asp-action="MovieOverview" class="btn btn-secondary btn-sq-lg">Afronden</a>

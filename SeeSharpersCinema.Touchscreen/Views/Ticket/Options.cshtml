@@ -12,10 +12,10 @@
     <li>Taal: @Model.Movie.Language</li>
     <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
 </ul>
-<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.LongMovieAddition + Model.BasePrice : Model.BasePrice )</h2>
+<h2>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.Movie.LongMovieAddition + Model.Movie.BasePrice : Model.Movie.BasePrice )</h2>
 @if (Model.Movie.IsThreeDimensional)
 {
-    <h3>Toeslag 3D: € @Model.ThreeDimensionalAddition</h3>
+    <h3>Toeslag 3D: € @Model.Movie.ThreeDimensionalAddition</h3>
 }
 
 <h3>Kortingen:</h3>

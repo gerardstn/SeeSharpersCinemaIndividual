@@ -17,8 +17,8 @@ namespace SeeSharpersCinema.Tests
             Ticket t2 = new Ticket { Movie = m2 };
 
             // Act
-            var result1 = t1.TotalPrice();
-            var result2 = t2.TotalPrice();
+            var result1 = t1.Movie.TotalPrice();
+            var result2 = t2.Movie.TotalPrice();
 
             // Arrange
             Assert.Equal(8.5, result1);

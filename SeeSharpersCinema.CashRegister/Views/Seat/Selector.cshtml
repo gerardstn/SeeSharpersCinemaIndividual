@@ -72,7 +72,10 @@
                 //console.log(_array);
                 var SeatString = JSON.stringify(_array);
                 document.getElementById("SeatString").value = SeatString;
+
+                //if (confirm("Weet u zeker dat u dit wilt betalen")) {
                 document.forms[1].submit();
+                //}
             },
             cancel: function () {
                 location.reload();

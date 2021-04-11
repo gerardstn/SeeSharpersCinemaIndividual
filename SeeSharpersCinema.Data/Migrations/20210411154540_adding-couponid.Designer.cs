@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeeSharpersCinema.Models.Database;
 
 namespace SeeSharpersCinema.Data.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    partial class CinemaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210411154540_adding-couponid")]
+    partial class addingcouponid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -662,7 +664,10 @@ namespace SeeSharpersCinema.Data.Migrations
                     b.Property<string>("Cashier")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("CouponId")
+                    b.Property<int>("CouponId")
+                        .HasColumnType("int");
+
+                    b.Property<long?>("CouponId1")
                         .HasColumnType("bigint");
 
                     b.Property<long>("MovieId")
@@ -676,7 +681,7 @@ namespace SeeSharpersCinema.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CouponId");
+                    b.HasIndex("CouponId1");
 
                     b.HasIndex("MovieId");
 
@@ -4223,7 +4228,7 @@ namespace SeeSharpersCinema.Data.Migrations
                 {
                     b.HasOne("SeeSharpersCinema.Models.Order.Coupon", "Coupon")
                         .WithMany()
-                        .HasForeignKey("CouponId");
+                        .HasForeignKey("CouponId1");
 
                     b.HasOne("SeeSharpersCinema.Models.Film.Movie", "Movie")
                         .WithMany()

@@ -18,5 +18,24 @@
         public bool IsLongMovie => Duration >= 120;
         public bool IsGenreChild => Genre == Genre.Children;
         public bool IsThreeDimensional => Technique == "3D";
+
+        public double BasePrice = 8.5;
+        public double LongMovieAddition = 0.5;
+        public double ThreeDimensionalAddition = 2.5;
+
+        public double TotalPrice()
+        {
+            double price = BasePrice;
+            if (IsLongMovie)
+            {
+                price += LongMovieAddition;
+            }
+
+            if (IsThreeDimensional)
+            {
+                price += ThreeDimensionalAddition;
+            }
+            return price;
+        }
     }
 }

@@ -15,5 +15,5 @@
     <li>Kijkwijzer: @Model.Movie.ViewIndication</li>
     <li>@Model.Movie.Description</li>
 </ul>
-<h3>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.LongMovieAddition + Model.BasePrice : Model.BasePrice )</h3>
+<h3>Filmprijs: € @(Model.Movie.IsLongMovie ? Model.Movie.LongMovieAddition + Model.Movie.BasePrice : Model.Movie.BasePrice )</h3>
 <a asp-controller="Ticket" asp-action="Options" asp-route-movieId="@Model.Movie.Id" class="btn btn-primary btn-lg">To payment overview</a>

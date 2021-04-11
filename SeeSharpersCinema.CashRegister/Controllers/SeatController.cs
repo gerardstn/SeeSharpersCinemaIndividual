@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Data.Infrastructure;
 using SeeSharpersCinema.Data.Models.Program;
 using SeeSharpersCinema.Models.Program;
@@ -11,6 +12,8 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
+    [Authorize(Roles = "Admin,Cashier")]
+
     public class SeatController : Controller
     {
 
@@ -77,7 +80,7 @@ namespace SeeSharpersCinema.Website.Controllers
             var PlayList = PlayListList.FirstOrDefault(p => p.TimeSlotId == TimeSlotId);
 
             await seatRepository.ReserveSeats(SeatList);
-            return RedirectToAction("Pay", "Payment", new { id = PlayList.Id });
+            return RedirectToAction("Index", "Payment", new { id = PlayList.Id });
         }
 
 

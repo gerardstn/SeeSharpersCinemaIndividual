@@ -10,8 +10,6 @@ namespace SeeSharpersCinema.Models.Repository
     public interface IPaymentRepository
     {
         Ticket AddTicket(Ticket ticket);
-        Ticket GetTicket(long Id);
-        Ticket SetPrice(double Price);
         Ticket CompareCoupon(Coupon coupon);
         Ticket UpdateCoupon(Coupon couponChanges);
         Ticket Update(Ticket ticketChanges);

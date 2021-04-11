@@ -12,31 +12,17 @@ namespace SeeSharpersCinema.Models.Order
     public class Ticket
     {
         public long Id { get; set; }
+
         public Movie Movie { get; set; }
+        public long MovieId { get; set; }
+        public long TimeSlotId { get; set; }
         public TimeSlot TimeSlot { get; set; }
         public string Cashier { get; set; }
         public Coupon Coupon { get; set; }
         public double Price { get; set; }
+        //public bool IsTicketPaid { get; set; }
         public static EntityState State { get; internal set; }
 
-        public double BasePrice = 8.5;
-        public double LongMovieAddition = 0.5;
-        public double ThreeDimensionalAddition = 2.5;
-
-        public double TotalPrice()
-        {
-            double price = BasePrice;
-            if (Movie.IsLongMovie)
-            {
-                price += LongMovieAddition;
-            }
-
-            if (Movie.IsThreeDimensional)
-            {
-                price += ThreeDimensionalAddition;
-            }
-            return price;
-        }
         public bool isThreeDimensional() => Movie.Technique == "3D";
 
         public string GetQr() => $"data:image/png;base64,{Convert.ToBase64String(GenerateQr(this))}";

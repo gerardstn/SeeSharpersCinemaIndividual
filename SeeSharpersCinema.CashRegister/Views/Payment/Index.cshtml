@@ -1,4 +1,4 @@
-﻿
+﻿@model SeeSharpersCinema.Models.ViewModel.PaymentViewModel
 <h1>Betaling</h1>
 
 <h2>@Model.PlayList.Movie.Title</h2>
@@ -12,32 +12,24 @@
 
     <li>Starttijd: @Model.PlayList.TimeSlot.SlotStart</li>
     <li>Zaal: @Model.PlayList.TimeSlot.RoomId</li>
-
 </ul>
 
+<h2>Totaalprijs: € @Model.PlayList.Movie.TotalPrice()</h2>
 
 
-@*<h2>Totaalprijs: € @Model.Ticket.TotalPrice()</h2>
-*@
-
-
-<a asp-controller="Payment" asp-action="Success" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
-<a asp-controller="Payment" asp-action="Success" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
-<form  method="post">
-    <input type="text" />
+<a asp-controller="Payment" asp-action="Pay" asp-route-id="@Model.PlayList.Id" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
+<a asp-controller="Payment" asp-action="Pay" asp-route-id="@Model.PlayList.Id" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
+<form asp-action="Pay" asp-route-id="@Model.PlayList.Id">
+    <input type="hidden" value="nbsbon" />
     <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> Bioscoop bon</button>
 </form>
-<form method="post">
-    <input type="text" />
-
+<form asp-action="Pay" asp-route-id="@Model.PlayList.Id">
+    <input type="hidden" value="mdwdbon" />
     <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-receipt"></i> MaDiWoDo-bon</button>
 </form>
-<form method="post">
-    <input type="text" />
+<form asp-action="Pay" asp-route-id="@Model.PlayList.Id">
+    <input type="hidden" value="rittenkaart" />
     <button type="submit" class="btn btn-primary btn-sq-lg"><i class="fas fa-tasks"></i> Rittenkaart</button>
 </form>
-
-
-
 
 <a asp-controller="Cashier" asp-action="MovieOverview" class="btn btn-secondary">Annuleren</a>
