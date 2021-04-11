@@ -23,7 +23,7 @@ namespace SeeSharpersCinema.Website.Controllers
             paymentRepository = paymentRepo;
         }
 
-        
+
         public async Task<IActionResult> Index(long? id)
         {
             ClaimsPrincipal currentUser = this.User;
@@ -48,8 +48,8 @@ namespace SeeSharpersCinema.Website.Controllers
             return View(paymentViewModel);
         }
 
-   
-        public async Task<IActionResult> Pay(long? id)
+
+        public async Task<IActionResult> Pay(long? id, string BiosbonCode, string madiwodoCode, string rittenkaartCode)
         {
             ClaimsPrincipal currentUser = this.User;
 
@@ -73,11 +73,30 @@ namespace SeeSharpersCinema.Website.Controllers
             ticket.Cashier = currentUser.Identity.Name;
             ticket.Movie = PlayList.Movie;
             ticket.Price = ticket.Movie.TotalPrice();
-
             paymentRepository.AddTicket(ticket);
+
+            Coupon coupon = await paymentRepository.FindAllAsync();
+
+            Ticket ticketUpdate = new 
+
+            if (!String.IsNullOrEmpty(BiosbonCode))
+            {
+                coupon = await paymentRepository.CompareCoupon("NationaleBios", BiosbonCode);
+                ticket.Price = Coupon.Discount;
+                paymentRepository.Update(ticket.Id);
+            }
+            if (!String.IsNullOrEmpty(madiwodoCode))
+            {
+                coupon = await paymentRepository.CompareCoupon("MaDiWoDo", madiwodoCode);
+            }
+            if (!String.IsNullOrEmpty(rittenkaartCode))
+            {
+                coupon = await paymentRepository.CompareCoupon("TienRitten", rittenkaartCode);
+            }
 
             PaymentViewModel paymentViewModel = new PaymentViewModel();
             paymentViewModel.Ticket = ticket;
+            paymentViewModel.Coupon = coupon;
             return View("Result", paymentViewModel);
         }
     }

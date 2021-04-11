@@ -1,4 +1,5 @@
-﻿using SeeSharpersCinema.Models.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Order;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,13 @@ namespace SeeSharpersCinema.Models.Repository
             return ticket;
         }
 
-        public Ticket CompareCoupon(Coupon coupon)
-        {
-
-            throw new NotImplementedException();
-        }
+        public async Task<Coupon> CompareCoupon(string type, string code)
+            => await context.Coupons
+            .Include(c => c.Coupon)
+            .Where(c => c.Coupon.Code == code)
+            .Where(c => c.Coupon.Type == type)
+            .Where(c => c.Coupon.IsActive == true)
+            .Get();
 
         public Ticket GetTicket(long Id)
         {
