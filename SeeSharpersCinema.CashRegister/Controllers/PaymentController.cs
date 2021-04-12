@@ -16,13 +16,11 @@ namespace SeeSharpersCinema.Website.Controllers
         private IPlayListRepository playlistRepository;
         private IPaymentRepository paymentRepository;
 
-
         public PaymentController(IPlayListRepository playlistRepo, IPaymentRepository paymentRepo)
         {
             playlistRepository = playlistRepo;
             paymentRepository = paymentRepo;
         }
-
 
         public async Task<IActionResult> Index(long? id)
         {
@@ -32,7 +30,6 @@ namespace SeeSharpersCinema.Website.Controllers
             {
                 return NotFound();
             }
-
 
             var PlayListList = await playlistRepository.FindAllAsync();
 
