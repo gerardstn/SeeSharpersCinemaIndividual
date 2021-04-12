@@ -14,9 +14,10 @@ namespace SeeSharpersCinema.Infrastructure
             return today.ToString();
         }
 
-        public static DateTime GetToday() {
+        public static DateTime GetToday()
+        {
             return DateTime.Today;
-                }
+        }
         /// <summary>
         /// Gets the amount of days untill it is Thursday,  and adds this to the current date.
         /// </summary>

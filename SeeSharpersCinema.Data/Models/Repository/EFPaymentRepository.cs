@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SeeSharpersCinema.Models.Database;
+﻿using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Order;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository
@@ -26,13 +22,18 @@ namespace SeeSharpersCinema.Models.Repository
             return ticket;
         }
 
-        public async Task<Coupon> CompareCoupon(string type, string code)
-            => await context.Coupons
-            .Include(c => c.Coupon)
-            .Where(c => c.Coupon.Code == code)
-            .Where(c => c.Coupon.Type == type)
-            .Where(c => c.Coupon.IsActive == true)
-            .Get();
+        public Ticket CompareCoupon(string type, string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*       public async Task<Coupon> CompareCoupon(string type, string code)
+                   => await context.Coupons
+                   .Include(c => c.Coupon)
+                   .Where(c => c.Coupon.Code == code)
+                   .Where(c => c.Coupon.Type == type)
+                   .Where(c => c.Coupon.IsActive == true)
+                   .Get();*/
 
         public Ticket GetTicket(long Id)
         {

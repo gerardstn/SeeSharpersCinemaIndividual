@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Infrastructure;
 using SeeSharpersCinema.Models.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.CashRegister.Controllers

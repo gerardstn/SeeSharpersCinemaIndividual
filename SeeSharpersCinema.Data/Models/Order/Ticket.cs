@@ -1,11 +1,9 @@
-﻿using QRCoder;
+﻿using Microsoft.EntityFrameworkCore;
+using QRCoder;
 using SeeSharpersCinema.Models.Film;
-using SeeSharpersCinema.Models.Theater;
-using SeeSharpersCinema.Models.Program;
 using System;
 using System.Drawing;
 using System.IO;
-using Microsoft.EntityFrameworkCore;
 
 namespace SeeSharpersCinema.Models.Order
 {

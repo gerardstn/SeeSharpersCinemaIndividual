@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Program;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.BackOffice.Controllers
 {
@@ -51,34 +49,34 @@ namespace SeeSharpersCinema.BackOffice.Controllers
 
 
 
-/*        public IActionResult Create()
-        {
-            PopulateTimeSlotDropDownList();
-            return View();
-        }
-        private void PopulateTimeSlotDropDownList(object selectedDepartment = null)
-        {
-            var departmentsQuery = from d in _context.TimeSlots
-                                   orderby d.SlotStart
-                                   select d;
-            ViewBag.TimeslotId = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
-        }*/
+        /*        public IActionResult Create()
+                {
+                    PopulateTimeSlotDropDownList();
+                    return View();
+                }
+                private void PopulateTimeSlotDropDownList(object selectedDepartment = null)
+                {
+                    var departmentsQuery = from d in _context.TimeSlots
+                                           orderby d.SlotStart
+                                           select d;
+                    ViewBag.TimeslotId = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
+                }*/
 
 
         // GET: PlayLists/Create
-                public IActionResult Create()
-                {
-                    ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Id");
-                    ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id");
-                    return View();
-                }
+        public IActionResult Create()
+        {
+            ViewData["MovieId"] = new SelectList(_context.Movies, "Id", "Id");
+            ViewData["TimeSlotId"] = new SelectList(_context.TimeSlots, "Id", "Id");
+            return View();
+        }
 
         // POST: PlayLists/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-       public async Task<IActionResult> Create([Bind("Id,TimeSlotId,MovieId")] PlayList playList)
+        public async Task<IActionResult> Create([Bind("Id,TimeSlotId,MovieId")] PlayList playList)
 
         {
             if (ModelState.IsValid)

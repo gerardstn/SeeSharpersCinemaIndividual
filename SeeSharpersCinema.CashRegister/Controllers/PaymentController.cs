@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SeeSharpersCinema.Models.ViewModel;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Order;
 using SeeSharpersCinema.Models.Repository;
+using SeeSharpersCinema.Models.ViewModel;
 using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 
 namespace SeeSharpersCinema.Website.Controllers
 {
@@ -75,9 +75,9 @@ namespace SeeSharpersCinema.Website.Controllers
             ticket.Price = ticket.Movie.TotalPrice();
             paymentRepository.AddTicket(ticket);
 
-            Coupon coupon = await paymentRepository.FindAllAsync();
+            /*Coupon coupon = await paymentRepository.FindAllAsync();
 
-            Ticket ticketUpdate = new 
+            Ticket ticketUpdate = new
 
             if (!String.IsNullOrEmpty(BiosbonCode))
             {
@@ -92,11 +92,11 @@ namespace SeeSharpersCinema.Website.Controllers
             if (!String.IsNullOrEmpty(rittenkaartCode))
             {
                 coupon = await paymentRepository.CompareCoupon("TienRitten", rittenkaartCode);
-            }
+            }*/
 
             PaymentViewModel paymentViewModel = new PaymentViewModel();
             paymentViewModel.Ticket = ticket;
-            paymentViewModel.Coupon = coupon;
+            //paymentViewModel.Coupon = coupon;
             return View("Result", paymentViewModel);
         }
     }

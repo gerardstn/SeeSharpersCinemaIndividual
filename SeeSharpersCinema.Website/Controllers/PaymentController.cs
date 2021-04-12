@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SeeSharpersCinema.Models.Repository;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
