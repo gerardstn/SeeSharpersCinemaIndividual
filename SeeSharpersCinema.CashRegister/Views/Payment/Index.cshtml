@@ -19,6 +19,7 @@
 
 <a asp-controller="Payment" asp-action="Pay" asp-route-id="@Model.PlayList.Id" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-money-bill"></i> Cash</a>
 <a asp-controller="Payment" asp-action="Pay" asp-route-id="@Model.PlayList.Id" type="button" class="btn btn-primary btn-sq-lg"><i class="fas fa-credit-card"></i> Pin</a>
+
 <form asp-action="Pay" asp-route-id="@Model.PlayList.Id">
     <input type="hidden" value="nbsbon" />
     <input type="text" name="biosbonCode" placeholder="code" />

@@ -10,7 +10,6 @@ namespace SeeSharpersCinema.Models.Order
     public class Ticket
     {
         public long Id { get; set; }
-
         public Movie Movie { get; set; }
         public long MovieId { get; set; }
         public long TimeSlotId { get; set; }
@@ -18,8 +17,7 @@ namespace SeeSharpersCinema.Models.Order
         public string Cashier { get; set; }
         public Coupon Coupon { get; set; }
         public double Price { get; set; }
-        //public bool IsTicketPaid { get; set; }
-        public static EntityState State { get; internal set; }
+        public long CouponId { get; set; }
 
         public bool isThreeDimensional() => Movie.Technique == "3D";
 

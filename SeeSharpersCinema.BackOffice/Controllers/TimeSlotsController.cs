@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.BackOffice.Controllers
 {
+    [Authorize(Roles = "Admin,BackOffice")]
     public class TimeSlotsController : Controller
     {
         private readonly CinemaDbContext _context;

@@ -1,14 +1,12 @@
 ﻿using SeeSharpersCinema.Models.Order;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository
 {
-    public interface IPaymentRepository
+    public interface IPaymentRepository : IRepository<Coupon>    
     {
-        Ticket AddTicket(Ticket ticket);
-        Ticket UpdateCoupon(Coupon couponChanges);
-        Ticket Update(Ticket ticketChanges);
-        Task GetTicket(long? id);
-        Ticket CompareCoupon(string type, string code);
+        public Ticket AddTicket(Ticket ticket);
+        public Task<Coupon> CompareCoupon(string type, string code);
     }
 }

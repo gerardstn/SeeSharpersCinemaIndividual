@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace SeeSharpersCinema.BackOffice.Controllers
 {
-    [Authorize(Roles = "Admin,Backoffice")]
+    [Authorize(Roles = "Admin,BackOffice")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

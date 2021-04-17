@@ -59,6 +59,10 @@ namespace SeeSharpersCinema.Website.Controllers
             var PlayListList = await playlistRepository.FindAllAsync();
             var PlayList = PlayListList.FirstOrDefault(p => p.Id == id);
 
+            string type = "";
+            var Coupon = await paymentRepository.CompareCoupon(type, BiosbonCode);
+
+
             if (PlayList == null)
             {
                 return NotFound();
@@ -69,31 +73,33 @@ namespace SeeSharpersCinema.Website.Controllers
             ticket.TimeSlotId = PlayList.TimeSlotId;
             ticket.Cashier = currentUser.Identity.Name;
             ticket.Movie = PlayList.Movie;
-            ticket.Price = ticket.Movie.TotalPrice();
+            if (madiwodoCode != null || rittenkaartCode != null || rittenkaartCode != null)
+            {
+                if (madiwodoCode == null && rittenkaartCode == null && rittenkaartCode != null)
+                {
+                    type = "TienRitten";
+                    ticket.Price = ticket.Movie.TotalPrice() - ticket.Movie.TotalPrice();
+                }
+                else if (rittenkaartCode == null && BiosbonCode == null && madiwodoCode != null)
+                {
+                    type = "MaDiWoDo";
+                    ticket.Price = ticket.Movie.TotalPrice() - ticket.Movie.TotalPrice();
+                }
+                else if (madiwodoCode == null && rittenkaartCode == null && BiosbonCode != null)
+                {
+                    type = "NationaleBios";
+                    ticket.Price = ticket.Movie.TotalPrice() - ticket.Movie.TotalPrice();
+                }
+            }
+            else
+            {
+                ticket.Price = ticket.Movie.TotalPrice();
+            }
+
             paymentRepository.AddTicket(ticket);
-
-            /*Coupon coupon = await paymentRepository.FindAllAsync();
-
-            Ticket ticketUpdate = new
-
-            if (!String.IsNullOrEmpty(BiosbonCode))
-            {
-                coupon = await paymentRepository.CompareCoupon("NationaleBios", BiosbonCode);
-                ticket.Price = Coupon.Discount;
-                paymentRepository.Update(ticket.Id);
-            }
-            if (!String.IsNullOrEmpty(madiwodoCode))
-            {
-                coupon = await paymentRepository.CompareCoupon("MaDiWoDo", madiwodoCode);
-            }
-            if (!String.IsNullOrEmpty(rittenkaartCode))
-            {
-                coupon = await paymentRepository.CompareCoupon("TienRitten", rittenkaartCode);
-            }*/
 
             PaymentViewModel paymentViewModel = new PaymentViewModel();
             paymentViewModel.Ticket = ticket;
-            //paymentViewModel.Coupon = coupon;
             return View("Result", paymentViewModel);
         }
     }

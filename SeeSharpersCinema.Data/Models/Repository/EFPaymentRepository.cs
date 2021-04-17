@@ -1,6 +1,9 @@
-﻿using SeeSharpersCinema.Models.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Order;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SeeSharpersCinema.Models.Repository
@@ -22,45 +25,13 @@ namespace SeeSharpersCinema.Models.Repository
             return ticket;
         }
 
-        public Ticket CompareCoupon(string type, string code)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Coupon> CompareCoupon(string type, string code)
+            => await context.Coupons
+            .Where(c => c.Code == code && c.Type == type)
+            .FirstOrDefaultAsync();
 
-        /*       public async Task<Coupon> CompareCoupon(string type, string code)
-                   => await context.Coupons
-                   .Include(c => c.Coupon)
-                   .Where(c => c.Coupon.Code == code)
-                   .Where(c => c.Coupon.Type == type)
-                   .Where(c => c.Coupon.IsActive == true)
-                   .Get();*/
-
-        public Ticket GetTicket(long Id)
-        {
-            return context.Tickets.Find(Id);
-        }
-
-        public Task GetTicket(long? id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Ticket SetPrice(double Price)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Ticket Update(Ticket ticketChanges)
-        {
-            var cashier = context.Tickets.Attach(ticketChanges);
-            Ticket.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            context.SaveChanges();
-            return ticketChanges;
-        }
-
-        public Ticket UpdateCoupon(Coupon couponChanges)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Coupon>> FindAllAsync()
+              => await context.Coupons
+            .ToListAsync();
     }
 }

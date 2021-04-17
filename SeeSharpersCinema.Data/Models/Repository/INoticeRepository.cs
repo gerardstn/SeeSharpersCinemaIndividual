@@ -12,7 +12,6 @@ namespace SeeSharpersCinema.Models.Repository
         /// a property of type IQueryable<Notice>
         /// </summary>
         IQueryable<Notice> Notices { get; }
-
         public Task<IEnumerable<Notice>> FindFirstNotice();
     }
 }
