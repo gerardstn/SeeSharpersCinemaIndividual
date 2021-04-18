@@ -59,11 +59,21 @@ namespace SeeSharpersCinema.Models.Database
                 new Coupon { Id = 19, Type = "NationaleBios", IsActive = true, Code = "ieUiKLSUmFBJEAmwWaDpvDjejMiaJUjyQbNvYcTvmMVSvJXkvJ" },
                 new Coupon { Id = 20, Type = "NationaleBios", IsActive = true, Code = "emhKrFgnnYELTheDFnsXZQwYkQmNagSzkBeEgZrdTxmmFqUDPv" }
             };
+        public static List<Ticket> FakeTickets
+           = new List<Ticket>
+           {
+               new Ticket {Id = 1, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 },
+               new Ticket {Id = 2, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 },
+               new Ticket {Id = 3, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 },
+               new Ticket {Id = 4, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 },
+               new Ticket {Id = 5, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 },
+               new Ticket {Id = 6, MovieId = 1, TimeSlotId = 1, Cashier = "Jane", CouponId = null, Price = 8.5 }
+           };
 
-        public long Id { get; set; }
-        public string Type { get; set; }
-        public bool IsActive { get; set; }
-        public string Code { get; set; }
+
+
+
+
 
         public static List<TimeSlot> FakeTimeSlots
             = new List<TimeSlot>

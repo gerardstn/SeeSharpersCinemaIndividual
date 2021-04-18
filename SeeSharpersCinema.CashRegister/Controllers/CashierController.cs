@@ -17,7 +17,6 @@ namespace SeeSharpersCinema.CashRegister.Controllers
             this.repository = repository;
         }
 
-
         public async Task<IActionResult> MovieOverviewAsync()
         {
             var playlist = await repository.FindByDate(DateTime.Now.Date);

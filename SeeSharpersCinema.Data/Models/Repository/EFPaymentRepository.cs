@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeeSharpersCinema.Models.Database;
 using SeeSharpersCinema.Models.Order;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,5 +32,15 @@ namespace SeeSharpersCinema.Models.Repository
         public async Task<IEnumerable<Coupon>> FindAllAsync()
               => await context.Coupons
             .ToListAsync();
+
+        public async Task<Coupon> GetCoupon(string Code)
+            => await context.Coupons
+            .Where(c => c.Code == Code)
+            .FirstOrDefaultAsync();
+
+        public Ticket GetTicket(long TicketId)
+        {
+            return context.Tickets.Where(t => t.Id == TicketId).FirstOrDefault();
+        }
     }
 }

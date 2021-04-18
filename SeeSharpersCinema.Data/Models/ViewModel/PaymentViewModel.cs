@@ -1,7 +1,5 @@
 ﻿using SeeSharpersCinema.Models.Order;
 using SeeSharpersCinema.Models.Program;
-using SeeSharpersCinema.Models.Theater;
-using System.Collections.Generic;
 
 namespace SeeSharpersCinema.Models.ViewModel
 {

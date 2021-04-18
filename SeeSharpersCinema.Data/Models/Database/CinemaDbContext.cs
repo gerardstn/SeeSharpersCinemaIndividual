@@ -45,6 +45,7 @@ namespace SeeSharpersCinema.Models.Database
             modelBuilder.Entity<ReservedSeat>().HasData(FakeData.FakeReservedSeats);
             modelBuilder.Entity<Coupon>().HasData(FakeData.FakeCoupons);
 
+
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using QRCoder;
+﻿using QRCoder;
 using SeeSharpersCinema.Models.Film;
 using System;
 using System.Drawing;
@@ -17,7 +16,7 @@ namespace SeeSharpersCinema.Models.Order
         public string Cashier { get; set; }
         public Coupon Coupon { get; set; }
         public double Price { get; set; }
-        public long CouponId { get; set; }
+        public long? CouponId { get; set; }
 
         public bool isThreeDimensional() => Movie.Technique == "3D";
 
@@ -40,6 +39,18 @@ namespace SeeSharpersCinema.Models.Order
                 image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                 return stream.ToArray();
             }
+        }
+
+        public bool TryAddCoupon(Coupon coupon)
+        {
+            if (coupon.IsActive == true)
+            {
+                CouponId = coupon.Id;
+                Price = 0;
+                coupon.IsActive = false;
+                return true;
+            }
+            return false;
         }
     }
 }
